@@ -1,5 +1,7 @@
 ---
 import '@styles/global.css';
+// Supports weights 100-900
+import '@fontsource-variable/noto-sans-jp';
 ---
 
 <!doctype html>
@@ -11,7 +13,13 @@ import '@styles/global.css';
 		<meta name="generator" content={Astro.generator} />
 		<title>Centro Jurídico Internacional</title>
 	</head>
-	<body class="w-screen overflow-x-hidden h-full">
+	<body class="w-full overflow-x-hidden h-full">
 		<slot />
 	</body>
 </html>
+
+<style>
+	html {
+  font-family: 'Noto Sans JP Variable', sans-serif;
+}
+</style>
