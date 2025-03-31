@@ -1,5 +1,73 @@
-<header class="w-screen h-96 bg-amber-300 flex justify-end items-end" ><p>Hi i'm a header</p></header>
-<header class="w-screen h-96 bg-red-300 flex justify-end items-end" ><p>Hi i'm a header</p></header>
-<header class="w-screen h-96 bg-green-300 flex justify-end items-end" ><p>Hi i'm a header</p></header>
-<header class="w-screen h-96 bg-blue-300 flex justify-end items-end" ><p>Hi i'm a header</p></header>
-<header class="w-screen h-96 bg-amber-300 flex justify-end items-end" ><p>Hi i'm a header</p></header>
+---
+const ITEMS = [
+    {
+    id: 1,
+    name: "Inicio",
+    src: "/",
+    target: false
+},
+    {
+    id: 2,
+    name: "Familia CJI",
+    src: "/familia-cji",
+    target: false
+},
+    {
+    id: 3,
+    name: "Noticias",
+    src: "https://accolombianlawyers.com/noticias/",
+    target: true
+},
+    {
+    id: 4,
+    name: "Actualidad Jurídica",
+    src: "https://actualidadjuridicaempresarial.com/",
+    target: true
+},
+    {
+    id: 5,
+    name: "Diplomado",
+    src: "/diplomado",
+    target: false
+},
+    {
+    id: 6,
+    name: "portafolio",
+    src: "/portafolio",
+    target: false
+},
+    {
+    id: 7,
+    name: "Seminarios Prácticos",
+    src: "https://seminariojuridico.com/",
+    target: true
+},
+    {
+    id: 8,
+    name: "Ingreso Funcionarios",
+    src: "https://zonadeservicioscji.com/funcionarios/funcionarios2/",
+    target: true
+},
+]
+---
+
+<header class=" h-fit bg-green-600 flex justify-start items-center flex-col" >
+<div class="w-full bg-green-600 flex justify-center items-center h-fit border-b-white border-transparent
+border-2" id="imgHeader"><img src="/header/logoMainCJI.svg" alt="Logo Centro Jurídico Internacional" class="h-auto max-h-20 bg-gray-50/70 rounded-2xl mx-4 my-2 px-3 py-1"></div>
+
+<div id="navHeader" class="my-8">
+    <ul class="flex flex-wrap gap-x-6 gap-y-3 items-center justify-center mx-8 text-white">
+        {ITEMS.map((item) => {
+            var itemClass = item.target ? "_blank" : "_self";
+
+
+            return (<li  class="transition-all duration-150 ease-out hover:-translate-y-1 hover:scale-110"><a target={itemClass} href={item.src} rel="noopener noreferrer" >{item.name}</a></li>)
+        })}
+        <li class="transition-all duration-150 ease-out hover:-translate-y-1 hover:scale-110"><a href="#">Cobertura Especial</a></li>
+        <li class="transition-all duration-150 ease-out hover:-translate-y-1 hover:scale-110"><a href="#">Política De Datos Personales</a></li>
+        
+          
+    </ul>
+</div>
+
+</header>
