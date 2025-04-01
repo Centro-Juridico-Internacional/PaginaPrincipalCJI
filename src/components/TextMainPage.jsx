@@ -10,10 +10,10 @@ export default function MyComponent() {
 
         const typed = new Typed(el.current, {
             strings: [
-                `<span class="text-5xl lg:text-6xl text-yellow-400 dark:text-yellow-500">P.S.C</span>`,
-                `<span class="text-5xl lg:text-6xl text-yellow-400 dark:text-yellow-500">Prevención</span>`,
-                `<span class="text-5xl lg:text-6xl text-yellow-400 dark:text-yellow-500">Solución</span>`,
-                `<span class="text-5xl lg:text-6xl text-yellow-400 dark:text-yellow-500">Capacitación</span>`
+                `<span class="text-5xl lg:text-6xl text-goldColor dark:text-goldColor">P.S.C</span>`,
+                `<span class="text-5xl lg:text-6xl text-goldColor dark:text-goldColor">Prevención</span>`,
+                `<span class="text-5xl lg:text-6xl text-goldColor dark:text-goldColor">Solución</span>`,
+                `<span class="text-5xl lg:text-6xl text-goldColor dark:text-goldColor">Capacitación</span>`
             ],
             showCursor:true,
             cursorChar: '|',

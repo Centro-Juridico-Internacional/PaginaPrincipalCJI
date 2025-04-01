@@ -1,5 +1,5 @@
 #typed > span + span {
-	color: #eab308;
+	color: #ce952c;
 	height: 20px;
 }
 
@@ -9,7 +9,7 @@
 
 .typed-cursor {
     display: inline-block;
-    color: #fbbf24; /* Cambia el color a amarillo o el que prefieras */
+    color: #ce952c; /* Cambia el color a amarillo o el que prefieras */
     font-size: 2rem; /* Tamaño del cursor */
     animation: blink 0.75s step-end infinite; /* Parpadeo de la barra */
 }
