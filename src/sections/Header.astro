@@ -32,7 +32,7 @@ const ITEMS = [
 },
     {
     id: 6,
-    name: "portafolio",
+    name: "Portafolio",
     src: "/portafolio",
     target: false
 },
@@ -51,21 +51,30 @@ const ITEMS = [
 ]
 ---
 
-<header class=" h-fit bg-green-600 flex justify-start items-center flex-col" >
-<div class="w-full bg-green-600 flex justify-center items-center h-fit border-b-white border-transparent
-border-2" id="imgHeader"><img src="/header/logoMainCJI.svg" alt="Logo Centro Jurídico Internacional" class="h-auto max-h-20 bg-gray-50/70 rounded-2xl mx-4 my-2 px-3 py-1"></div>
+<header class=" h-fit bg-green-600/70 flex justify-start items-center flex-col" >
+<div class="w-full bg-green-600/70 flex justify-center items-center h-fit border-b-white border-transparent
+border-2" id="imgHeader"><img src="/header/logoMainCJIWhite.svg" alt="Logo Centro Jurídico Internacional" class="h-auto max-h-22 rounded-2xl mx-4 my-2 px-3 py-1"></div>
 
 <div id="navHeader" class="my-8">
     <ul class="flex flex-wrap gap-x-6 gap-y-3 items-center justify-center mx-8 text-white">
+        <span class="mx-2 text-white font-extrabold hidden sm:flex">|</span>
         {ITEMS.map((item) => {
             var itemClass = item.target ? "_blank" : "_self";
 
 
-            return (<li  class="transition-all duration-150 ease-out hover:-translate-y-1 hover:scale-110"><a target={itemClass} href={item.src} rel="noopener noreferrer" >{item.name}</a></li>)
+            return (
+            <li class="flex items-center transition-all duration-150 ease-out hover:-translate-y-1 hover:scale-110">
+                    <a target={itemClass} href={item.src} rel="noopener noreferrer">
+                        {item.name}
+                    </a>
+                </li>
+                    <span class="mx-2 hidden sm:flex text-white font-extrabold">|</span>
+            )
         })}
         <li class="transition-all duration-150 ease-out hover:-translate-y-1 hover:scale-110"><a href="#">Cobertura Especial</a></li>
+        <span class="hidden sm:flex mx-2 text-white font-extrabold">|</span>
         <li class="transition-all duration-150 ease-out hover:-translate-y-1 hover:scale-110"><a href="#">Política De Datos Personales</a></li>
-        
+        <span class="hidden sm:flex mx-2 text-white font-extrabold">|</span>
           
     </ul>
 </div>
