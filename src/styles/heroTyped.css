@@ -4,21 +4,21 @@
 }
 
 .typed-fade-out {
-    animation: fadeOutAnimation 1s forwards; /* Tiempo y estilo de desaparición */
+	animation: fadeOutAnimation 1s forwards; /* Tiempo y estilo de desaparición */
 }
 
 .typed-cursor {
-    display: inline-block;
-    color: #ce952c; /* Cambia el color a amarillo o el que prefieras */
-    font-size: 2rem; /* Tamaño del cursor */
-    animation: blink 0.75s step-end infinite; /* Parpadeo de la barra */
+	display: inline-block;
+	color: #ce952c; /* Cambia el color a amarillo o el que prefieras */
+	font-size: 2rem; /* Tamaño del cursor */
+	animation: blink 0.75s step-end infinite; /* Parpadeo de la barra */
 }
 
 @keyframes fadeOutAnimation {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
 }

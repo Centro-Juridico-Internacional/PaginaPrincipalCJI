@@ -1,82 +1,99 @@
 ---
+//Items del header
 const ITEMS = [
-    {
-    id: 1,
-    name: "Inicio",
-    src: "/",
-    target: false
-},
-    {
-    id: 2,
-    name: "Familia CJI",
-    src: "/familia-cji",
-    target: false
-},
-    {
-    id: 3,
-    name: "Noticias",
-    src: "https://accolombianlawyers.com/noticias/",
-    target: true
-},
-    {
-    id: 4,
-    name: "Actualidad Jurídica",
-    src: "https://actualidadjuridicaempresarial.com/",
-    target: true
-},
-    {
-    id: 5,
-    name: "Diplomado",
-    src: "/diplomado",
-    target: false
-},
-    {
-    id: 6,
-    name: "Portafolio",
-    src: "/portafolio",
-    target: false
-},
-    {
-    id: 7,
-    name: "Seminarios Prácticos",
-    src: "https://seminariojuridico.com/",
-    target: true
-},
-    {
-    id: 8,
-    name: "Ingreso Funcionarios",
-    src: "https://zonadeservicioscji.com/funcionarios/funcionarios2/",
-    target: true
-},
-]
+	{
+		id: 1,
+		name: 'Inicio',
+		src: '/',
+		target: false
+	},
+	{
+		id: 2,
+		name: 'Familia CJI',
+		src: '/familia-cji',
+		target: false
+	},
+	{
+		id: 3,
+		name: 'Noticias',
+		src: 'https://accolombianlawyers.com/noticias/',
+		target: true
+	},
+	{
+		id: 4,
+		name: 'Actualidad Jurídica',
+		src: 'https://actualidadjuridicaempresarial.com/',
+		target: true
+	},
+	{
+		id: 5,
+		name: 'Diplomado',
+		src: '/diplomado',
+		target: false
+	},
+	{
+		id: 6,
+		name: 'Portafolio',
+		src: '/portafolio',
+		target: false
+	},
+	{
+		id: 7,
+		name: 'Seminarios Prácticos',
+		src: 'https://seminariojuridico.com/',
+		target: true
+	},
+	{
+		id: 8,
+		name: 'Ingreso Funcionarios',
+		src: 'https://zonadeservicioscji.com/funcionarios/funcionarios2/',
+		target: true
+	}
+];
 ---
 
-<header class=" h-fit bg-green-600/70 flex justify-start items-center flex-col" >
-<div class="w-full bg-green-600/70 flex justify-center items-center h-fit border-b-white border-transparent
-border-2" id="imgHeader"><img src="/header/logoMainCJIWhite.svg" alt="Logo Centro Jurídico Internacional" class="h-auto max-h-22 rounded-2xl mx-4 my-2 px-3 py-1"></div>
+<header class="flex h-fit flex-col items-center justify-start bg-green-600/70">
+	<div
+		class="flex h-fit w-full items-center justify-center border-2 border-transparent border-b-white bg-green-600/70"
+		id="imgHeader"
+	>
+		<a href="/" class="flex h-auto w-full items-center justify-center">
+			<img
+				src="/header/logoMainCJIWhite.svg"
+				alt="Logo Centro Jurídico Internacional"
+				class="xs:min-w-80 mx-4 my-2 h-auto max-h-22 min-h-fit w-[30vw] min-w-60 rounded-2xl px-3 py-1"
+			/>
+		</a>
+	</div>
 
-<div id="navHeader" class="my-8">
-    <ul class="flex flex-wrap gap-x-6 gap-y-3 items-center justify-center mx-8 text-white">
-        <span class="mx-2 text-white font-extrabold hidden sm:flex">|</span>
-        {ITEMS.map((item) => {
-            var itemClass = item.target ? "_blank" : "_self";
+	<div id="navHeader" class="my-8">
+		<ul class="mx-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-white">
+			<span class="mx-1 hidden font-extrabold text-white sm:flex">|</span>
+			<!-- Esto renderiza los items del header -->
+			{
+				ITEMS.map((item) => {
+					var itemClass = item.target ? '_blank' : '_self';
 
-
-            return (
-            <li class="flex items-center transition-all duration-150 ease-out hover:-translate-y-1 hover:scale-110">
-                    <a target={itemClass} href={item.src} rel="noopener noreferrer">
-                        {item.name}
-                    </a>
-                </li>
-                    <span class="mx-2 hidden sm:flex text-white font-extrabold">|</span>
-            )
-        })}
-        <li class="transition-all duration-150 ease-out hover:-translate-y-1 hover:scale-110"><a href="#">Cobertura Especial</a></li>
-        <span class="hidden sm:flex mx-2 text-white font-extrabold">|</span>
-        <li class="transition-all duration-150 ease-out hover:-translate-y-1 hover:scale-110"><a href="#">Política De Datos Personales</a></li>
-        <span class="hidden sm:flex mx-2 text-white font-extrabold">|</span>
-          
-    </ul>
-</div>
-
+					return (
+						<>
+							<li class="flex items-center transition-all duration-150 ease-out hover:-translate-y-1 hover:scale-110">
+								<a target={itemClass} href={item.src} rel="noopener noreferrer">
+									{item.name}
+								</a>
+							</li>
+							<span class="mx-1 hidden font-extrabold text-white sm:flex">|</span>
+						</>
+					);
+				})
+			}
+			<li class="transition-all duration-150 ease-out hover:-translate-y-1 hover:scale-110">
+				<a href="#">Cobertura Especial</a>
+			</li>
+			<span class="mx-1 hidden font-extrabold text-white sm:flex">|</span>
+			<li class="transition-all duration-150 ease-out hover:-translate-y-1 hover:scale-110">
+				<a href="#">Política De Datos Personales</a>
+			</li>
+			<span class="mx-1 hidden font-extrabold text-white sm:flex">|</span>
+		</ul>
+	</div>
 </header>

@@ -1,14 +1,21 @@
 ---
-import TextMainPage from "@components/TextMainPage.jsx"
+import TextMainPage from '@components/TextMainPage.jsx';
 ---
 
-<section id="MainPage" class="flex flex-col justify-center items-center gap-y-6 mt-8 text-white">
-<h1 class='text-5xl flex items-center justify-center text-center font-semibold'>Blinde su empresa jurídicamente</h1>
-<h3 class='text-center text-lg font-medium'>PROTECCIÓN LEGAL PARA SU EMPRESA CON NUESTRO SISTEMA</h3>
+<section id="MainPage" class="mt-8 flex flex-col items-center justify-center gap-y-6 text-white">
+	<h1 class="xs:text-5xl flex items-center justify-center text-center text-3xl font-semibold">
+		Blinde su empresa jurídicamente
+	</h1>
+	<h3 class="xs:text-lg text-center text-sm font-medium">
+		PROTECCIÓN LEGAL PARA SU EMPRESA CON NUESTRO SISTEMA
+	</h3>
 
-<div class="w-full h-[71px] flex justify-center items-center">
-    <TextMainPage client:load/>
-</div>
+	<div class="flex h-[71px] w-full items-center justify-center">
+		<TextMainPage client:load />
+	</div>
 
-<a class="h-fit w-fit rounded-lg bg-green-600 px-5 py-2.5 text-center text-gray-50 decoration-transparent shadow-lg transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105 hover:bg-goldColor   dark:hover:bg-goldColor border-2 border-goldColor hover:border-green-600 my-6">CONOCE NUESTRO PORTAFOLIO</a>
+	<a
+		class="hover:bg-goldColor dark:hover:bg-goldColor border-goldColor my-6 h-fit w-fit rounded-lg border-2 bg-green-600 px-5 py-2.5 text-center text-gray-50 decoration-transparent shadow-lg transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105 hover:border-green-600"
+		>CONOCE NUESTRO PORTAFOLIO</a
+	>
 </section>

@@ -5,7 +5,10 @@ import '@fontsource-variable/noto-sans-jp';
 ---
 
 <!doctype html>
-<html lang="es" class="w-screen overflow-x-hidden scroll-smooth h-full bg-[url('/header/img.webp')] bg-cover bg-center min-h-screen">
+<html
+	lang="es"
+	class="h-full min-h-screen w-screen overflow-x-hidden scroll-smooth bg-[url('/header/img.webp')] bg-cover bg-center"
+>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -13,13 +16,13 @@ import '@fontsource-variable/noto-sans-jp';
 		<meta name="generator" content={Astro.generator} />
 		<title>Centro Jurídico Internacional</title>
 	</head>
-	<body class="w-full overflow-x-hidden h-full bg-black/30">
+	<body class="h-full w-full overflow-x-hidden bg-black/30">
 		<slot />
 	</body>
 </html>
 
 <style>
 	html {
-  font-family: 'Noto Sans JP Variable', sans-serif;
-}
+		font-family: 'Noto Sans JP Variable', sans-serif;
+	}
 </style>
