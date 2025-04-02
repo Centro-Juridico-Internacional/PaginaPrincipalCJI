@@ -1,20 +1,32 @@
+---
+import YouTubeLite from '@components/YouTubeLite.jsx';
+---
+
 <section id="recognitionsSection" class="flex flex-col items-center justify-center bg-[#0D0D0D]">
 	<img src="/mainImg/reconocimientos.webp" alt="recognitionsImg" class="-ml-[2px] w-[80vw]" />
 </section>
 <section
 	class="flex h-fit w-full items-center justify-center bg-gradient-to-b from-green-500 to-green-950 py-14"
 >
-	<div id="parent" class="w-[95vw] bg-amber-300">
-		<div class="flex items-center bg-red-300" id="div1">
+	<div id="parent" class="w-[95vw]">
+		<div class="flex items-center" id="div1">
 			<img src="/mainImg/ranking.webp" alt="rankingImg" />
 		</div>
-		<div class="flex items-center bg-red-400" id="div2">
+		<div class="flex items-center" id="div2">
 			<img src="/mainImg/Encuentro.webp" alt="rankingImg" />
 		</div>
-		<div class="flex items-center bg-red-500" id="div3">3</div>
-		<div class="flex items-center bg-red-600" id="div4">4</div>
-		<div class="flex items-center bg-red-700" id="div5">5</div>
-		<div class="flex items-center bg-red-800" id="div6">6</div>
+		<div class="flex items-start" id="div3">
+			<YouTubeLite videoid={'JNd2W8CdxYc'} client:load />
+		</div>
+		<div class="flex items-center" id="div4">
+			<YouTubeLite videoid={'PAc7ufU_Sv4'} client:load />
+		</div>
+		<div class="flex items-center" id="div5">
+			<YouTubeLite videoid={'4o4jjariG8k'} client:load />
+		</div>
+		<div class="flex items-center" id="div6">
+			<YouTubeLite videoid={'3trxgJr13vE'} client:load />
+		</div>
 	</div>
 </section>
 
@@ -23,8 +35,8 @@
 		display: grid;
 		grid-template-columns: repeat(11, 1fr);
 		grid-template-rows: repeat(8, 1fr);
-		grid-column-gap: 0px;
-		grid-row-gap: 0px;
+		grid-column-gap: 40px;
+		grid-row-gap: 4px;
 	}
 
 	#div1 {
@@ -51,7 +63,7 @@
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
 			grid-template-rows: repeat(6, 1fr);
-			grid-column-gap: 0px;
+			grid-column-gap: 8px;
 			grid-row-gap: 0px;
 		}
 
