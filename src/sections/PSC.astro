@@ -1,0 +1,50 @@
+---
+import YouTubeLite from '@components/YouTubeLite.jsx';
+---
+
+<section class="flex flex-col items-center justify-center bg-gray-50">
+	<img src="/PSC/psc.webp" alt="PSCImg" class="" />
+	<div class="mt-6 flex w-[80vw] items-center justify-center md:w-[69.5vw]" id="parent">
+		<img src="/PSC/PSCLogo.webp" alt="PSCImg" class="h-[80%] w-full md:pr-8" id="div1" />
+		<div class="flex size-full items-center" id="div2">
+			<YouTubeLite videoid={'vkRzEzRfbc0'} client:load />
+		</div>
+	</div>
+	<a href="/portafolio">
+		<img src="/PSC/PLANES.webp" alt="planesImg" />
+	</a>
+</section>
+
+<style>
+	#parent {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-column-gap: 0px;
+		grid-row-gap: 0px;
+	}
+
+	#div1 {
+		grid-area: 1 / 1 / 2 / 2;
+	}
+	#div2 {
+		grid-area: 1 / 2 / 2 / 3;
+	}
+
+	@media (width <= 768px) {
+		#parent {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(2, 1fr);
+			grid-column-gap: 0px;
+			grid-row-gap: 0px;
+		}
+
+		#div1 {
+			grid-area: 1 / 1 / 2 / 2;
+		}
+		#div2 {
+			grid-area: 2 / 1 / 3 / 2;
+		}
+	}
+</style>
