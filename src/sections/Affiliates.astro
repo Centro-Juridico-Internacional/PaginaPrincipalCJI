@@ -1,0 +1,95 @@
+---
+import YouTubeLite from '@components/YouTubeLite.jsx';
+
+const VIDEO = [
+	{
+		id: 'Affiliates-1',
+		title: 'bYEUG20choY'
+	},
+	{
+		id: 'Affiliates-2',
+		title: 'c_YdW00-zFU'
+	},
+	{
+		id: 'Affiliates-3',
+		title: 'iFKiqdcAK_k'
+	},
+	{
+		id: 'Affiliates-4',
+		title: '7XQBQC-AwUM'
+	},
+	{
+		id: 'Affiliates-5',
+		title: 'BkonvzLAQ88'
+	},
+	{
+		id: 'Affiliates-6',
+		title: '9GY2vJzEogQ'
+	}
+];
+---
+
+<section class="flex flex-col items-center justify-center bg-gray-50">
+	<img src="/PSC/recomendacion.webp" alt="recomendacionImg" class="h-1/2" />
+	<div class="mt-6 flex h-1/2 w-[95vw] flex-wrap" id="parent">
+		{VIDEO.map((item) => <YouTubeLite videoid={item.title} client:load id={item.id} />)}
+	</div>
+</section>
+
+<style>
+	#parent {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		grid-column-gap: 12px;
+		grid-row-gap: 8px;
+	}
+
+	#Affiliates-1 {
+		grid-area: 1 / 1 / 2 / 2;
+	}
+	#Affiliates-2 {
+		grid-area: 1 / 2 / 2 / 3;
+	}
+	#Affiliates-3 {
+		grid-area: 1 / 3 / 2 / 4;
+	}
+	#Affiliates-4 {
+		grid-area: 2 / 1 / 3 / 2;
+	}
+	#Affiliates-5 {
+		grid-area: 2 / 2 / 3 / 3;
+	}
+	#Affiliates-6 {
+		grid-area: 2 / 3 / 3 / 4;
+	}
+
+	@media (width <= 768px) {
+		#parent {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(3, 1fr);
+			grid-column-gap: 12px;
+			grid-row-gap: 8px;
+		}
+
+		#Affiliates-1 {
+			grid-area: 1 / 1 / 2 / 2;
+		}
+		#Affiliates-2 {
+			grid-area: 1 / 2 / 2 / 3;
+		}
+		#Affiliates-3 {
+			grid-area: 2 / 1 / 3 / 2;
+		}
+		#Affiliates-4 {
+			grid-area: 2 / 2 / 3 / 3;
+		}
+		#Affiliates-5 {
+			grid-area: 3 / 1 / 4 / 2;
+		}
+		#Affiliates-6 {
+			grid-area: 3 / 2 / 4 / 3;
+		}
+	}
+</style>
