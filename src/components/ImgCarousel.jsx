@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const ImageCarousel = ({ images, autoSlideInterval = 50 }) => {
+const ImageCarousel = ({ images, autoSlideInterval = 100 }) => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const carouselRef = useRef(null);
 	const intervalRef = useRef(null);
@@ -48,12 +48,12 @@ const ImageCarousel = ({ images, autoSlideInterval = 50 }) => {
 	};
 
 	return (
-		<div className="relative w-full overflow-hidden">
+		<div className="relative w-[95vw] overflow-hidden">
 			{/* Contenedor del carrusel */}
 			<div
 				ref={carouselRef}
 				onScroll={handleScroll}
-				className="scrollbar-hide flex w-full snap-x snap-mandatory gap-8 overflow-x-auto scroll-smooth"
+				className="scrollbar-hide flex w-full snap-x snap-mandatory gap-10 overflow-x-auto scroll-smooth"
 			>
 				{images.map((img, index) => (
 					<div
