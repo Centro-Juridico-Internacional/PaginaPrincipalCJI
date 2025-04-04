@@ -1,9 +1,26 @@
+---
+import ImgCarousel from '@components/ImgCarousel.jsx';
+
+const images = [
+	'/familiaCJI/1.webp',
+	'/familiaCJI/2.webp',
+	'/familiaCJI/3.webp',
+	'/familiaCJI/4.webp',
+	'/familiaCJI/5.webp',
+	'/familiaCJI/6.jpeg',
+	'/familiaCJI/7.jpeg',
+	'/familiaCJI/8.webp',
+	'/familiaCJI/9.jpeg',
+	'/familiaCJI/10.jpeg'
+];
+---
+
 <section
 	id="MainPage"
 	class="flex flex-col items-center justify-center gap-y-6 text-white"
 	style=""
 >
-	<div>
+	<div class="h-fit">
 		<h1 class="xs:text-5xl flex items-center justify-center text-center text-3xl font-semibold">
 			Familia
 		</h1>
@@ -13,5 +30,8 @@
 		</h1>
 	</div>
 </section>
+<div class="flex h-full max-w-screen flex-col items-center justify-center bg-gray-50 py-5">
+	<ImgCarousel images={images} client:load />
+</div>
 
 <script src="@scripts/resizeMainPage.js"></script>
