@@ -1,14 +1,16 @@
 ---
 import '@styles/global.css';
-// Supports weights 100-900
 import '@fontsource-variable/noto-sans-jp';
+
+const bgImage = `${Astro.props.imgLayout}`;
 ---
 
 <!doctype html>
 <html
 	lang="es"
-	class=`h-full min-h-screen w-screen overflow-x-hidden scroll-smooth bg-[url(${Astro.props.imgLayout})] bg-cover bg-center`
+	class="h-full min-h-screen w-screen overflow-x-hidden scroll-smooth bg-cover bg-center"
 	id="html"
+	style={`background-image: url(${bgImage})`}
 >
 	<head>
 		<meta charset="UTF-8" />
