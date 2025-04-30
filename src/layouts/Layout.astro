@@ -7,9 +7,10 @@ import Footer from '@sections/global/Footer.astro';
 
 interface Props {
 	imgLayout: string;
+	title: string;
 }
 
-const { imgLayout } = Astro.props;
+const { imgLayout, title } = Astro.props;
 ---
 
 <!doctype html>
@@ -26,7 +27,7 @@ const { imgLayout } = Astro.props;
 		<meta name="robots" content="index, follow" />
 
 		<!-- SEO -->
-		<title>Centro Jurídico Internacional - Abogados en Colombia y Recaudo de Cartera</title>
+		<title>Centro Jurídico Internacional | {title}</title>
 		<meta
 			name="description"
 			content="Abogados expertos en derecho laboral, comercial y recaudo de cartera. Proteja su empresa legalmente con el respaldo del Centro Jurídico Internacional. Asesoría gratuita inicial."
