@@ -1,31 +1,84 @@
 ---
 import '@styles/global.css';
 import '@fontsource-variable/noto-sans-jp';
+import { ClientRouter } from 'astro:transitions';
+import Header from '@sections/global/Header.astro';
+import Footer from '@sections/global/Footer.astro';
 
-const bgImage = `${Astro.props.imgLayout}`;
+interface Props {
+	imgLayout: string;
+}
+
+const { imgLayout } = Astro.props;
 ---
 
 <!doctype html>
 <html
 	lang="es"
-	class="h-full min-h-screen w-screen overflow-x-hidden scroll-smooth bg-cover bg-center"
+	class="font-primary-font h-full min-h-screen w-screen overflow-x-hidden scroll-smooth bg-cover bg-center"
 	id="html"
-	style={`background-image: url(${bgImage})`}
+	style={`background-image: url(${imgLayout})`}
 >
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="language" content="es" />
+		<meta name="robots" content="index, follow" />
+
+		<!-- SEO -->
+		<title>Centro Jurídico Internacional - Abogados en Colombia y Recaudo de Cartera</title>
+		<meta
+			name="description"
+			content="Abogados expertos en derecho laboral, comercial y recaudo de cartera. Proteja su empresa legalmente con el respaldo del Centro Jurídico Internacional. Asesoría gratuita inicial."
+		/>
+		<meta
+			name="keywords"
+			content="abogados en Colombia, firma de abogados, recaudo de cartera, asesoría legal, servicios jurídicos, bufete de abogados, Centro Jurídico Internacional, CJI, protección legal empresas"
+		/>
+		<meta name="author" content="Centro Jurídico Internacional" />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Centro Jurídico Internacional - Abogados en Colombia" />
+		<meta
+			property="og:description"
+			content="Abogados expertos en derecho y recaudo de cartera. Proteja su empresa legalmente. Consultas jurídicas para empresas y particulares en Colombia."
+		/>
+		<meta
+			property="og:image"
+			content="https://centrojuridicointernacional.co/header/logoMainCJI.svg"
+		/>
+		<meta property="og:url" content="https://centrojuridicointernacional.co/" />
+		<meta property="og:site_name" content="Centro Jurídico Internacional" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta
+			name="twitter:title"
+			content="Centro Jurídico Internacional - Abogados y Recaudo de Cartera"
+		/>
+		<meta
+			name="twitter:description"
+			content="Firma legal especializada en protección jurídica empresarial y recuperación de cartera en Colombia."
+		/>
+		<meta
+			name="twitter:image"
+			content="https://centrojuridicointernacional.co/header/logoMainCJI.svg"
+		/>
+
+		<!-- Canonical -->
+		<link rel="canonical" href="https://centrojuridicointernacional.co/" />
+
+		<!-- Favicon -->
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Centro Jurídico Internacional</title>
+
+		<!-- Astro ViewTransitions -->
+		<ClientRouter />
 	</head>
+
 	<body class="h-full w-full overflow-x-hidden bg-black/30">
+		<Header />
 		<slot />
+		<Footer />
 	</body>
 </html>
-
-<style>
-	html {
-		font-family: 'Noto Sans JP Variable', sans-serif;
-	}
-</style>
