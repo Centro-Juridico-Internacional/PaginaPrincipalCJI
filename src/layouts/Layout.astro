@@ -11,6 +11,8 @@ interface Props {
 }
 
 const { imgLayout, title } = Astro.props;
+
+const URL = Astro.url.origin;
 ---
 
 <!doctype html>
@@ -45,10 +47,7 @@ const { imgLayout, title } = Astro.props;
 			property="og:description"
 			content="Abogados expertos en derecho y recaudo de cartera. Proteja su empresa legalmente. Consultas jurídicas para empresas y particulares en Colombia."
 		/>
-		<meta
-			property="og:image"
-			content="https://centrojuridicointernacional.co/header/logoMainCJI.svg"
-		/>
+		<meta property="og:image" content=`${URL}/header/logoMainCJI.svg` />
 		<meta property="og:url" content="https://centrojuridicointernacional.co/" />
 		<meta property="og:site_name" content="Centro Jurídico Internacional" />
 
@@ -62,10 +61,7 @@ const { imgLayout, title } = Astro.props;
 			name="twitter:description"
 			content="Firma legal especializada en protección jurídica empresarial y recuperación de cartera en Colombia."
 		/>
-		<meta
-			name="twitter:image"
-			content="https://centrojuridicointernacional.co/header/logoMainCJI.svg"
-		/>
+		<meta name="twitter:image" content=`${URL}/header/logoMainCJI.svg` />
 
 		<!-- Canonical -->
 		<link rel="canonical" href="https://centrojuridicointernacional.co/" />
