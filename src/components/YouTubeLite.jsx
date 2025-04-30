@@ -3,10 +3,13 @@ import React, { useEffect, useState } from 'react';
 export default function YouTubeLite({ videoid, id }) {
 	const [loaded, setLoaded] = useState(false);
 
+	// Definir originalConsoleError fuera del useEffect
+	let originalConsoleError;
+
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
 			// Filtrar errores de consola globalmente
-			const originalConsoleError = console.error;
+			originalConsoleError = console.error;
 			console.error = function (...args) {
 				// Ignorar errores relacionados con "play.google.com/log"
 				if (args[0] && args[0].includes('play.google.com/log')) {
@@ -18,13 +21,14 @@ export default function YouTubeLite({ videoid, id }) {
 			// Importar el componente 'lite-youtube' solo en el cliente
 			import('@justinribeiro/lite-youtube').then(() => {
 				setLoaded(true);
-				console.log('lite-youtube cargado correctamente');
 			});
 		}
 
 		// Limpiar el filtro de errores cuando el componente se desmonte
 		return () => {
-			console.error = originalConsoleError;
+			if (originalConsoleError) {
+				console.error = originalConsoleError;
+			}
 		};
 	}, []);
 
