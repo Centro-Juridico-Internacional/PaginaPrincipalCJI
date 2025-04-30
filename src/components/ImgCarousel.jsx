@@ -8,6 +8,8 @@ const ImageCarousel = ({ images, autoSlideInterval = 100 }) => {
 
 	// Función para navegar con botones
 	const scrollToIndex = (index) => {
+		if (!carouselRef.current) return; // Previene el error si el ref aún es null
+
 		setCurrentIndex(index);
 		carouselRef.current.scrollTo({
 			left: index * carouselRef.current.offsetWidth,
@@ -72,7 +74,7 @@ const ImageCarousel = ({ images, autoSlideInterval = 100 }) => {
 			{/* Botón Izquierdo */}
 			<button
 				onClick={prevSlide}
-				className="absolute top-1/2 left-2 -translate-y-1/2 rounded-full bg-gray-800/50 p-2 text-white"
+				className="absolute top-1/2 left-2 -translate-y-1/2 cursor-pointer rounded-full bg-gray-800/50 p-2 text-white"
 			>
 				<ChevronLeft size={24} />
 			</button>
@@ -80,7 +82,7 @@ const ImageCarousel = ({ images, autoSlideInterval = 100 }) => {
 			{/* Botón Derecho */}
 			<button
 				onClick={nextSlide}
-				className="absolute top-1/2 right-2 -translate-y-1/2 rounded-full bg-gray-800/50 p-2 text-white"
+				className="absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer rounded-full bg-gray-800/50 p-2 text-white"
 			>
 				<ChevronRight size={24} />
 			</button>
