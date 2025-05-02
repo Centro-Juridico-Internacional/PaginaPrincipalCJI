@@ -8,9 +8,10 @@ import Footer from '@sections/global/Footer.astro';
 interface Props {
 	imgLayout: string;
 	title: string;
+	boolean: boolean;
 }
 
-const { imgLayout, title } = Astro.props;
+const { imgLayout, title, boolean } = Astro.props;
 
 const URL = import.meta.env.URL_LAYOUT;
 ---
@@ -73,7 +74,7 @@ const URL = import.meta.env.URL_LAYOUT;
 		<ClientRouter />
 	</head>
 
-	<body class="h-full w-full overflow-x-hidden bg-black/30">
+	<body class:list={['h-full w-full overflow-x-hidden', { 'bg-black/30': boolean }]}>
 		<Header />
 		<slot />
 		<Footer />
