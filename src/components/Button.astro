@@ -1,15 +1,14 @@
 ---
 interface Props {
-	color: string;
 	text: string;
 }
 
-const { color, text } = Astro.props;
+const { text } = Astro.props;
 ---
 
 <a
 	href="/diplomado/DIPLOMADO-I-2025.xlsx"
-	class=`focus-visible:ring-ring group relative mt-8 flex h-9 w-full max-w-52 items-center justify-center gap-2 overflow-hidden rounded-md bg-${color}-600 px-8 py-3 text-lg font-medium whitespace-pre text-white shadow transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105 hover:bg-green-600/90 hover:ring-2 hover:ring-green-600 hover:ring-offset-2 focus-visible:ring-1 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 md:flex`
+	class="focus-visible:ring-ring group relative mt-8 flex h-9 w-full max-w-52 items-center justify-center gap-2 overflow-hidden rounded-md bg-green-600 px-8 py-3 text-lg font-medium whitespace-pre text-white shadow transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105 hover:bg-green-600/90 hover:ring-2 hover:ring-green-600 hover:ring-offset-2 focus-visible:ring-1 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 md:flex"
 >
 	<span
 		class="absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 bg-white opacity-10 transition-all duration-1000 ease-out group-hover:-translate-x-40"
