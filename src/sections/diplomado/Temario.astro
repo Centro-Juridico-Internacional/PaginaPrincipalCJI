@@ -1,0 +1,48 @@
+---
+import YouTubeLite from '@components/YouTubeLite.jsx';
+
+const items = {
+	text: [
+		'El bienestar de las organizaciones va más allá de ser empresas rentables y con posicionamiento en sus mercados, también implica tener entornos de trabajo y funcionarios sanos, idóneos para desempeñar labores en condiciones óptimas, que no afecten la salud física ni mental del trabajador.',
+		'Es debido a esto que el Sistema de Gestión de la Seguridad y Salud en el Trabajo se convirtió en un elemento esencial, obligatorio y prioritario en toda empresa, pues su implementación y buen manejo puede significar, incluso en algunas ocasiones, la diferencia entre el bienestar físico y mental o la pérdida de un trabajador.',
+		'Teniendo claro esto y con el fin de llevar a su empresa por el enfoque preventivo y de la mejora continua que buscan los sistemas de gestión, Centro Jurídico Internacional ha desarrollado el diplomado “¿Cómo implementar y auditar los requisitos del SG-SST en su organización?”, en el cual aprenderá, entre otras cosas: los estándares mínimos para las empresas conforme a la clasificación de los diferentes riesgos y cantidad de colaboradores; las pautas para la elaboración de la matriz de riesgos y batería psicosocial; cómo mitigar riesgos a través del Sistema de Gestión de la Seguridad y Salud en el Trabajo, y muchos temas más.'
+	],
+
+	title: 'Temario',
+	temas: [
+		'Introducción al Sistema de Gestión de Seguridad y Salud en el Trabajo en las empresas acorde a los requisitos del MinTrabajo.',
+		'Estándares mínimos para empresas de 1 a 50 trabajadores, clasificadas en riesgos I, II o III.',
+		'Estándares mínimos para empresas de más de 50 trabajadores con riesgo I al V.',
+		'Aprenda cómo estructurar las políticas del SG-SST.',
+		'Estructuración de los objetivos y planteamiento de indicadores de gestión.',
+		'Identificación y mitigación de riesgos y peligros, y aplicación de batería de psicosocial.',
+		'Implementación, seguimiento y obligatoriedad de los exámenes médicos de inicio, periódicos, post incapacidad y de terminación.',
+		'Conformación y cumplimiento del comité paritario de salud y comité de convivencia laboral.',
+		'Elaboración de la matriz de requisitos legales aplicables al SG-SST según características corporativas.',
+		'Conozca cómo realizar el plan de emergencia y sus capacitaciones obligatorias.',
+		'Aplicabilidad de su SG-SST en las diferentes modalidades de contratación laboral (presencial, remoto, teletrabajo y trabajo en casa).',
+		'Bienestar laboral en la aplicación del SG-SST.',
+		'Métodos de verificación de su SG-SST.',
+		'Aplicabilidad de plan de acción enfocado en la mejora continua (PHVA).'
+	],
+	idVideo: 'Ff-XSC3z4Z0'
+};
+
+const length_array = items.temas.length / 2;
+
+const firstCol = items.temas.slice(0, length_array);
+const secondCol = items.temas.slice(length_array);
+---
+
+<div class="prose-xl w-[60%] text-center">
+	{items.text.map((i) => <p class="text-justify font-medium">{i}</p>)}
+</div>
+
+<h2 class="mt-8 text-4xl font-bold">{items.title}</h2>
+<ul class="prose-lg mt-8 flex w-[60%] list-outside list-disc gap-20">
+	<div class="flex-col">{firstCol.map((i) => <li class="mb-8">{i}</li>)}</div>
+	<div class="flex-col">{secondCol.map((i) => <li class="mb-8">{i}</li>)}</div>
+</ul>
+<div class="mt-8 flex h-1/2 w-[60%] flex-wrap pb-8">
+	<YouTubeLite videoid={items.idVideo} client:load id={items.idVideo} />
+</div>
