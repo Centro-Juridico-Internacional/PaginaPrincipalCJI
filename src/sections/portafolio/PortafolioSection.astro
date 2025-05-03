@@ -3,27 +3,27 @@ import Slides from '@components/Slides';
 
 const BUTTONS = [
 	{
-		slide: 6,
+		slide: '7',
 		text: 'Cobertura especial adicional'
 	},
 	{
-		slide: 2,
+		slide: '9',
 		text: 'Beneficios adicionales'
 	},
 	{
-		slide: 2,
+		slide: '11',
 		text: 'Gastos Administrativos'
 	},
 	{
-		slide: 2,
+		slide: '2',
 		text: 'Ventajas del P.S.C'
 	},
 	{
-		slide: 2,
+		slide: '13',
 		text: 'Cobertura planes'
 	},
 	{
-		slide: 2,
+		slide: '10',
 		text: 'Nuestras sedes'
 	}
 ];
@@ -39,9 +39,13 @@ const BUTTONS = [
 	</div>
 </section>
 
-<button data-slide="6" class="mb-4 h-10 w-24 rounded bg-amber-300 text-black">
-	Cobertura especial adicional
-</button>
+{
+	BUTTONS.map((i) => (
+		<button data-slide={i.slide} class="mb-4 ml-4 h-10 w-fit rounded bg-amber-300 text-black">
+			{i.text}
+		</button>
+	))
+}
 
 <script>
 	function updateCartHeights() {

@@ -2,19 +2,20 @@ import React, { useState, useEffect } from 'react';
 import ImageCarouselPSC from '@components/ImageCarouselPSC';
 
 const images = [
-	'/portafolio/1.jpg',
-	'/portafolio/2.jpg',
-	'/portafolio/3.jpg',
-	'/portafolio/4.jpg',
-	'/portafolio/5.jpg',
-	'/portafolio/6.jpg',
-	'/portafolio/7.jpg',
-	'/portafolio/8.jpg',
-	'/portafolio/9.jpg',
-	'/portafolio/10.jpg',
-	'/portafolio/11.jpg',
-	'/portafolio/12.jpg',
-	'/portafolio/13.jpg'
+	'/portafolio/1_.jpg',
+	'/portafolio/2_.jpg',
+	'/portafolio/3_.jpg',
+	'/portafolio/4_.jpg',
+	'/portafolio/5_.jpg',
+	'/portafolio/6_.jpg',
+	'/portafolio/7_.jpg',
+	'/portafolio/8_.jpg',
+	'/portafolio/9_.jpg',
+	'/portafolio/10_.jpg',
+	'/portafolio/11_.jpg',
+	'/portafolio/12_.jpg',
+	'/portafolio/13_.jpg',
+	'/portafolio/14_.jpg'
 ];
 
 const ImageCarousel = () => {
