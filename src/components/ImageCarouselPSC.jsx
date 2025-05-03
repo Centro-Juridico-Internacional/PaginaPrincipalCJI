@@ -1,30 +1,47 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const ImageCarouselPSC = ({ images, autoSlide = true, autoSlideInterval = 5000, slide = 0 }) => {
+const ImageCarouselPSC = ({ images, autoSlide = true, autoSlideInterval = 10000, slide = 0 }) => {
 	const [currentIndex, setCurrentIndex] = useState(slide);
+	const autoSlideRef = useRef(null);
 	const touchStartX = useRef(null);
 	const touchEndX = useRef(null);
 
+	// Paso 1: función estable para avanzar
+	const nextSlide = useCallback(() => {
+		setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+	}, [images.length]);
+
 	const prevSlide = () => {
 		setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+		resetAutoSlide();
 	};
 
-	const nextSlide = () => {
-		setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+	const goToSlide = (index) => {
+		setCurrentIndex(index);
+		resetAutoSlide();
 	};
 
-	// Sincronizar con slide externo
+	// Paso 2: reset y reinicio del interval
+	const resetAutoSlide = useCallback(() => {
+		if (autoSlideRef.current) clearInterval(autoSlideRef.current);
+		if (autoSlide) {
+			autoSlideRef.current = setInterval(() => {
+				nextSlide();
+			}, autoSlideInterval);
+		}
+	}, [autoSlide, autoSlideInterval, nextSlide]);
+
+	// Inicializa el intervalo al montar o al cambiar configuración
+	useEffect(() => {
+		resetAutoSlide();
+		return () => clearInterval(autoSlideRef.current);
+	}, [resetAutoSlide]);
+
+	// Sync con slide externo
 	useEffect(() => {
 		setCurrentIndex(slide);
 	}, [slide]);
-
-	// Auto Slide
-	useEffect(() => {
-		if (!autoSlide) return;
-		const interval = setInterval(nextSlide, autoSlideInterval);
-		return () => clearInterval(interval);
-	}, [autoSlide, autoSlideInterval]);
 
 	// Touch
 	const handleTouchStart = (e) => {
@@ -42,6 +59,7 @@ const ImageCarouselPSC = ({ images, autoSlide = true, autoSlideInterval = 5000, 
 		else if (diff < -50) prevSlide();
 		touchStartX.current = null;
 		touchEndX.current = null;
+		resetAutoSlide();
 	};
 
 	return (
@@ -60,7 +78,6 @@ const ImageCarouselPSC = ({ images, autoSlide = true, autoSlideInterval = 5000, 
 						key={index}
 						src={img}
 						alt={`Slide ${index}`}
-						id={`slide${index}`}
 						className="w-full flex-shrink-0 rounded-2xl object-contain"
 					/>
 				))}
@@ -76,19 +93,23 @@ const ImageCarouselPSC = ({ images, autoSlide = true, autoSlideInterval = 5000, 
 
 			{/* Botón Derecho */}
 			<button
-				onClick={nextSlide}
+				onClick={() => {
+					nextSlide();
+					resetAutoSlide();
+				}}
 				className="absolute top-1/2 right-2 z-20 -translate-y-1/2 rounded-full bg-gray-800/50 p-2 text-white transition hover:bg-gray-800"
 			>
 				<ChevronRight size={24} />
 			</button>
 
 			{/* Indicadores */}
-			<div className="absolute bottom-3 left-1/2 z-20 flex -translate-x-1/2 space-x-2">
+			<div className="absolute -bottom-4 left-1/2 z-20 flex -translate-x-1/2 space-x-2">
 				{images.map((_, index) => (
-					<span
+					<button
 						key={index}
+						onClick={() => goToSlide(index)}
 						className={`block h-2.5 w-2.5 rounded-full transition ${
-							index === currentIndex ? 'bg-white/40' : 'bg-gray-500/40'
+							index === currentIndex ? 'bg-green-600/90' : 'bg-gray-500/80'
 						}`}
 					/>
 				))}
