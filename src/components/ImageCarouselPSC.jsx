@@ -1,13 +1,18 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const ImageCarouselPSC = ({ images, autoSlide = true, autoSlideInterval = 10000, slide = 0 }) => {
+const ImageCarouselPSC = ({
+	images,
+	autoSlide = true,
+	autoSlideInterval = 5000,
+	slide = 0,
+	resetTrigger
+}) => {
 	const [currentIndex, setCurrentIndex] = useState(slide);
 	const autoSlideRef = useRef(null);
 	const touchStartX = useRef(null);
 	const touchEndX = useRef(null);
 
-	// Paso 1: función estable para avanzar
 	const nextSlide = useCallback(() => {
 		setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
 	}, [images.length]);
@@ -22,7 +27,6 @@ const ImageCarouselPSC = ({ images, autoSlide = true, autoSlideInterval = 10000,
 		resetAutoSlide();
 	};
 
-	// Paso 2: reset y reinicio del interval
 	const resetAutoSlide = useCallback(() => {
 		if (autoSlideRef.current) clearInterval(autoSlideRef.current);
 		if (autoSlide) {
@@ -32,18 +36,19 @@ const ImageCarouselPSC = ({ images, autoSlide = true, autoSlideInterval = 10000,
 		}
 	}, [autoSlide, autoSlideInterval, nextSlide]);
 
-	// Inicializa el intervalo al montar o al cambiar configuración
 	useEffect(() => {
 		resetAutoSlide();
 		return () => clearInterval(autoSlideRef.current);
 	}, [resetAutoSlide]);
 
-	// Sync con slide externo
 	useEffect(() => {
 		setCurrentIndex(slide);
 	}, [slide]);
 
-	// Touch
+	useEffect(() => {
+		resetAutoSlide(); // reset cuando cambia resetTrigger
+	}, [resetTrigger]);
+
 	const handleTouchStart = (e) => {
 		touchStartX.current = e.touches[0].clientX;
 	};
@@ -64,7 +69,6 @@ const ImageCarouselPSC = ({ images, autoSlide = true, autoSlideInterval = 10000,
 
 	return (
 		<div className="relative w-fit max-w-2xl rounded-lg">
-			{/* Carrusel */}
 			<div
 				id="carruselContainer"
 				className="flex w-fit transition-transform duration-500 ease-in-out md:h-[35vw]"
@@ -83,7 +87,6 @@ const ImageCarouselPSC = ({ images, autoSlide = true, autoSlideInterval = 10000,
 				))}
 			</div>
 
-			{/* Botón Izquierdo */}
 			<button
 				onClick={prevSlide}
 				className="absolute top-1/2 left-2 z-20 -translate-y-1/2 rounded-full bg-gray-800/50 p-2 text-white transition hover:bg-gray-800"
@@ -91,7 +94,6 @@ const ImageCarouselPSC = ({ images, autoSlide = true, autoSlideInterval = 10000,
 				<ChevronLeft size={24} />
 			</button>
 
-			{/* Botón Derecho */}
 			<button
 				onClick={() => {
 					nextSlide();
@@ -102,7 +104,6 @@ const ImageCarouselPSC = ({ images, autoSlide = true, autoSlideInterval = 10000,
 				<ChevronRight size={24} />
 			</button>
 
-			{/* Indicadores */}
 			<div className="absolute -bottom-4 left-1/2 z-20 flex -translate-x-1/2 space-x-2">
 				{images.map((_, index) => (
 					<button

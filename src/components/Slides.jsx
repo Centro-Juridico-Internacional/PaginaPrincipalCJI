@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+// Slides.jsx
+import React, { useState, useEffect, useRef } from 'react';
 import ImageCarouselPSC from '@components/ImageCarouselPSC';
 
 const images = [
@@ -20,22 +21,25 @@ const images = [
 
 const ImageCarousel = () => {
 	const [slide, setSlide] = useState(0);
+	const [resetTrigger, setResetTrigger] = useState(0);
 
 	useEffect(() => {
-		const handleClick = (e) => {
-			const slideIndex = parseInt(e.target.getAttribute('data-slide'), 10);
-			if (!isNaN(slideIndex)) setSlide(slideIndex);
+		const handleCustomSlideChange = (e) => {
+			if (typeof e.detail === 'number') {
+				setSlide(e.detail);
+				setResetTrigger((prev) => prev + 1); // cambia valor para forzar reset
+			}
 		};
 
-		const buttons = document.querySelectorAll('[data-slide]');
-		buttons.forEach((btn) => btn.addEventListener('click', handleClick));
-
+		document.addEventListener('slide-change', handleCustomSlideChange);
 		return () => {
-			buttons.forEach((btn) => btn.removeEventListener('click', handleClick));
+			document.removeEventListener('slide-change', handleCustomSlideChange);
 		};
 	}, []);
 
-	return <ImageCarouselPSC images={images} autoSlide={true} slide={slide} />;
+	return (
+		<ImageCarouselPSC images={images} autoSlide={true} slide={slide} resetTrigger={resetTrigger} />
+	);
 };
 
 export default ImageCarousel;

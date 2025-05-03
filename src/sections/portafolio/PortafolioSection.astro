@@ -1,36 +1,69 @@
 ---
+import ButtonPortafolio from '@components/ButtonPortafolio.astro';
 import Slides from '@components/Slides';
 
 const BUTTONS = [
 	{
-		slide: '7',
+		slide: 7,
 		text: 'Cobertura especial adicional'
 	},
 	{
-		slide: '9',
+		slide: 9,
 		text: 'Beneficios adicionales'
 	},
 	{
-		slide: '11',
+		slide: 11,
 		text: 'Gastos Administrativos'
 	},
 	{
-		slide: '2',
+		slide: 2,
 		text: 'Ventajas del P.S.C'
 	},
 	{
-		slide: '13',
+		slide: 13,
 		text: 'Cobertura planes'
 	},
 	{
-		slide: '10',
+		slide: 10,
 		text: 'Nuestras sedes'
 	}
 ];
+const btnOne = BUTTONS.slice(0, 3);
+const btnTwo = BUTTONS.slice(3);
 ---
 
 <section id="headquartersSection" class="my-8 flex h-fit items-center justify-center">
-	<div class="z-20 w-[5%] bg-white md:w-[40%] md:bg-white/70" id="cartWhitePortafolioSection1">
+	<div
+		class="z-20 flex w-[5%] flex-col items-end justify-around bg-white md:w-[40%] md:bg-white/70"
+		id="cartWhitePortafolioSection1"
+	>
+		<div class="flex flex-col items-end">
+			{
+				btnOne.map((i) => (
+					// <button
+					// 	data-slide={i.slide}
+					// 	class="mb-4 ml-4 h-fit min-h-10 w-40 rounded bg-green-600 py-2 text-black"
+					// >
+					// 	{i.text}
+					// </button>
+
+					<ButtonPortafolio text={i.text} dataSlide={i.slide} />
+				))
+			}
+		</div>
+		<div class="flex flex-col items-end">
+			{
+				btnTwo.map((i) => (
+					// <button
+					// 	data-slide={i.slide}
+					// 	class="mb-4 ml-4 h-fit min-h-10 w-40 rounded bg-green-600 text-black"
+					// >
+					// 	{i.text}
+					// </button>
+					<ButtonPortafolio text={i.text} dataSlide={i.slide} />
+				))
+			}
+		</div>
 	</div>
 	<div class="flex w-[90%] items-center justify-center md:w-[42.5%]">
 		<Slides client:load />
@@ -38,14 +71,6 @@ const BUTTONS = [
 	<div class="z-20 w-[5%] bg-white md:w-[40%] md:bg-white/70" id="cartWhitePortafolioSection2">
 	</div>
 </section>
-
-{
-	BUTTONS.map((i) => (
-		<button data-slide={i.slide} class="mb-4 ml-4 h-10 w-fit rounded bg-amber-300 text-black">
-			{i.text}
-		</button>
-	))
-}
 
 <script>
 	function updateCartHeights() {
