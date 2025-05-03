@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const ImageCarousel = ({ images, autoSlide = true, autoSlideInterval = 5000 }) => {
-	const [currentIndex, setCurrentIndex] = useState(0);
-	const carouselRef = useRef(null);
+const ImageCarouselPSC = ({ images, autoSlide = true, autoSlideInterval = 5000, slide = 0 }) => {
+	const [currentIndex, setCurrentIndex] = useState(slide);
 	const touchStartX = useRef(null);
 	const touchEndX = useRef(null);
 
@@ -15,14 +14,19 @@ const ImageCarousel = ({ images, autoSlide = true, autoSlideInterval = 5000 }) =
 		setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
 	};
 
+	// Sincronizar con slide externo
+	useEffect(() => {
+		setCurrentIndex(slide);
+	}, [slide]);
+
 	// Auto Slide
 	useEffect(() => {
 		if (!autoSlide) return;
 		const interval = setInterval(nextSlide, autoSlideInterval);
 		return () => clearInterval(interval);
-	}, [images.length, autoSlide, autoSlideInterval]);
+	}, [autoSlide, autoSlideInterval]);
 
-	// Touch handling
+	// Touch
 	const handleTouchStart = (e) => {
 		touchStartX.current = e.touches[0].clientX;
 	};
@@ -45,7 +49,6 @@ const ImageCarousel = ({ images, autoSlide = true, autoSlideInterval = 5000 }) =
 			{/* Carrusel */}
 			<div
 				id="carruselContainer"
-				ref={carouselRef}
 				className="flex w-fit transition-transform duration-500 ease-in-out md:h-[35vw]"
 				style={{ transform: `translateX(-${currentIndex * 100}%)` }}
 				onTouchStart={handleTouchStart}
@@ -94,4 +97,4 @@ const ImageCarousel = ({ images, autoSlide = true, autoSlideInterval = 5000 }) =
 	);
 };
 
-export default ImageCarousel;
+export default ImageCarouselPSC;
