@@ -4,6 +4,7 @@ import '@fontsource-variable/noto-sans-jp';
 import { ClientRouter } from 'astro:transitions';
 import Header from '@sections/global/Header.astro';
 import Footer from '@sections/global/Footer.astro';
+import WhatsApp from '@components/WhatsApp.astro';
 
 interface Props {
 	imgLayout: string;
@@ -77,6 +78,7 @@ const URL = import.meta.env.URL_LAYOUT;
 	<body class:list={['h-full w-full overflow-x-hidden', { 'bg-black/30': boolean }]}>
 		<Header />
 		<slot />
+		<WhatsApp />
 		<Footer />
 	</body>
 </html>
