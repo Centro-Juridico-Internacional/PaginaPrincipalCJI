@@ -34,7 +34,7 @@ export default function YouTubeLite({ videoid, id }) {
 
 	if (!loaded) {
 		return (
-			<div className="flex h-full w-full items-start justify-center">
+			<div className="flex h-full w-full items-center justify-center">
 				<a className="lite-youtube-fallback" href={`https://www.youtube.com/watch?v=${videoid}`}>
 					Ver en YouTube
 				</a>
@@ -43,7 +43,7 @@ export default function YouTubeLite({ videoid, id }) {
 	}
 
 	return (
-		<div className="flex h-full w-full items-start justify-center">
+		<div className="flex h-full w-full items-center justify-center">
 			<lite-youtube videoid={videoid} id={id}>
 				<a
 					className="lite-youtube-fallback"
