@@ -1,10 +1,53 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import YouTubeLite from '@components/YouTubeLite.jsx';
+import FlipCart from '@components/FlipCart.astro';
+
+const ITEMS = [
+	{
+		Title: 'Area laboral',
+		Text: 'La auditoria para estudiar si la empresa cumple con todos los requisitos en materia de contratación y posterior desarrollo de la relación laboral con el trabajador.',
+		Image: '/auditoriaYdiagnostico/2.webp',
+		Boolean: true
+	},
+	{
+		Title: 'Área corporativa',
+		Text: 'La auditoría está diseñada para verificar que las empresas estén operando dentro de la ley: Esto de acuerdo a un control de inspección de los procedimientos internos de la compañía con el fin de monitorear el funcionamiento correcto de dichos procesos',
+		Image: '/auditoriaYdiagnostico/3.webp',
+		Boolean: false
+	},
+	{
+		Title: 'Área civil y comercial',
+		Text: 'La auditoría está diseñada para evaluar, regular e inspeccionar las relaciones en materia comercial y civil en cuanto a la contratación, la emisión y suscripción de títulos valores cumpliendo con el lleno de los requisitos legales en pro de blindar jurídicamente la compañía frente a terceros.',
+		Image: '/auditoriaYdiagnostico/2.webp',
+		Boolean: true
+	}
+];
+
+const IMAGE = [
+	{
+		imgF: '/auditoriaYdiagnostico/fase1F.webp',
+		imgB: '/auditoriaYdiagnostico/fase1B.webp'
+	},
+	{
+		imgF: '/auditoriaYdiagnostico/fase2F.webp',
+		imgB: '/auditoriaYdiagnostico/fase2B.webp'
+	},
+	{
+		imgF: '/auditoriaYdiagnostico/fase3F.webp',
+		imgB: '/auditoriaYdiagnostico/fase3B.webp'
+	},
+	{
+		imgF: '/auditoriaYdiagnostico/fase4F.webp',
+		imgB: '/auditoriaYdiagnostico/fase4B.webp'
+	}
+];
+const IMAGE1 = IMAGE.slice(0, 2);
+const IMAGE2 = IMAGE.slice(2);
 ---
 
 <Layout imgLayout=" " title="Auditoría y diagnostico legal corporativo" boolean={false}>
-	<main class="w-full">
+	<main class="w-fit pb-40">
 		<div class="flex h-fit w-full py-8">
 			<div class="flex h-fit w-[55%] flex-col items-center justify-center">
 				<h2 class="text-5xl font-semibold text-blue-700">
@@ -34,6 +77,50 @@ import YouTubeLite from '@components/YouTubeLite.jsx';
 			>
 				<img src="/auditoriaYdiagnostico/1.webp" alt="" class="" />
 			</a>
+		</div>
+
+		<div>
+			{
+				ITEMS.map((i) => {
+					const boolean = i.Boolean;
+					return (
+						<div class:list={['flex h-fit w-full py-8', { 'flex-row-reverse': boolean }]}>
+							<div class="flex w-[55%] flex-col items-center justify-center">
+								<h2 class="text-5xl font-semibold text-blue-700">{i.Title}</h2>
+								<div class="w-[75%] text-justify">
+									<p class="mt-10 text-2xl font-medium">{i.Text}</p>
+								</div>
+							</div>
+							<div
+								class:list={[
+									'flex w-[45%] items-center justify-center',
+									{ 'pl-20': boolean === true },
+									{ 'pr-20': boolean === false }
+								]}
+							>
+								<img src={i.Image} alt="" class="rounded-sm" />
+							</div>
+						</div>
+					);
+				})
+			}
+		</div>
+		<div class="mt-4 flex flex-col items-center justify-center">
+			<h2 class="text-5xl font-semibold text-blue-700">Fases del diagnóstico y auditoría legal</h2>
+			<div class="mt-40 flex gap-8">
+				{
+					IMAGE1.map((i) => {
+						return <FlipCart front={i.imgF} back={i.imgB} />;
+					})
+				}
+			</div>
+			<div class="mt-50 flex gap-8">
+				{
+					IMAGE2.map((i) => {
+						return <FlipCart front={i.imgF} back={i.imgB} />;
+					})
+				}
+			</div>
 		</div>
 	</main>
 </Layout>
