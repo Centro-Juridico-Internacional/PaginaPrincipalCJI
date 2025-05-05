@@ -1,7 +1,39 @@
 ---
 import Layout from '@layouts/Layout.astro';
+import YouTubeLite from '@components/YouTubeLite.jsx';
 ---
 
-<Layout imgLayout=" " title="Auditoría y diagnostico legal corporativo" boolean={true}>
-	<main></main>
+<Layout imgLayout=" " title="Auditoría y diagnostico legal corporativo" boolean={false}>
+	<main class="w-full">
+		<div class="flex h-fit w-full py-8">
+			<div class="flex h-fit w-[55%] flex-col items-center justify-center">
+				<h2 class="text-5xl font-semibold text-blue-700">
+					Auditoría y diagnóstico <br />legal corporativo
+				</h2>
+				<div class="w-[70%] text-justify">
+					<p class="mt-10 text-xl font-medium">
+						El diagnóstico legal consiste en realizar un dictamen específico del cumplimiento de las
+						obligaciones legales, con el fin de identificar los posibles riesgos de orden
+						corporativo, laboral, civil y comercial.
+					</p><p class="mt-6 text-xl font-medium">
+						Una solución para la finalidad principal es misma, brindar a las prevenir los riesgos
+						futuros empresas sel herramientas para realizar de forma correcta los procedimientos
+						legales
+					</p>
+				</div>
+			</div>
+			<div class="flex w-[45%] items-center justify-center pr-20">
+				<YouTubeLite videoid={'DOqmbLwwVFg'} id={'DOqmbLwwVFg'} client:load />
+			</div>
+		</div>
+		<div class="flex w-full items-center justify-center">
+			<a
+				href="https://docs.google.com/forms/d/1wP80WLENZeLayP35lDl_9APkVCOF5xG_PhBS1IDlBJ4/viewform?edit_requested=true"
+				rel="noopener noreferrer"
+				target="_blank"
+			>
+				<img src="/auditoriaYdiagnostico/1.webp" alt="" class="" />
+			</a>
+		</div>
+	</main>
 </Layout>
