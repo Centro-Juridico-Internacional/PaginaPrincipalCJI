@@ -12,9 +12,9 @@ import Arrow from '@assets/arrow.astro';
 		<ul class="p-2 font-semibold text-green-600">
 			<li><a href="/auditoriaYDiagnostico">Auditoría y diagnostico legal corporativo</a></li>
 			<hr class="my-1" />
-			<li><a href="/">Cobro y recaudo de cartera</a></li>
+			<li><a href="/cobroYrecaudo">Cobro y recaudo de cartera</a></li>
 			<hr class="my-1" />
-			<li><a href="/">Cobertura hasta 100% en honorarios</a></li>
+			<li><a href="/cobertura">Cobertura hasta 100% en honorarios</a></li>
 		</ul>
 	</div>
 </li>
@@ -44,7 +44,7 @@ import Arrow from '@assets/arrow.astro';
 		divHidden?.addEventListener('mouseenter', showDiv);
 
 		cobertura?.addEventListener('mouseleave', () => {
-			hideTimeout = setTimeout(hideDiv, 300); // ajusta si es necesario
+			hideTimeout = setTimeout(hideDiv, 300);
 		});
 		divHidden?.addEventListener('mouseleave', () => {
 			hideTimeout = setTimeout(hideDiv, 300);

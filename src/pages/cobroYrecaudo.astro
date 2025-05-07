@@ -1,0 +1,59 @@
+---
+import Layout from '@layouts/Layout.astro';
+import YouTubeLite from '@components/YouTubeLite.jsx';
+
+const CARTS = [
+	{
+		src: '1',
+		title: 'Retomamos el 100% del capital recaudado',
+		description: 'Conforme a los términos del contrato suscrito, sin deducciones, ni descuentos.'
+	},
+	{
+		src: '2',
+		title: 'No somos casa de cobranzas',
+		description:
+			'Nos interesa que su empresa cuente con un buen flujo de caja, por eso, retomamos el 100% del capital.'
+	},
+	{
+		src: '3',
+		title: 'Estrategias',
+		description:
+			'Herramientas de localización Servicio con desacreditó Profesionales expertos en recaudo.'
+	}
+];
+---
+
+<Layout imgLayout=" " title="Cobro y recaudo de cartera" boolean={false}>
+	<main>
+		<div class="flex h-fit w-full flex-col items-center justify-center pb-40">
+			<div class="flex h-96 w-full flex-col items-center justify-between bg-green-400">
+				<h1 class="animate-fade-in-down mt-14 text-center text-5xl font-bold text-gray-50">
+					Servicio de cobro y recaudo de cartera
+				</h1>
+				<div class="flex w-full">
+					<div class="h-10 w-1/2 rotate-180 bg-[url('/cobro/imgCobro.svg')] bg-bottom"></div>
+					<div class="h-10 w-1/2 rotate-180 bg-[url('/cobro/imgCobro.svg')] bg-bottom"></div>
+				</div>
+			</div>
+			<div class="-mt-40 w-[50%] lg:w-[40%]">
+				<YouTubeLite id={'pU8kcsS9XPU'} videoid={'pU8kcsS9XPU'} client:load />
+			</div>
+
+			<div class="mt-12 flex w-[80%] flex-wrap">
+				{
+					CARTS.map((item) => {
+						return (
+							<div class="flex w-full flex-col items-center justify-center md:w-1/3">
+								<img src={`/cobro/${item.src}.webp`} alt="" class="w-[85%] rounded-xl md:w-[90%]" />
+								<h2 class="mt-6 mb-4 text-center text-2xl font-bold text-green-600">
+									{item.title}
+								</h2>
+								<p class="w-[70%]">{item.description}</p>
+							</div>
+						);
+					})
+				}
+			</div>
+		</div>
+	</main>
+</Layout>
