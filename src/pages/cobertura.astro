@@ -3,6 +3,82 @@ import Layout from '@layouts/Layout.astro';
 import YouTubeLite from '@components/YouTubeLite.jsx';
 ---
 
-<Layout imgLayout=" " title="Cobertura hasta 100% en honorarios" boolean={false}>
-	<main class="w-fit pb-40"></main>
+<Layout imgLayout=" " title="Cobro y recaudo de cartera" boolean={false}>
+	<main>
+		<div class="flex h-fit w-full flex-col items-center justify-center pb-40">
+			<div class="flex h-96 w-full flex-col items-center justify-between bg-green-500">
+				<h1 class="animate-fade-in-down mt-14 text-center text-5xl font-bold text-gray-50">
+					Cubrimiento hasta el 100% en honorarios
+				</h1>
+				<div class="flex w-full">
+					<div class="h-10 w-1/2 rotate-180 bg-[url('/cobro/imgCobro.svg')] bg-bottom"></div>
+					<div class="h-10 w-1/2 rotate-180 bg-[url('/cobro/imgCobro.svg')] bg-bottom"></div>
+				</div>
+			</div>
+			<div class="-mt-40 w-[50%] lg:w-[40%]">
+				<YouTubeLite id={'NeMpZwrRY9c'} videoid={'NeMpZwrRY9c'} client:load />
+			</div>
+			<div
+				class="flex h-fit w-[90%] flex-col items-center justify-center gap-8 pt-20 text-pretty md:w-[60%]"
+			>
+				<p>
+					<strong
+						>CUBRIMIENTO HASTA EL 100 % EN HONORARIOS DE ABOGADOS DE ACUERDO CON EL PLAN ELEGIDO</strong
+					> Con su afiliación a <strong class="text-green-600"
+						>CENTRO JURÍDICO INTERNACIONAL S.A.S.</strong
+					> atendemos sus casos sin límite durante la vigencia del contrato de afiliación donde por medio
+					de nuestro comité jurídico establecemos la mejor estrategia legal con experiencia y eficacia
+					en los procesos, con el interés de salir adelante en ellos y en evitar futuros procesos, ya
+					que de acuerdo al plan elegido cubrimos hasta el 100% de los honorarios de abogado. Nuestros
+					planes no incluyen gastos administrativos, gastos por impuestos, tasas, contribuciones y/o
+					gastos a terceros.
+				</p>
+				<strong>¿Qué son los gastos administrativos ?</strong>
+				<p>
+					Son conceptos que se liquidan para administración y gestión de la totalidad del trámite o
+					procedimiento legal en 1era y 2da instancia que no hacen parte de los honorarios de
+					abogado o gastos a terceros como lo son :
+				</p>
+				<ul class="w-[90%] list-inside list-['-'] gap-y-8">
+					<li>
+						Gastos de desplazamiento y cobertura de diligencias y audiencias señaladas por el
+						despacho en primera y segunda instancia.
+					</li>
+					<li>
+						Gastos de revisión periódica y permanente del caso legal, el cual es supervisado por el
+						Outsourcing Legal 1 o 2 veces por semana durante la totalidad de la gestión.
+					</li>
+					<li>
+						Gastos de papelería y procesamiento de documentación, traslados, presentaciones
+						personales, autenticaciones notariales, desplazamiento, y visitas a peritos y técnicos
+						para la solicitud de informes.
+					</li>
+					<li>Gastos de administración del procedimiento legal, auditoría y fiscalización.</li>
+					<li>Gastos de procesamiento y envío de informes.</li>
+					<li>
+						Gastos de papelería, gestión y presentación de incidentes, recursos, nulidades y
+						revisiones de segunda instancia, temporales y revisión en altas cortes.
+					</li>
+					<li>
+						Gastos de material, procesamiento, información y capacitación presencial en la
+						implementación de protocolos.
+					</li>
+					<li>Gastos de papelería, diseño e impresión.</li>
+					<li>
+						Gastos de radicación de oficios de embargos bancarios. Es importante precisar que los
+						gastos administrativos se fijan por una única vez al inicio del proceso o actividad
+						legal sin importar la duración final del trámite, en primera, segunda instancia y en
+						casos especiales de revisión ante las altas cortes.
+					</li>
+				</ul>
+
+				<p>
+					Lo invitamos a conocer los 35 servicios adicionales que incluye su afiliación a nuestro
+					programa de protección legal para usted, su familia y su empresa. Afíliese ya al <strong
+						class="text-green-600">CENTRO JURÍDICO INTERNACIONAL S.A.S.</strong
+					>
+				</p>
+			</div>
+		</div>
+	</main>
 </Layout>
