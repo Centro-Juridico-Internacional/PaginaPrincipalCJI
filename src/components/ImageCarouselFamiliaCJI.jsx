@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const ImageCarousel = ({ images, autoSlide = true, autoSlideInterval = 5000 }) => {
+const ImageCarousel = ({ images, autoSlide = true, autoSlideInterval = 1000 }) => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const carouselRef = useRef(null);
 	const touchStartX = useRef(null);
