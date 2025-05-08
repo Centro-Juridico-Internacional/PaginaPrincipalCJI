@@ -1,0 +1,131 @@
+---
+import CoberturaMobile from '@sections/global/header/CoberturaMobile.astro';
+
+//Items del header
+
+const ITEMS = [
+	{
+		id: 1,
+		name: 'Inicio',
+		src: '/',
+		target: false
+	},
+	{
+		id: 2,
+		name: 'Familia CJI',
+		src: '/familiaCJI',
+		target: false
+	},
+	{
+		id: 3,
+		name: 'Noticias',
+		src: 'https://accolombianlawyers.com/noticias/',
+		target: true
+	},
+	{
+		id: 4,
+		name: 'Actualidad Jurídica',
+		src: 'https://actualidadjuridicaempresarial.com/',
+		target: true
+	},
+	{
+		id: 5,
+		name: 'Diplomado',
+		src: '/diplomado',
+		target: false
+	},
+	{
+		id: 6,
+		name: 'Portafolio',
+		src: '/portafolio',
+		target: false
+	},
+	{
+		id: 7,
+		name: 'Seminarios Prácticos',
+		src: 'https://seminariojuridico.com/',
+		target: true
+	},
+	{
+		id: 8,
+		name: 'Ingreso Funcionarios',
+		src: 'https://zonadeservicioscji.com/funcionarios/funcionarios2/',
+		target: true
+	}
+];
+---
+
+<div
+	id="navHeaderMobile"
+	class="animate-fade-in absolute z-600 hidden h-screen w-full overflow-y-hidden bg-green-600"
+>
+	<ul
+		class="mx-8 -mt-40 flex h-full flex-col items-center justify-center gap-x-6 gap-y-3 text-white"
+	>
+		<hr />
+		<!-- Esto renderiza los items del header -->
+		{
+			ITEMS.map((item) => {
+				var itemClass = item.target ? '_blank' : '_self';
+
+				return (
+					<>
+						<li class="flex flex-col items-center justify-center">
+							<a
+								target={itemClass}
+								href={item.src}
+								rel="noopener noreferrer"
+								class="w-full text-center transition-all duration-150 ease-out hover:-translate-y-1 hover:scale-110"
+							>
+								{item.name}
+							</a>
+							<hr class="bg-goldColor h-0.5 w-full border-0" />
+						</li>
+					</>
+				);
+			})
+		}
+		<CoberturaMobile />
+		<li class="flex flex-col items-center justify-center">
+			<a
+				href="/footer/PPDP.pdf"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="w-full text-center transition-all duration-150 ease-out hover:-translate-y-1 hover:scale-110"
+				>Política De Datos Personales</a
+			>
+			<hr class="bg-goldColor h-0.5 w-full border-0" />
+		</li>
+	</ul>
+</div>
+
+<script>
+	document.addEventListener('astro:page-load', () => {
+		const buttonHeader = document.getElementById('checkboxHeader') as HTMLInputElement;
+
+		buttonHeader?.addEventListener('click', () => {
+			const navMobileHeader = document.getElementById('navHeaderMobile') as HTMLDivElement;
+			if (buttonHeader.checked === true) {
+				document.body.style.overflowY = 'hidden';
+				navMobileHeader.style.display = 'block';
+			} else {
+				document.body.style.overflow = '';
+				navMobileHeader.style.display = 'none';
+			}
+		});
+	});
+	document.addEventListener('DOMContentLoaded', () => {
+		const buttonHeader = document.getElementById('checkboxHeader') as HTMLInputElement;
+
+		buttonHeader?.addEventListener('click', () => {
+			const navMobileHeader = document.getElementById('navHeaderMobile') as HTMLDivElement;
+			if (buttonHeader.checked === true) {
+				document.body.style.overflowY = 'hidden';
+				navMobileHeader.style.display = 'block';
+			} else {
+				document.body.style.overflow = '';
+				navMobileHeader.style.display = 'none';
+			}
+		});
+	});
+</script>

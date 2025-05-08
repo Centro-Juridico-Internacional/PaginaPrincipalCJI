@@ -1,0 +1,86 @@
+---
+import Cobertura from '@sections/global/header/Cobertura.astro';
+
+//Items del header
+const ITEMS = [
+	{
+		id: 1,
+		name: 'Inicio',
+		src: '/',
+		target: false
+	},
+	{
+		id: 2,
+		name: 'Familia CJI',
+		src: '/familiaCJI',
+		target: false
+	},
+	{
+		id: 3,
+		name: 'Noticias',
+		src: 'https://accolombianlawyers.com/noticias/',
+		target: true
+	},
+	{
+		id: 4,
+		name: 'Actualidad Jurídica',
+		src: 'https://actualidadjuridicaempresarial.com/',
+		target: true
+	},
+	{
+		id: 5,
+		name: 'Diplomado',
+		src: '/diplomado',
+		target: false
+	},
+	{
+		id: 6,
+		name: 'Portafolio',
+		src: '/portafolio',
+		target: false
+	},
+	{
+		id: 7,
+		name: 'Seminarios Prácticos',
+		src: 'https://seminariojuridico.com/',
+		target: true
+	},
+	{
+		id: 8,
+		name: 'Ingreso Funcionarios',
+		src: 'https://zonadeservicioscji.com/funcionarios/funcionarios2/',
+		target: true
+	}
+];
+---
+
+<div id="navHeader" class="my-8 hidden md:flex">
+	<ul class="mx-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-white">
+		<span class="mx-1 hidden font-extrabold text-white sm:flex">|</span>
+		<!-- Esto renderiza los items del header -->
+		{
+			ITEMS.map((item) => {
+				var itemClass = item.target ? '_blank' : '_self';
+
+				return (
+					<>
+						<li class="flex items-center transition-all duration-150 ease-out hover:-translate-y-1 hover:scale-110">
+							<a target={itemClass} href={item.src} rel="noopener noreferrer">
+								{item.name}
+							</a>
+						</li>
+						<span class="mx-1 hidden font-extrabold text-white sm:flex">|</span>
+					</>
+				);
+			})
+		}
+		<Cobertura />
+		<span class="mx-1 hidden font-extrabold text-white sm:flex">|</span>
+		<li class="transition-all duration-150 ease-out hover:-translate-y-1 hover:scale-110">
+			<a href="/footer/PPDP.pdf" target="_blank" rel="noopener noreferrer"
+				>Política De Datos Personales</a
+			>
+		</li>
+		<span class="mx-1 hidden font-extrabold text-white sm:flex">|</span>
+	</ul>
+</div>
