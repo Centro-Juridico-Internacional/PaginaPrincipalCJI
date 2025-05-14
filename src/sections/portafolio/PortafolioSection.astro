@@ -32,9 +32,12 @@ const btnOne = BUTTONS.slice(0, 3);
 const btnTwo = BUTTONS.slice(3);
 ---
 
-<section id="headquartersSection" class="my-8 flex h-fit items-center justify-center">
+<section
+	id="headquartersSection"
+	class="my-8 flex h-fit flex-col items-center justify-center pt-15 md:flex-row md:pt-0"
+>
 	<div
-		class="z-20 flex w-[5%] flex-col items-end justify-around bg-white md:w-[40%] md:bg-white/70"
+		class="z-20 hidden w-[5%] flex-col items-end justify-around bg-white md:flex md:w-[40%] md:bg-white/70"
 		id="cartWhitePortafolioSection1"
 	>
 		<div class="flex flex-col items-end">
@@ -68,7 +71,39 @@ const btnTwo = BUTTONS.slice(3);
 	<div class="flex w-[90%] items-center justify-center md:w-[42.5%]">
 		<Slides client:load />
 	</div>
-	<div class="z-20 w-[5%] bg-white md:w-[40%] md:bg-white/70" id="cartWhitePortafolioSection2">
+	<section class="mt-12 flex w-[90%] gap-8 md:hidden" id="buttons-portafolio-mobile">
+		<div class="flex flex-col items-end">
+			{
+				btnOne.map((i) => (
+					// <button
+					// 	data-slide={i.slide}
+					// 	class="mb-4 ml-4 h-fit min-h-10 w-40 rounded bg-green-600 py-2 text-black"
+					// >
+					// 	{i.text}
+					// </button>
+
+					<ButtonPortafolio text={i.text} dataSlide={i.slide} />
+				))
+			}
+		</div>
+		<div class="flex flex-col items-end">
+			{
+				btnTwo.map((i) => (
+					// <button
+					// 	data-slide={i.slide}
+					// 	class="mb-4 ml-4 h-fit min-h-10 w-40 rounded bg-green-600 text-black"
+					// >
+					// 	{i.text}
+					// </button>
+					<ButtonPortafolio text={i.text} dataSlide={i.slide} />
+				))
+			}
+		</div>
+	</section>
+	<div
+		class="z-20 hidden w-[5%] bg-white md:flex md:w-[40%] md:bg-white/70"
+		id="cartWhitePortafolioSection2"
+	>
 	</div>
 </section>
 

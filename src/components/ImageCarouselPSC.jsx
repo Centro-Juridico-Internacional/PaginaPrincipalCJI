@@ -68,10 +68,10 @@ const ImageCarouselPSC = ({
 	};
 
 	return (
-		<div className="relative w-fit max-w-2xl rounded-lg">
+		<div className="relative w-full max-w-2xl rounded-lg">
 			<div
 				id="carruselContainer"
-				className="flex w-fit transition-transform duration-500 ease-in-out md:h-[35vw]"
+				className="flex w-full transition-transform duration-500 ease-in-out md:h-[35vw]"
 				style={{ transform: `translateX(-${currentIndex * 100}%)` }}
 				onTouchStart={handleTouchStart}
 				onTouchMove={handleTouchMove}
@@ -82,7 +82,7 @@ const ImageCarouselPSC = ({
 						key={index}
 						src={img}
 						alt={`Slide ${index}`}
-						className="w-full flex-shrink-0 rounded-2xl object-contain"
+						className="w-full flex-shrink-0 rounded-2xl object-contain px-6"
 					/>
 				))}
 			</div>
