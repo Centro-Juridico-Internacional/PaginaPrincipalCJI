@@ -47,25 +47,27 @@ const IMAGE2 = IMAGE.slice(2);
 ---
 
 <Layout imgLayout=" " title="Auditoría y diagnostico legal corporativo" boolean={false}>
-	<main class="w-fit pb-40">
-		<div class="flex h-fit w-full py-8">
-			<div class="flex h-fit w-[55%] flex-col items-center justify-center">
-				<h2 class="text-5xl font-semibold text-blue-700">
+	<main class="mt-20 w-full pb-10 md:mt-0">
+		<div class="flex h-fit w-full flex-col py-8 md:flex-row">
+			<div class="flex h-fit w-full flex-col items-center justify-center md:w-[55%]">
+				<h2 class="text-center text-3xl font-semibold text-blue-700 md:text-5xl">
 					Auditoría y diagnóstico <br />legal corporativo
 				</h2>
-				<div class="w-[70%] text-justify">
-					<p class="mt-10 text-xl font-medium">
+				<div class="w-[90%] text-justify md:w-[70%]">
+					<p class="mt-10 text-sm font-medium md:text-xl">
 						El diagnóstico legal consiste en realizar un dictamen específico del cumplimiento de las
 						obligaciones legales, con el fin de identificar los posibles riesgos de orden
 						corporativo, laboral, civil y comercial.
-					</p><p class="mt-6 text-xl font-medium">
+					</p><p class="mt-6 text-sm font-medium md:text-xl">
 						Una solución para la finalidad principal es misma, brindar a las prevenir los riesgos
 						futuros empresas sel herramientas para realizar de forma correcta los procedimientos
 						legales
 					</p>
 				</div>
 			</div>
-			<div class="flex w-[45%] items-center justify-center pr-20">
+			<div
+				class="mt-8 ml-[5%] flex w-[90%] items-center justify-center md:mt-0 md:ml-0 md:w-[45%] md:pr-20"
+			>
 				<YouTubeLite videoid={'DOqmbLwwVFg'} id={'DOqmbLwwVFg'} client:load />
 			</div>
 		</div>
@@ -84,21 +86,28 @@ const IMAGE2 = IMAGE.slice(2);
 				ITEMS.map((i) => {
 					const boolean = i.Boolean;
 					return (
-						<div class:list={['flex h-fit w-full py-8', { 'flex-row-reverse': boolean }]}>
-							<div class="flex w-[55%] flex-col items-center justify-center">
-								<h2 class="text-5xl font-semibold text-blue-700">{i.Title}</h2>
-								<div class="w-[75%] text-justify">
-									<p class="mt-10 text-2xl font-medium">{i.Text}</p>
+						<div
+							class:list={[
+								'flex h-fit w-full flex-col items-center justify-center py-8 md:flex-row',
+								{ 'flex-col md:flex-row-reverse': boolean }
+							]}
+						>
+							<div class="flex w-[90%] flex-col items-center justify-center md:w-[55%]">
+								<h2 class="text-center text-3xl font-semibold text-blue-700 md:text-5xl">
+									{i.Title}
+								</h2>
+								<div class="w-[90%] text-justify md:w-[75%]">
+									<p class="mt-10 text-sm font-medium md:text-2xl">{i.Text}</p>
 								</div>
 							</div>
 							<div
 								class:list={[
-									'flex w-[45%] items-center justify-center',
-									{ 'pl-20': boolean === true },
-									{ 'pr-20': boolean === false }
+									'mt-8 flex w-[90%] items-center justify-center md:mt-0 md:w-[45%]',
+									{ 'md:pl-20': boolean === true },
+									{ 'md:pr-20': boolean === false }
 								]}
 							>
-								<img src={i.Image} alt="" class="rounded-sm" />
+								<img src={i.Image} alt="" class="w-full rounded-sm" />
 							</div>
 						</div>
 					);
@@ -106,15 +115,17 @@ const IMAGE2 = IMAGE.slice(2);
 			}
 		</div>
 		<div class="mt-4 flex flex-col items-center justify-center">
-			<h2 class="text-5xl font-semibold text-blue-700">Fases del diagnóstico y auditoría legal</h2>
-			<div class="mt-40 flex gap-8">
+			<h2 class="mb-1 text-center text-3xl font-semibold text-blue-700 md:mb-10 md:text-5xl">
+				Fases del diagnóstico y auditoría legal
+			</h2>
+			<div class="flex flex-col md:flex-row md:gap-8">
 				{
 					IMAGE1.map((i) => {
 						return <FlipCart front={i.imgF} back={i.imgB} />;
 					})
 				}
 			</div>
-			<div class="mt-50 flex gap-8">
+			<div class="mt-0 flex flex-col md:mt-10 md:flex-row md:gap-8">
 				{
 					IMAGE2.map((i) => {
 						return <FlipCart front={i.imgF} back={i.imgB} />;
