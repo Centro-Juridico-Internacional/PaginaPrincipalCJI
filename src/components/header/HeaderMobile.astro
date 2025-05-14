@@ -57,7 +57,7 @@ const ITEMS = [
 
 <div
 	id="navHeaderMobile"
-	class="animate-fade-in absolute z-600 hidden h-screen w-full overflow-y-hidden bg-green-600"
+	class="animate-fadeIn-header z-600 hidden h-screen w-full items-center justify-center overflow-y-hidden bg-green-600"
 >
 	<ul
 		class="mx-8 -mt-40 flex h-full flex-col items-center justify-center gap-x-6 gap-y-3 text-white"
@@ -107,7 +107,7 @@ const ITEMS = [
 			const navMobileHeader = document.getElementById('navHeaderMobile') as HTMLDivElement;
 			if (buttonHeader.checked === true) {
 				document.body.style.overflowY = 'hidden';
-				navMobileHeader.style.display = 'block';
+				navMobileHeader.style.display = 'flex';
 			} else {
 				document.body.style.overflow = '';
 				navMobileHeader.style.display = 'none';
@@ -121,7 +121,7 @@ const ITEMS = [
 			const navMobileHeader = document.getElementById('navHeaderMobile') as HTMLDivElement;
 			if (buttonHeader.checked === true) {
 				document.body.style.overflowY = 'hidden';
-				navMobileHeader.style.display = 'block';
+				navMobileHeader.style.display = 'flex';
 			} else {
 				document.body.style.overflow = '';
 				navMobileHeader.style.display = 'none';

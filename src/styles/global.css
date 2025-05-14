@@ -6,4 +6,5 @@
 	--color-goldColor: #ce952c;
 	--breakpoint-xs: 480px;
 	--font-primary-font: Noto Sans JP Variable, sans-serif;
+	--animate-fadeIn-header: fade-in 0.2s ease-in both;
 }
