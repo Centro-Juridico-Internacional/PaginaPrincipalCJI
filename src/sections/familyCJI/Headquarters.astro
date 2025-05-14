@@ -12,14 +12,27 @@ const images = [
 
 <section id="headquartersSection">
 	<img src="/familiaCJI/sedes.webp" alt="" class="bg-white" />
-	<div class="flex min-h-screen flex-col items-center justify-center bg-green-50 lg:flex-row">
-		<div class="flex w-full items-center justify-center">
+	<div
+		class="flex min-h-screen flex-col items-center justify-center gap-x-4 bg-green-50 px-8 lg:flex-row"
+	>
+		<div class="flex w-full items-center justify-center lg:w-[45%]">
 			<ImageCarousel images={images} autoSlide={true} client:load />
 		</div>
-		<h2 class="">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab error deleniti voluptatibus
-			eligendi aut. Nemo non, rem excepturi pariatur eius veritatis necessitatibus explicabo optio
-			cum omnis ipsam? Blanditiis, quia vero.
-		</h2>
+		<div class="flex w-full flex-col lg:w-[55%]">
+			<p class="w-full">
+				Tenemos instalaciones que acogen el equipo más estructurado listo para cumplir nuestra
+				promesa! Queremos estar más cerca de su empresa y de su equipo para lograr las mejores
+				estrategias legales. Junto a nuestro portafolio de servicios.
+			</p>
+			<p class="mt-4 w-full">
+				<strong class="text-green-600">Centro jurídico internacional</strong> es un proyecto con una
+				gran trayectoria que nace el 4 julio de 2000, fundada por una pareja de soñadores que introducirán
+				una nueva estrategia en pro de empresarios que buscan el crecimiento de manera segura y a la
+				vanguardia en temas legales dando un giro de 180 grados lleno de innovación. lo que nos lleva
+				a nuestro sistema único en el mercado P.S.C: <br /><strong class="text-goldColor"
+					>prevención, solución y capacitación.</strong
+				>
+			</p>
+		</div>
 	</div>
 </section>
