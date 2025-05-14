@@ -34,15 +34,17 @@ const firstCol = items.temas.slice(0, length_array);
 const secondCol = items.temas.slice(length_array);
 ---
 
-<div class="prose-xl w-[60%] text-center">
+<div class="prose-lg md:prose-xl w-[90%] text-center md:w-[60%]">
 	{items.text.map((i) => <p class="text-justify font-medium">{i}</p>)}
 </div>
 
 <h2 class="mt-8 text-4xl font-bold">{items.title}</h2>
-<ul class="prose-lg mt-8 flex w-[60%] list-outside list-disc gap-20">
+<ul
+	class="md:prose-lg mt-8 ml-[8%] flex w-[90%] list-outside list-disc justify-center gap-8 md:ml-0 md:w-[60%] md:gap-20"
+>
 	<div class="flex-col">{firstCol.map((i) => <li class="mb-8">{i}</li>)}</div>
 	<div class="flex-col">{secondCol.map((i) => <li class="mb-8">{i}</li>)}</div>
 </ul>
-<div class="mt-8 flex h-1/2 w-[60%] flex-wrap pb-8">
+<div class="mt-8 flex h-1/2 w-[95%] flex-wrap pb-8 md:w-[60%]">
 	<YouTubeLite videoid={items.idVideo} client:load id={items.idVideo} />
 </div>

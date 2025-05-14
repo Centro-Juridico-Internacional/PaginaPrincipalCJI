@@ -7,20 +7,20 @@ const title = '¿CÓMO IMPLEMENTAR Y AUDITAR LOS REQUISITOS DEL SG-SST EN SU ORG
 ---
 
 <Layout imgLayout="" title="Diplomado" boolean={false}>
-	<main class="flex flex-col items-center justify-center bg-gray-50 pt-10">
-		<h1 class="w-[50%] flex-wrap text-center text-4xl font-semibold">
+	<main class="mt-15 flex flex-col items-center justify-center bg-gray-50 pt-10 md:mt-0">
+		<h1 class="w-[90%] flex-wrap text-center text-2xl font-semibold md:w-[50%] md:text-4xl">
 			{title}
 		</h1>
-		<img src="/diplomado/diplomado.webp" alt="diplomado imagen" class="mt-12" />
+		<img src="/diplomado/diplomado.webp" alt="diplomado imagen" class="mt-12 w-[95%] md:w-auto" />
 		<div class="flex w-full items-center justify-center">
 			<Button text="CRONOGRAMA" />
 		</div>
-		<div class="mt-8 flex">
-			<img src="/diplomado/inscripcion.webp" alt="" class="w-[34rem]" />
+		<div class="mt-8 flex w-full flex-col items-center justify-center gap-y-8 md:w-[70%]">
+			<img src="/diplomado/inscripcion.webp" alt="" class="w-[90%] md:w-1/2" />
 			<div class="flex items-center justify-center">
 				<iframe
 					src="https://gabriela.centrojuridicointernacional.co:41270/CertiCliente/afiliado/1399"
-					class="h-[260px] w-[34rem]"></iframe>
+					class="h-[260px] w-auto max-w-[44rem] min-w-screen md:min-w-[34rem]"></iframe>
 			</div>
 		</div>
 		<div class="mt-8 flex flex-col items-center justify-center">
