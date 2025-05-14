@@ -1,5 +1,6 @@
 ---
 import ImgCarousel from '@components/ImgCarousel.jsx';
+import ImgCarouselMobile from '@components/ImgCarouselMobile';
 
 const images = [
 	'/familiaCJI/1.webp',
@@ -32,4 +33,5 @@ const images = [
 </section>
 <div class="flex h-full w-screen flex-col items-center justify-center bg-gray-50 py-5">
 	<ImgCarousel images={images} client:load />
+	<ImgCarouselMobile images={images} autoSlide={true} slide={0} resetTrigger={0} client:load />
 </div>

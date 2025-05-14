@@ -50,7 +50,7 @@ const ImageCarousel = ({ images, autoSlideInterval = 100 }) => {
 	};
 
 	return (
-		<div className="relative w-[95vw] overflow-hidden">
+		<div className="relative hidden w-[95vw] overflow-hidden md:flex">
 			{/* Contenedor del carrusel */}
 			<div
 				ref={carouselRef}
