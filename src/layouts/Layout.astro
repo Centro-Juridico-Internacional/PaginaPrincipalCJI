@@ -5,6 +5,7 @@ import { ClientRouter } from 'astro:transitions';
 import Header from '@sections/global/Header.astro';
 import Footer from '@sections/global/Footer.astro';
 import WhatsApp from '@components/WhatsApp.astro';
+import BotonesMain from '@components/BotonesMain.astro';
 
 interface Props {
 	imgLayout: string;
@@ -92,6 +93,7 @@ const URL = import.meta.env.URL_LAYOUT;
 		<Header />
 		<slot />
 		<WhatsApp />
+		<BotonesMain />
 		<Footer />
 	</body>
 </html>
