@@ -8,6 +8,7 @@ import WhatsApp from '@components/WhatsApp.astro';
 import BotonesMain from '@components/BotonesMain.astro';
 
 import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 
 interface Props {
 	imgLayout: string;
@@ -90,6 +91,7 @@ const URL = import.meta.env.URL_LAYOUT;
 		<!-- Astro ViewTransitions -->
 		<ClientRouter />
 		<Analytics />
+		<SpeedInsights />
 	</head>
 
 	<body class:list={['h-full w-full overflow-x-hidden', { 'bg-black/30': boolean }]}>
