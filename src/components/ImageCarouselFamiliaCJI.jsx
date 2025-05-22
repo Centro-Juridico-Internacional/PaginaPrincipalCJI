@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const ImageCarousel = ({ images, autoSlide = true, autoSlideInterval = 1000 }) => {
+const ImageCarousel = ({ images, autoSlide = true, autoSlideInterval = 3000 }) => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const carouselRef = useRef(null);
 	const touchStartX = useRef(null);
@@ -42,7 +42,7 @@ const ImageCarousel = ({ images, autoSlide = true, autoSlideInterval = 1000 }) =
 	};
 
 	return (
-		<div className="relative w-[95%] max-w-4xl overflow-hidden rounded-lg shadow-lg">
+		<div className="relative w-[95%] max-w-4xl overflow-hidden rounded-lg">
 			{/* Carrusel */}
 			<div
 				ref={carouselRef}
@@ -61,22 +61,6 @@ const ImageCarousel = ({ images, autoSlide = true, autoSlideInterval = 1000 }) =
 					/>
 				))}
 			</div>
-
-			{/* Botón Izquierdo */}
-			<button
-				onClick={prevSlide}
-				className="absolute top-1/2 left-2 -translate-y-1/2 rounded-full bg-gray-800/50 p-2 text-white transition hover:bg-gray-800"
-			>
-				<ChevronLeft size={24} />
-			</button>
-
-			{/* Botón Derecho */}
-			<button
-				onClick={nextSlide}
-				className="absolute top-1/2 right-2 -translate-y-1/2 rounded-full bg-gray-800/50 p-2 text-white transition hover:bg-gray-800"
-			>
-				<ChevronRight size={24} />
-			</button>
 
 			{/* Indicadores */}
 			<div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 space-x-2">
