@@ -4,7 +4,10 @@
 
 @theme {
 	--color-goldColor: #ce952c;
+	--color-theme-green-main: #008236;
 	--breakpoint-xs: 480px;
 	--font-primary-font: Noto Sans JP Variable, sans-serif;
 	--animate-fadeIn-header: fade-in 0.2s ease-in both;
 }
+/* #e020c0 */
+/*  #00a63e */

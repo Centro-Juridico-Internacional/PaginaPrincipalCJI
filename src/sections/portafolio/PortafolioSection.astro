@@ -41,31 +41,10 @@ const btnTwo = BUTTONS.slice(3);
 		id="cartWhitePortafolioSection1"
 	>
 		<div class="flex flex-col items-end">
-			{
-				btnOne.map((i) => (
-					// <button
-					// 	data-slide={i.slide}
-					// 	class="mb-4 ml-4 h-fit min-h-10 w-40 rounded bg-green-600 py-2 text-black"
-					// >
-					// 	{i.text}
-					// </button>
-
-					<ButtonPortafolio text={i.text} dataSlide={i.slide} />
-				))
-			}
+			{btnOne.map((i) => <ButtonPortafolio text={i.text} dataSlide={i.slide} />)}
 		</div>
 		<div class="flex flex-col items-end">
-			{
-				btnTwo.map((i) => (
-					// <button
-					// 	data-slide={i.slide}
-					// 	class="mb-4 ml-4 h-fit min-h-10 w-40 rounded bg-green-600 text-black"
-					// >
-					// 	{i.text}
-					// </button>
-					<ButtonPortafolio text={i.text} dataSlide={i.slide} />
-				))
-			}
+			{btnTwo.map((i) => <ButtonPortafolio text={i.text} dataSlide={i.slide} />)}
 		</div>
 	</div>
 	<div class="flex w-[90%] items-center justify-center md:w-[42.5%]">
@@ -73,31 +52,10 @@ const btnTwo = BUTTONS.slice(3);
 	</div>
 	<section class="mt-12 flex w-[90%] gap-8 md:hidden" id="buttons-portafolio-mobile">
 		<div class="flex flex-col items-end">
-			{
-				btnOne.map((i) => (
-					// <button
-					// 	data-slide={i.slide}
-					// 	class="mb-4 ml-4 h-fit min-h-10 w-40 rounded bg-green-600 py-2 text-black"
-					// >
-					// 	{i.text}
-					// </button>
-
-					<ButtonPortafolio text={i.text} dataSlide={i.slide} />
-				))
-			}
+			{btnOne.map((i) => <ButtonPortafolio text={i.text} dataSlide={i.slide} />)}
 		</div>
 		<div class="flex flex-col items-end">
-			{
-				btnTwo.map((i) => (
-					// <button
-					// 	data-slide={i.slide}
-					// 	class="mb-4 ml-4 h-fit min-h-10 w-40 rounded bg-green-600 text-black"
-					// >
-					// 	{i.text}
-					// </button>
-					<ButtonPortafolio text={i.text} dataSlide={i.slide} />
-				))
-			}
+			{btnTwo.map((i) => <ButtonPortafolio text={i.text} dataSlide={i.slide} />)}
 		</div>
 	</section>
 	<div
