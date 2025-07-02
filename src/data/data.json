@@ -1,0 +1,482 @@
+[
+    {
+        "id": 1,
+        "name": "Sala del departamento de desarrollos",
+        "url": "https://meet.google.com/dev-main-room",
+        "category": "DESARROLLO"
+    },
+    {
+        "id": 2,
+        "name": "Sala de Frontend",
+        "url": "https://meet.google.com/frontend-team",
+        "category": "DESARROLLO"
+    },
+    {
+        "id": 3,
+        "name": "Sala de Backend",
+        "url": "https://meet.google.com/backend-team",
+        "category": "DESARROLLO"
+    },
+    {
+        "id": 4,
+        "name": "Sala de DevOps",
+        "url": "https://meet.google.com/devops-team",
+        "category": "DESARROLLO"
+    },
+    {
+        "id": 5,
+        "name": "Sala de QA Testing",
+        "url": "https://meet.google.com/qa-testing",
+        "category": "DESARROLLO"
+    },
+    {
+        "id": 6,
+        "name": "Sala de Arquitectura",
+        "url": "https://meet.google.com/architecture",
+        "category": "DESARROLLO"
+    },
+    {
+        "id": 7,
+        "name": "Sala de Mobile",
+        "url": "https://meet.google.com/mobile-dev",
+        "category": "DESARROLLO"
+    },
+    {
+        "id": 8,
+        "name": "Sala de Data Science",
+        "url": "https://meet.google.com/data-science",
+        "category": "DESARROLLO"
+    },
+    {
+        "id": 9,
+        "name": "Sala de Marketing Digital",
+        "url": "https://meet.google.com/marketing-digital",
+        "category": "MARKETING"
+    },
+    {
+        "id": 10,
+        "name": "Sala de Contenido",
+        "url": "https://meet.google.com/content-team",
+        "category": "MARKETING"
+    },
+    {
+        "id": 11,
+        "name": "Sala de SEO",
+        "url": "https://meet.google.com/seo-team",
+        "category": "MARKETING"
+    },
+    {
+        "id": 12,
+        "name": "Sala de Social Media",
+        "url": "https://meet.google.com/social-media",
+        "category": "MARKETING"
+    },
+    {
+        "id": 13,
+        "name": "Sala de Email Marketing",
+        "url": "https://meet.google.com/email-marketing",
+        "category": "MARKETING"
+    },
+    {
+        "id": 14,
+        "name": "Sala de Publicidad",
+        "url": "https://meet.google.com/advertising",
+        "category": "MARKETING"
+    },
+    {
+        "id": 15,
+        "name": "Sala de Branding",
+        "url": "https://meet.google.com/branding",
+        "category": "MARKETING"
+    },
+    {
+        "id": 16,
+        "name": "Sala de Analytics",
+        "url": "https://meet.google.com/analytics",
+        "category": "MARKETING"
+    },
+    {
+        "id": 17,
+        "name": "Sala de Ventas",
+        "url": "https://meet.google.com/sales-team",
+        "category": "VENTAS"
+    },
+    {
+        "id": 18,
+        "name": "Sala de Atención al Cliente",
+        "url": "https://meet.google.com/customer-service",
+        "category": "VENTAS"
+    },
+    {
+        "id": 19,
+        "name": "Sala de Business Development",
+        "url": "https://meet.google.com/business-dev",
+        "category": "VENTAS"
+    },
+    {
+        "id": 20,
+        "name": "Sala de Account Management",
+        "url": "https://meet.google.com/account-mgmt",
+        "category": "VENTAS"
+    },
+    {
+        "id": 21,
+        "name": "Sala de Pre-ventas",
+        "url": "https://meet.google.com/pre-sales",
+        "category": "VENTAS"
+    },
+    {
+        "id": 22,
+        "name": "Sala de Post-ventas",
+        "url": "https://meet.google.com/post-sales",
+        "category": "VENTAS"
+    },
+    {
+        "id": 23,
+        "name": "Sala de CRM",
+        "url": "https://meet.google.com/crm-team",
+        "category": "VENTAS"
+    },
+    {
+        "id": 24,
+        "name": "Sala de Partnerships",
+        "url": "https://meet.google.com/partnerships",
+        "category": "VENTAS"
+    },
+    {
+        "id": 25,
+        "name": "Sala de Recursos Humanos",
+        "url": "https://meet.google.com/hr-meetings",
+        "category": "RECURSOS HUMANOS"
+    },
+    {
+        "id": 26,
+        "name": "Sala de Reclutamiento",
+        "url": "https://meet.google.com/recruitment",
+        "category": "RECURSOS HUMANOS"
+    },
+    {
+        "id": 27,
+        "name": "Sala de Onboarding",
+        "url": "https://meet.google.com/onboarding",
+        "category": "RECURSOS HUMANOS"
+    },
+    {
+        "id": 28,
+        "name": "Sala de Training",
+        "url": "https://meet.google.com/training",
+        "category": "RECURSOS HUMANOS"
+    },
+    {
+        "id": 29,
+        "name": "Sala de Performance",
+        "url": "https://meet.google.com/performance",
+        "category": "RECURSOS HUMANOS"
+    },
+    {
+        "id": 30,
+        "name": "Sala de Benefits",
+        "url": "https://meet.google.com/benefits",
+        "category": "RECURSOS HUMANOS"
+    },
+    {
+        "id": 31,
+        "name": "Sala de Culture",
+        "url": "https://meet.google.com/culture",
+        "category": "RECURSOS HUMANOS"
+    },
+    {
+        "id": 32,
+        "name": "Sala de Payroll",
+        "url": "https://meet.google.com/payroll",
+        "category": "RECURSOS HUMANOS"
+    },
+    {
+        "id": 33,
+        "name": "Sala de Directorio",
+        "url": "https://meet.google.com/board-room",
+        "category": "DIRECTORIO"
+    },
+    {
+        "id": 34,
+        "name": "Sala Ejecutiva",
+        "url": "https://meet.google.com/executive",
+        "category": "DIRECTORIO"
+    },
+    {
+        "id": 35,
+        "name": "Sala de Strategy",
+        "url": "https://meet.google.com/strategy",
+        "category": "DIRECTORIO"
+    },
+    {
+        "id": 36,
+        "name": "Sala de Planning",
+        "url": "https://meet.google.com/planning",
+        "category": "DIRECTORIO"
+    },
+    {
+        "id": 37,
+        "name": "Sala de Budget",
+        "url": "https://meet.google.com/budget",
+        "category": "DIRECTORIO"
+    },
+    {
+        "id": 38,
+        "name": "Sala de Investors",
+        "url": "https://meet.google.com/investors",
+        "category": "DIRECTORIO"
+    },
+    {
+        "id": 39,
+        "name": "Sala de Legal",
+        "url": "https://meet.google.com/legal",
+        "category": "DIRECTORIO"
+    },
+    {
+        "id": 40,
+        "name": "Sala de Compliance",
+        "url": "https://meet.google.com/compliance",
+        "category": "DIRECTORIO"
+    },
+    {
+        "id": 41,
+        "name": "Sala de Soporte Técnico",
+        "url": "https://meet.google.com/tech-support",
+        "category": "SOPORTE"
+    },
+    {
+        "id": 42,
+        "name": "Sala de Help Desk",
+        "url": "https://meet.google.com/help-desk",
+        "category": "SOPORTE"
+    },
+    {
+        "id": 43,
+        "name": "Sala de IT Support",
+        "url": "https://meet.google.com/it-support",
+        "category": "SOPORTE"
+    },
+    {
+        "id": 44,
+        "name": "Sala de Network",
+        "url": "https://meet.google.com/network",
+        "category": "SOPORTE"
+    },
+    {
+        "id": 45,
+        "name": "Sala de Security",
+        "url": "https://meet.google.com/security",
+        "category": "SOPORTE"
+    },
+    {
+        "id": 46,
+        "name": "Sala de Infrastructure",
+        "url": "https://meet.google.com/infrastructure",
+        "category": "SOPORTE"
+    },
+    {
+        "id": 47,
+        "name": "Sala de Maintenance",
+        "url": "https://meet.google.com/maintenance",
+        "category": "SOPORTE"
+    },
+    {
+        "id": 48,
+        "name": "Sala de Backup",
+        "url": "https://meet.google.com/backup",
+        "category": "SOPORTE"
+    },
+    {
+        "id": 49,
+        "name": "Sala de Finanzas",
+        "url": "https://meet.google.com/finance",
+        "category": "FINANZAS"
+    },
+    {
+        "id": 50,
+        "name": "Sala de Contabilidad",
+        "url": "https://meet.google.com/accounting",
+        "category": "FINANZAS"
+    },
+    {
+        "id": 51,
+        "name": "Sala de Auditoría",
+        "url": "https://meet.google.com/audit",
+        "category": "FINANZAS"
+    },
+    {
+        "id": 52,
+        "name": "Sala de Treasury",
+        "url": "https://meet.google.com/treasury",
+        "category": "FINANZAS"
+    },
+    {
+        "id": 53,
+        "name": "Sala de Tax",
+        "url": "https://meet.google.com/tax",
+        "category": "FINANZAS"
+    },
+    {
+        "id": 54,
+        "name": "Sala de FP&A",
+        "url": "https://meet.google.com/fpa",
+        "category": "FINANZAS"
+    },
+    {
+        "id": 55,
+        "name": "Sala de Procurement",
+        "url": "https://meet.google.com/procurement",
+        "category": "FINANZAS"
+    },
+    {
+        "id": 56,
+        "name": "Sala de Risk Management",
+        "url": "https://meet.google.com/risk",
+        "category": "FINANZAS"
+    },
+    {
+        "id": 57,
+        "name": "Sala de Diseño UX",
+        "url": "https://meet.google.com/ux-design",
+        "category": "DISEÑO"
+    },
+    {
+        "id": 58,
+        "name": "Sala de Diseño UI",
+        "url": "https://meet.google.com/ui-design",
+        "category": "DISEÑO"
+    },
+    {
+        "id": 59,
+        "name": "Sala de Diseño Gráfico",
+        "url": "https://meet.google.com/graphic-design",
+        "category": "DISEÑO"
+    },
+    {
+        "id": 60,
+        "name": "Sala de Product Design",
+        "url": "https://meet.google.com/product-design",
+        "category": "DISEÑO"
+    },
+    {
+        "id": 61,
+        "name": "Sala de Research",
+        "url": "https://meet.google.com/research",
+        "category": "DISEÑO"
+    },
+    {
+        "id": 62,
+        "name": "Sala de Prototyping",
+        "url": "https://meet.google.com/prototyping",
+        "category": "DISEÑO"
+    },
+    {
+        "id": 63,
+        "name": "Sala de Design System",
+        "url": "https://meet.google.com/design-system",
+        "category": "DISEÑO"
+    },
+    {
+        "id": 64,
+        "name": "Sala de Creative",
+        "url": "https://meet.google.com/creative",
+        "category": "DISEÑO"
+    },
+    {
+        "id": 65,
+        "name": "Sala de Product Management",
+        "url": "https://meet.google.com/product-mgmt",
+        "category": "PRODUCTO"
+    },
+    {
+        "id": 66,
+        "name": "Sala de Product Strategy",
+        "url": "https://meet.google.com/product-strategy",
+        "category": "PRODUCTO"
+    },
+    {
+        "id": 67,
+        "name": "Sala de Product Analytics",
+        "url": "https://meet.google.com/product-analytics",
+        "category": "PRODUCTO"
+    },
+    {
+        "id": 68,
+        "name": "Sala de Product Marketing",
+        "url": "https://meet.google.com/product-marketing",
+        "category": "PRODUCTO"
+    },
+    {
+        "id": 69,
+        "name": "Sala de Roadmap",
+        "url": "https://meet.google.com/roadmap",
+        "category": "PRODUCTO"
+    },
+    {
+        "id": 70,
+        "name": "Sala de Feature Planning",
+        "url": "https://meet.google.com/feature-planning",
+        "category": "PRODUCTO"
+    },
+    {
+        "id": 71,
+        "name": "Sala de User Testing",
+        "url": "https://meet.google.com/user-testing",
+        "category": "PRODUCTO"
+    },
+    {
+        "id": 72,
+        "name": "Sala de Product Launch",
+        "url": "https://meet.google.com/product-launch",
+        "category": "PRODUCTO"
+    },
+    {
+        "id": 73,
+        "name": "Sala de Operaciones",
+        "url": "https://meet.google.com/operations",
+        "category": "OPERACIONES"
+    },
+    {
+        "id": 74,
+        "name": "Sala de Logistics",
+        "url": "https://meet.google.com/logistics",
+        "category": "OPERACIONES"
+    },
+    {
+        "id": 75,
+        "name": "Sala de Supply Chain",
+        "url": "https://meet.google.com/supply-chain",
+        "category": "OPERACIONES"
+    },
+    {
+        "id": 76,
+        "name": "Sala de Quality Control",
+        "url": "https://meet.google.com/quality-control",
+        "category": "OPERACIONES"
+    },
+    {
+        "id": 77,
+        "name": "Sala de Process Improvement",
+        "url": "https://meet.google.com/process-improvement",
+        "category": "OPERACIONES"
+    },
+    {
+        "id": 78,
+        "name": "Sala de Facilities",
+        "url": "https://meet.google.com/facilities",
+        "category": "OPERACIONES"
+    },
+    {
+        "id": 79,
+        "name": "Sala de Vendor Management",
+        "url": "https://meet.google.com/vendor-mgmt",
+        "category": "OPERACIONES"
+    },
+    {
+        "id": 80,
+        "name": "Sala de Business Continuity",
+        "url": "https://meet.google.com/business-continuity",
+        "category": "OPERACIONES"
+    }
+]
