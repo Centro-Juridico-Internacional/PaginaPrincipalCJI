@@ -1,0 +1,48 @@
+---
+import meetRoomsData from '@data/data.json';
+import MeetRoomSearch from '@components/meetRoom.jsx';
+---
+
+<div
+	class="mt-24 flex min-h-[75vh] flex-col items-center justify-center p-4 sm:p-6 md:mt-4 lg:-mt-4 lg:p-8"
+>
+	<div
+		class="mx-auto min-h-[70vh] w-full max-w-sm rounded-xl border-2 border-green-600 bg-gradient-to-br from-green-800/70 to-green-400/70 p-4 shadow-lg backdrop-blur-md sm:max-w-md sm:rounded-2xl sm:border-4 sm:p-6 md:min-h-[60vh] md:max-w-2xl md:p-8 lg:max-w-4xl lg:px-12 xl:max-w-5xl xl:px-16"
+	>
+		<h1
+			class="animate-in fade-in slide-in-from-top mb-6 px-2 text-center text-xl font-bold text-gray-50 duration-500 sm:mb-8 sm:text-2xl md:text-3xl lg:text-4xl"
+		>
+			Centro Jurídico Internacional
+		</h1>
+
+		<MeetRoomSearch rooms={meetRoomsData} placeholder="Buscar salas..." client:load />
+
+		<div
+			class="animate-in fade-in slide-in-from-bottom mt-4 px-2 text-center text-xs text-gray-950 delay-300 duration-700 sm:mt-6 sm:text-sm"
+		>
+			<p>💡 Escribe para buscar salas por nombre, categoría o ID</p>
+		</div>
+		<div
+			class="mt-4 flex w-full flex-col items-center justify-center gap-4 text-center font-semibold text-green-950 sm:gap-6 md:flex-row"
+		>
+			<a
+				href="#departamentos"
+				class="bg-goldColor hover:border-goldColor w-fit rounded-xl border-4 border-yellow-600 px-6 py-3 duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-yellow-600"
+				>DEPARTAMENTOS</a
+			>
+			<a
+				href="#mesa-ayuda"
+				class="bg-goldColor hover:border-goldColor w-fit rounded-xl border-4 border-yellow-600 px-6 py-3 duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-yellow-600"
+				>MESA DE AYUDA</a
+			>
+			<a
+				href="https://drive.google.com/drive/folders/1mvA4JwNl2NnQJYlDlEiXaVcdq4cU4rVz"
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="Galería de fotos de Centro Jurídico Internacional"
+				class="bg-goldColor hover:border-goldColor w-fit rounded-xl border-4 border-yellow-600 px-6 py-3 duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-yellow-600"
+				>GALERÍA DE FOTOS</a
+			>
+		</div>
+	</div>
+</div>
