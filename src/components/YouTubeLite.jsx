@@ -44,7 +44,7 @@ export default function YouTubeLite({ videoid, id }) {
 
 	return (
 		<div className="flex h-full w-full items-center justify-center">
-			<lite-youtube videoid={videoid} id={id}>
+			<lite-youtube videoid={videoid} id={id} posterquality="maxresdefault">
 				<a
 					className="lite-youtube-fallback"
 					href={`https://www.youtube.com/watch?v=${videoid}`}
