@@ -5,12 +5,12 @@ import MeetRoomSearch from '@components/meetRoom.jsx';
 ---
 
 <Layout imgLayout="/familiaCJI/familiaIMG.webp" title="Familia CJI" boolean={true}>
-	<div class="min-h-[75vh] p-8">
+	<div class="mt-24 min-h-[75vh] p-4 sm:p-6 md:mt-4 lg:mt-0 lg:p-8">
 		<div
-			class="mx-auto w-fit max-w-2xl min-w-[50rem] rounded-2xl border-4 border-green-600 bg-gradient-to-br from-green-200 to-green-50 p-8 px-16 shadow-lg"
+			class="mx-auto w-full max-w-sm rounded-xl border-2 border-green-600 bg-gradient-to-br from-green-800/70 to-green-400/70 p-4 shadow-lg backdrop-blur-md sm:max-w-md sm:rounded-2xl sm:border-4 sm:p-6 md:max-w-2xl md:p-8 lg:max-w-4xl lg:px-12 xl:max-w-5xl xl:px-16"
 		>
 			<h1
-				class="animate-in fade-in slide-in-from-top mb-8 text-center text-3xl font-bold text-green-800 duration-500"
+				class="animate-in fade-in slide-in-from-top mb-6 px-2 text-center text-xl font-bold text-gray-50 duration-500 sm:mb-8 sm:text-2xl md:text-3xl lg:text-4xl"
 			>
 				Centro Jurídico Internacional
 			</h1>
@@ -18,10 +18,43 @@ import MeetRoomSearch from '@components/meetRoom.jsx';
 			<MeetRoomSearch rooms={meetRoomsData} placeholder="Buscar salas..." client:load />
 
 			<div
-				class="animate-in fade-in slide-in-from-bottom mt-4 text-center text-sm text-gray-950 delay-300 duration-700"
+				class="animate-in fade-in slide-in-from-bottom mt-4 px-2 text-center text-xs text-gray-950 delay-300 duration-700 sm:mt-6 sm:text-sm"
 			>
 				<p>💡 Escribe para buscar salas por nombre, categoría o ID</p>
 			</div>
 		</div>
 	</div>
+
+	<style>
+		/* Optimizaciones adicionales para mobile */
+		@media (max-width: 640px) {
+			.min-h-\[75vh\] {
+				min-height: 100vh;
+				padding-top: 2rem;
+				padding-bottom: 2rem;
+			}
+		}
+
+		/* Mejoras para tablets */
+		@media (min-width: 641px) and (max-width: 1024px) {
+			.min-h-\[75vh\] {
+				min-height: 80vh;
+			}
+		}
+
+		/* Optimización para pantallas muy pequeñas */
+		@media (max-width: 375px) {
+			.min-h-\[75vh\] {
+				padding: 1rem;
+			}
+		}
+
+		/* Mejoras para landscape en móviles */
+		@media (max-height: 500px) and (orientation: landscape) {
+			.min-h-\[75vh\] {
+				min-height: 100vh;
+				padding: 1rem;
+			}
+		}
+	</style>
 </Layout>

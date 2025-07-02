@@ -78,15 +78,15 @@ export default function MeetRoomSearch({ rooms, placeholder = 'Buscar salas...',
 	const showCategories = !debouncedSearchTerm.trim() && !isSearching;
 
 	return (
-		<div className={`mx-auto w-full max-w-4xl ${className}`}>
+		<div className={`mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8 ${className}`}>
 			{/* Campo de búsqueda */}
-			<div className="relative mx-auto mb-4 max-w-md">
+			<div className="relative mx-auto mb-4 w-full max-w-md">
 				<input
 					type="text"
 					placeholder={placeholder}
 					value={searchTerm}
 					onChange={(e) => setSearchTerm(e.target.value)}
-					className="w-full rounded-full border border-gray-300 bg-white px-4 py-3 pr-12 text-gray-700 shadow-sm transition-all duration-200 focus:border-transparent focus:shadow-md focus:ring-2 focus:ring-green-500 focus:outline-none"
+					className="w-full touch-manipulation rounded-full border border-gray-300 bg-white px-4 py-3 pr-12 text-base text-gray-700 shadow-sm transition-all duration-200 focus:border-transparent focus:shadow-md focus:ring-2 focus:ring-green-500 focus:outline-none sm:text-sm"
 				/>
 				<div className="absolute top-1/2 right-3 -translate-y-1/2 transform">
 					{isSearching ? (
@@ -101,7 +101,7 @@ export default function MeetRoomSearch({ rooms, placeholder = 'Buscar salas...',
 			<div className="relative">
 				{/* Indicador de búsqueda */}
 				{isSearching && searchTerm.trim() && (
-					<div className="tw-pulse mx-auto mb-4 max-w-md rounded-lg border border-gray-200 bg-white p-4 shadow-lg">
+					<div className="tw-pulse mx-auto mb-4 w-full max-w-md rounded-lg border border-gray-200 bg-white p-4 shadow-lg">
 						<div className="flex items-center justify-center gap-2 text-gray-500">
 							<Loader2 className="tw-spin h-4 w-4 text-green-500" />
 							<span className="text-sm">Buscando salas...</span>
@@ -111,7 +111,7 @@ export default function MeetRoomSearch({ rooms, placeholder = 'Buscar salas...',
 
 				{/* Resultados - Solo se muestran si hay búsqueda y no está cargando */}
 				{showResults && (
-					<div className="tw-slide-in mx-auto mb-4 max-w-md overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg">
+					<div className="tw-slide-in mx-auto mb-4 w-full max-w-md overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg">
 						{hasResults ? (
 							Object.entries(filteredAndGroupedRooms).map(
 								([category, categoryRooms], categoryIndex) => (
@@ -125,8 +125,8 @@ export default function MeetRoomSearch({ rooms, placeholder = 'Buscar salas...',
 										{/* Header de categoría */}
 										<div className="border-b border-gray-200 bg-gray-50 px-4 py-2">
 											<div className="flex items-center gap-2">
-												<div className="tw-pulse h-2 w-2 rounded-full bg-gray-400"></div>
-												<h3 className="text-sm font-medium tracking-wide text-gray-700 uppercase">
+												<div className="tw-pulse h-2 w-2 rounded-full bg-green-400"></div>
+												<h3 className="text-xs font-medium tracking-wide text-gray-700 uppercase sm:text-sm">
 													{category}
 												</h3>
 											</div>
@@ -144,15 +144,15 @@ export default function MeetRoomSearch({ rooms, placeholder = 'Buscar salas...',
 													<button
 														key={room.id}
 														onClick={() => handleJoinRoom(room.url)}
-														className="group tw-fade-in-up flex w-full transform items-center justify-between rounded px-3 py-2 text-left text-sm text-gray-700 transition-all duration-200 hover:scale-[1.02] hover:bg-gray-50 hover:shadow-sm"
+														className="group tw-fade-in-up flex w-full transform touch-manipulation items-center justify-between rounded px-3 py-3 text-left text-sm text-gray-700 transition-all duration-200 hover:scale-[1.02] hover:bg-gray-50 hover:shadow-sm active:scale-[0.98] sm:py-2"
 														style={{
 															animationDelay: `${categoryIndex * 0.1 + roomIndex * 0.05 + 0.2}s`
 														}}
 													>
-														<span className="transition-colors duration-200 group-hover:text-gray-900">
+														<span className="truncate pr-2 transition-colors duration-200 group-hover:text-gray-900">
 															{room.name}
 														</span>
-														<span className="translate-x-2 transform text-xs text-gray-400 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100">
+														<span className="flex-shrink-0 translate-x-2 transform text-xs text-gray-400 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100">
 															Unirse →
 														</span>
 													</button>
@@ -181,8 +181,8 @@ export default function MeetRoomSearch({ rooms, placeholder = 'Buscar salas...',
 							</h3>
 						</div>
 
-						{/* Grid de dos columnas */}
-						<div className="grid grid-cols-1 divide-y divide-gray-100 md:grid-cols-2 md:divide-x md:divide-y-0">
+						{/* Grid responsive - 1 columna en mobile, 2 en desktop */}
+						<div className="grid grid-cols-1 divide-y divide-gray-100 lg:grid-cols-2 lg:divide-x lg:divide-y-0">
 							{Object.entries(allRoomsByCategory).map(
 								([category, categoryRooms], categoryIndex) => (
 									<div
@@ -195,17 +195,18 @@ export default function MeetRoomSearch({ rooms, placeholder = 'Buscar salas...',
 										{/* Header de categoría clickeable */}
 										<button
 											onClick={() => toggleCategory(category)}
-											className="group flex w-full items-center justify-between border-b border-gray-100 px-4 py-3 text-left transition-colors duration-200 hover:bg-gray-50"
+											className="group flex w-full touch-manipulation items-center justify-between border-b border-gray-100 px-4 py-4 text-left transition-colors duration-200 hover:bg-gray-50 active:bg-gray-100 sm:py-3"
 										>
 											<div className="flex items-center gap-3">
 												<div className="h-2 w-2 rounded-full bg-green-500"></div>
-												<span className="text-sm font-medium text-gray-700 transition-colors duration-200 group-hover:text-gray-900">
+												<span className="text-sm font-medium text-gray-700 transition-colors duration-200 group-hover:text-gray-900 sm:text-sm">
 													{category}
 												</span>
 												<span className="rounded-full bg-gray-100 px-2 py-1 text-xs text-gray-500">
 													{categoryRooms.length}
 												</span>
 											</div>
+
 											<div className="transition-transform duration-200">
 												{expandedCategories[category] ? (
 													<ChevronDown className="h-4 w-4 text-gray-400" />
@@ -218,12 +219,12 @@ export default function MeetRoomSearch({ rooms, placeholder = 'Buscar salas...',
 										{/* Lista de salas expandible */}
 										{expandedCategories[category] && (
 											<div className="tw-expand-down bg-gray-50 px-4 py-2">
-												<div className="max-h-64 space-y-1 overflow-y-auto">
+												<div className="mobile-scroll max-h-64 space-y-1 overflow-y-auto sm:max-h-64">
 													{categoryRooms.map((room, roomIndex) => (
 														<button
 															key={room.id}
 															onClick={() => handleJoinRoom(room.url)}
-															className="group tw-fade-in-up flex w-full items-center justify-between rounded px-3 py-2 text-left text-sm text-gray-600 transition-all duration-200 hover:bg-white hover:text-gray-800 hover:shadow-sm"
+															className="group tw-fade-in-up flex w-full touch-manipulation items-center justify-between rounded px-3 py-3 text-left text-sm text-gray-600 transition-all duration-200 hover:bg-white hover:text-gray-800 hover:shadow-sm active:scale-[0.98] sm:py-2"
 															style={{
 																animationDelay: `${roomIndex * 0.05}s`
 															}}
@@ -247,7 +248,7 @@ export default function MeetRoomSearch({ rooms, placeholder = 'Buscar salas...',
 				)}
 			</div>
 
-			{/* Estilos CSS para Tailwind v4 */}
+			{/* Estilos CSS optimizados para mobile */}
 			<style jsx>{`
 				.tw-spin {
 					animation: spin 1s linear infinite;
@@ -339,23 +340,38 @@ export default function MeetRoomSearch({ rooms, placeholder = 'Buscar salas...',
 					}
 				}
 
-				/* Scroll personalizado para las listas largas */
-				.space-y-1::-webkit-scrollbar {
-					width: 4px;
+				/* Scroll optimizado para mobile */
+				.mobile-scroll::-webkit-scrollbar {
+					width: 6px;
 				}
 
-				.space-y-1::-webkit-scrollbar-track {
+				.mobile-scroll::-webkit-scrollbar-track {
 					background: #f1f5f9;
-					border-radius: 2px;
+					border-radius: 3px;
 				}
 
-				.space-y-1::-webkit-scrollbar-thumb {
+				.mobile-scroll::-webkit-scrollbar-thumb {
 					background: #cbd5e1;
-					border-radius: 2px;
+					border-radius: 3px;
 				}
 
-				.space-y-1::-webkit-scrollbar-thumb:hover {
+				.mobile-scroll::-webkit-scrollbar-thumb:hover {
 					background: #94a3b8;
+				}
+
+				/* Mejoras para touch en mobile */
+				@media (max-width: 640px) {
+					.touch-manipulation {
+						touch-action: manipulation;
+						-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+					}
+				}
+
+				/* Optimizaciones adicionales para pantallas pequeñas */
+				@media (max-width: 480px) {
+					.mobile-scroll {
+						max-height: 200px;
+					}
 				}
 			`}</style>
 		</div>
