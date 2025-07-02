@@ -1,0 +1,93 @@
+---
+const DEPARTAMENTS = [
+	{
+		name: 'Calidad',
+		image: '/funcionarios/panel-calidad.webp',
+		url: 'https://sites.google.com/centrojuridicointernacional.com/calidad/inicio'
+	},
+	{
+		name: 'Cartera',
+		image: '/funcionarios/panel-cartera.webp',
+		url: 'https://sites.google.com/centrojuridicointernacional.com/cartera/inicio'
+	},
+	{
+		name: 'Comercial',
+		image: '/funcionarios/panel-comercial.webp',
+		url: 'https://sites.google.com/centrojuridicointernacional.com/comercial/inicio'
+	},
+	{
+		name: 'Desarrollos',
+		image: '/funcionarios/panel-desarrollos.webp',
+		url: 'https://sites.google.com/centrojuridicointernacional.com/desarrollos/inicio'
+	},
+	{
+		name: 'Jurídico',
+		image: '/funcionarios/panel-juridico.webp',
+		url: 'https://sites.google.com/centrojuridicointernacional.com/juridica/inicio'
+	},
+	{
+		name: 'Operativa',
+		image: '/funcionarios/panel-operativa.webp',
+		url: 'https://sites.google.com/centrojuridicointernacional.com/coordinacion-operativa/inicio'
+	},
+	{
+		name: 'Recuperación',
+		image: '/funcionarios/panel-recuperacion.webp',
+		url: 'https://sites.google.com/centrojuridicointernacional.com/recuperacion/inicio'
+	},
+	{
+		name: 'Talento',
+		image: '/funcionarios/panel-talento.webp',
+		url: 'https://sites.google.com/centrojuridicointernacional.com/personal/inicio'
+	}
+];
+---
+
+<div
+	class="mx-auto flex min-h-[75vh] w-[90vw] flex-wrap items-center justify-center gap-6 p-4 md:w-[70vw]"
+>
+	{
+		DEPARTAMENTS.map((i) => (
+			<a
+				href={i.url}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="group relative block w-fit rounded-lg border-2 border-yellow-600 bg-gradient-to-br from-yellow-400/70 to-yellow-800/70 p-4 shadow-lg backdrop-blur-md transition-transform duration-300 hover:scale-105 hover:bg-yellow-500"
+			>
+				<img src={i.image} alt={i.name} class="mb-4 size-60 rounded-lg" />
+				<h2 class="text-center text-xl font-bold text-gray-50 group-hover:text-green-950">
+					{i.name}
+				</h2>
+			</a>
+		))
+	}
+
+	<div>
+		<div
+			class="mx-auto flex flex-col items-center justify-center rounded-xl border-2 border-green-600 bg-gradient-to-br from-green-800/80 to-green-500/80 p-4 text-center shadow-lg backdrop-blur-md sm:rounded-2xl sm:border-4"
+		>
+			<h2 class="text-goldColor mb-4 text-4xl font-bold">Eventos de la Empresa</h2>
+			<h3 class="font-bold text-white">Momentos más importantes de nuestra empresa.</h3>
+		</div>
+		<div class="flex h-fit w-full items-center justify-center py-4">
+			<iframe
+				class="mt-2 max-w-[90vw] rounded-3xl"
+				src="https://docs.google.com/presentation/d/e/2PACX-1vRix2FaPEZHM14dd8e2ogcfngmHzUnSFzOV6j2lX7mF0KiOT-MKEhxEt1Xb84_8kseES4NMFpiUctTw/pubembed?start=true&loop=true&delayms=3000"
+				frameborder="0"
+				width="960"
+				height="569"
+				allowfullscreen
+				tabindex={-1}></iframe>
+		</div>
+		<a
+			href="https://docs.google.com/presentation/d/1bNoLibbDHDvrtLGUp2KXUF4EJ9VoMsLIn4BAMShOrXI/present?slide=id.g14359737804_0_61"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="group relative mx-auto -mt-3 block w-fit rounded-lg border-2 border-yellow-600 bg-gradient-to-br from-yellow-400/80 to-yellow-800/80 px-4 py-2 shadow-lg backdrop-blur-md transition-transform duration-400 hover:scale-105 hover:bg-yellow-500"
+		>
+			<h2 class="text-center text-xl font-bold text-gray-50 group-hover:text-green-950">
+				Ver en pantalla completa
+			</h2>
+		</a>
+	</div>
+</div>
