@@ -1,6 +1,6 @@
 // Slides.jsx
 import React, { useState, useEffect, useRef } from 'react';
-import ImageCarouselPSC from '@components/ImageCarouselPSC';
+import ImageCarouselPSC from '@components/carrousel/ImageCarouselPSC';
 
 const images = [
 	'/portafolio/1_.jpg',
