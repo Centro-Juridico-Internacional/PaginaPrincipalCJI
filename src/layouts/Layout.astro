@@ -101,3 +101,35 @@ const { imgLayout, title, boolean } = Astro.props;
 </html>
 
 <script src="@scripts/resizeMainPage.js"></script>
+<script>
+	// --- Comunicación con el dominio principal para sincronizar la URL ---
+	// Función que envía la ruta actual al contenedor (iframe padre)
+	function sendPathToParent() {
+		try {
+			const currentPath = window.location.pathname + window.location.search + window.location.hash;
+			window.parent.postMessage({ path: currentPath }, 'https://centrojuridicointernacional.co');
+		} catch (err) {
+			console.warn('No se pudo enviar la ruta al dominio padre:', err);
+		}
+	}
+
+	// Enviar la ruta inicial cuando carga la página
+	sendPathToParent();
+
+	// Detectar cambios de ruta con el API de History y ViewTransitions de Astro
+	let lastPath = window.location.pathname;
+	const observer = new MutationObserver(() => {
+		const newPath = window.location.pathname;
+		if (newPath !== lastPath) {
+			lastPath = newPath;
+			sendPathToParent();
+		}
+	});
+	observer.observe(document.body, { subtree: true, childList: true });
+
+	// Detectar cambios con popstate (cuando el usuario usa atrás/adelante)
+	window.addEventListener('popstate', sendPathToParent);
+
+	// También escuchar los eventos de transiciones de Astro
+	document.addEventListener('astro:after-swap', sendPathToParent);
+</script>
