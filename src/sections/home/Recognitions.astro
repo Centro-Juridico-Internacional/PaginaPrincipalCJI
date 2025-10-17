@@ -8,29 +8,26 @@ import YouTubeLite from '@components/global/YouTubeLite.jsx';
 <section
 	class="flex h-fit w-full items-center justify-center bg-gradient-to-b from-green-600 to-green-950 pt-12 pb-6"
 >
-	<div id="parent" class="w-[95vw]">
-		<div class="flex items-center" id="div1">
+	<div class="grid grid-cols-3 grid-rows-4 gap-4">
+		<div class="col-span-2 row-span-4 flex items-center justify-center">
 			<img src="/mainImg/ranking.webp" alt="rankingImg" />
 		</div>
-		<div class="flex items-center" id="div2">
-			<img src="/mainImg/Encuentro.webp" alt="rankingImg" />
-		</div>
-		<div class="flex items-start" id="div3">
+		<div class="col-start-3">
 			<YouTubeLite videoid={'JNd2W8CdxYc'} id={'JNd2W8CdxYc'} client:load />
 		</div>
-		<div class="flex items-center" id="div4">
+		<div class="col-start-3 row-start-2">
 			<YouTubeLite videoid={'PAc7ufU_Sv4'} id={'PAc7ufU_Sv4'} client:load />
 		</div>
-		<div class="flex items-center" id="div5">
+		<div class="col-start-3 row-start-3">
 			<YouTubeLite videoid={'4o4jjariG8k'} id={'4o4jjariG8k'} client:load />
 		</div>
-		<div class="flex items-center" id="div6">
+		<div class="col-start-3 row-start-4">
 			<YouTubeLite videoid={'3trxgJr13vE'} id={'3trxgJr13vE'} client:load />
 		</div>
 	</div>
 </section>
 
-<style>
+<!-- <style>
 	#parent {
 		display: grid;
 		grid-template-columns: repeat(11, 1fr);
@@ -42,9 +39,9 @@ import YouTubeLite from '@components/global/YouTubeLite.jsx';
 	#div1 {
 		grid-area: 1 / 1 / 4 / 8;
 	}
-	#div2 {
+	/* #div2 {
 		grid-area: 4 / 1 / 9 / 8;
-	}
+	} */
 	#div3 {
 		grid-area: 1 / 8 / 3 / 12;
 	}
@@ -86,4 +83,4 @@ import YouTubeLite from '@components/global/YouTubeLite.jsx';
 			grid-area: 6 / 2 / 7 / 3;
 		}
 	}
-</style>
+</style> -->
