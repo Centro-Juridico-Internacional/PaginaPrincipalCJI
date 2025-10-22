@@ -1,0 +1,403 @@
+{
+    "departamentos": [
+        {
+            "name": "GERENCIA",
+            "description": "El departamento de Gerencia lidera la dirección estratégica de la organización, asegurando el cumplimiento de los objetivos institucionales y el correcto funcionamiento de todas las áreas.",
+            "content": []
+        },
+        {
+            "name": "JURIDICA",
+            "description": "El departamento jurídico se encarga de asesorar, analizar y garantizar el cumplimiento normativo dentro de la organización, apoyando la gestión legal de todos los procesos.",
+            "content": [
+                {
+                    "name": "Lesly Cabra",
+                    "image": "/images/juridica/J1.webp",
+                    "description": "Lesly es una abogada con experiencia en derecho corporativo.",
+                    "cargo": "JURIDICO 1"
+                },
+                {
+                    "name": "Daniela Melo León",
+                    "image": "/images/juridica/J2.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 2"
+                },
+                {
+                    "name": "Alberto Mario Jaramillo",
+                    "image": "/images/juridica/J3.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 3"
+                },
+                {
+                    "name": "Paula Tiusaba",
+                    "image": "/images/juridica/J4.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 4"
+                },
+                {
+                    "name": "Camila Pulgarín",
+                    "image": "/images/juridica/J5.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 5"
+                },
+                {
+                    "name": "",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 6"
+                },
+                {
+                    "name": "Camilo García",
+                    "image": "/images/juridica/J7.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 7"
+                },
+                {
+                    "name": "Juan Felipe Martín",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 8"
+                },
+                {
+                    "name": "Nicolás Adolfo Rojas Beltrán",
+                    "image": "/images/juridica/J9.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 9"
+                },
+                {
+                    "name": "Linda Ramos",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 10 - SG SST"
+                },
+                {
+                    "name": "Santiago Rozo",
+                    "image": "/images/juridica/J11.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 11"
+                },
+                {
+                    "name": "Andrés Santiago Villamil Marcelo",
+                    "image": "/images/juridica/J12.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 12"
+                },
+                {
+                    "name": "Andrés Quintana",
+                    "image": "/images/juridica/J13.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 13"
+                },
+                {
+                    "name": "Angélica Penagos",
+                    "image": "/images/juridica/J14.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 14"
+                },
+                {
+                    "name": "Laura Guiza",
+                    "image": "/images/juridica/J15.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 15 - SG SST"
+                },
+                {
+                    "name": "Luisa Fernanda Corredor",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 16"
+                },
+                {
+                    "name": "",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 17"
+                },
+                {
+                    "name": "Diego Solano",
+                    "image": "/images/juridica/J18.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 18"
+                },
+                {
+                    "name": "Gabriela Carvajal",
+                    "image": "/images/juridica/J19.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 19"
+                },
+                {
+                    "name": "Juan Sebastián Cabrera",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 20"
+                },
+                {
+                    "name": "Jhamilton Salamanca",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 21"
+                },
+                {
+                    "name": "Danna Piñeros",
+                    "image": "/images/juridica/J22.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 22"
+                },
+                {
+                    "name": "Georlleth Jaramillo",
+                    "image": "/images/juridica/J23.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 23"
+                },
+                {
+                    "name": "Daniela Páez",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 24"
+                },
+                {
+                    "name": "Karen Valencia",
+                    "image": "/images/juridica/J25.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 25"
+                },
+                {
+                    "name": "Vanessa Díaz",
+                    "image": "/images/juridica/J26.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 26"
+                },
+                {
+                    "name": "Stefany Valentina Moreno Valencia",
+                    "image": "/images/juridica/J27.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 27 - SG SST"
+                },
+                {
+                    "name": "Juan Andrés Navarrete",
+                    "image": "/images/juridica/J28.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 28"
+                },
+                {
+                    "name": "Rubén Castiblanco",
+                    "image": "/images/juridica/J29.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 29"
+                },
+                {
+                    "name": "Laura Reyes",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 30 - SG SST"
+                },
+                {
+                    "name": "María Fernanda Rondón Torres",
+                    "image": "/images/juridica/J31.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 31"
+                },
+                {
+                    "name": "Gabriela Ardila",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 32"
+                },
+                {
+                    "name": "Ángela Joya",
+                    "image": "/images/juridica/J33.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 33"
+                },
+                {
+                    "name": "Sara Liliana Rodríguez",
+                    "image": "/images/juridica/J34.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 34"
+                },
+                {
+                    "name": "Practicantes",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 35"
+                },
+                {
+                    "name": "Nicolás Ríos Quitián",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 36"
+                },
+                {
+                    "name": "Javier Imbajoa",
+                    "image": "/images/juridica/J37.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 37"
+                },
+                {
+                    "name": "Geraldine Monroy",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 38 - SG SST"
+                },
+                {
+                    "name": "Andrés Rodríguez Toro",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 39"
+                },
+                {
+                    "name": "Omar Vega",
+                    "image": "/images/juridica/J40.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 40"
+                },
+                {
+                    "name": "Valentina Velásquez",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 41"
+                },
+                {
+                    "name": "David Santiago Varela",
+                    "image": "/images/juridica/J42.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 42"
+                },
+                {
+                    "name": "David Santiago Lesmes Lugo",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 43"
+                },
+                {
+                    "name": "Laura Camila Pabón Mora",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 44"
+                },
+                {
+                    "name": "Sergio Andrés Sanabria",
+                    "image": "/images/juridica/J45.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 45"
+                },
+                {
+                    "name": "Mateo Echeverry",
+                    "image": "/images/juridica/J46.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 46"
+                },
+                {
+                    "name": "Tomás Cuéllar",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 47"
+                },
+                {
+                    "name": "Daniela Navarrete",
+                    "image": "/images/juridica/J48.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 48"
+                },
+                {
+                    "name": "Laura Quevedo",
+                    "image": "/images/juridica/J49.webp",
+                    "description": "",
+                    "cargo": "JURIDICO 49"
+                },
+                {
+                    "name": "Laura Valentina García Penagos",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 50"
+                },
+                {
+                    "name": "Juan Padilla",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 51"
+                },
+                {
+                    "name": "Danna Arias",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 52"
+                },
+                {
+                    "name": "Cristian García",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 53"
+                },
+                {
+                    "name": "Felipe Puerto",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 54"
+                },
+                {
+                    "name": "Isabella Bejarano",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 55"
+                },
+                {
+                    "name": "Daniela Mayerly Barrera",
+                    "image": "",
+                    "description": "",
+                    "cargo": "JURIDICO 56"
+                },
+                {
+                    "name": "Cristian Cortés - SG SST",
+                    "image": "",
+                    "description": "",
+                    "cargo": "TALETO HUMANO - SG SST"
+                },
+                {
+                    "name": "Daniela Chaves",
+                    "image": "/images/juridica/A1.webp",
+                    "description": "",
+                    "cargo": "AUDITORIA"
+                }
+            ]
+        },
+        {
+            "name": "CONTABILIDAD",
+            "description": "El departamento de Contabilidad gestiona los recursos financieros de la organización, garantizando la correcta administración, control y reporte de las operaciones contables.",
+            "content": []
+        },
+        {
+            "name": "RRHH",
+            "description": "El departamento de Recursos Humanos se encarga de la gestión del talento, el bienestar laboral y el desarrollo profesional de todos los colaboradores de la organización.",
+            "content": []
+        },
+        {
+            "name": "COMERCIAL",
+            "description": "El departamento Comercial impulsa el crecimiento de la organización mediante la gestión de clientes, estrategias de ventas y el fortalecimiento de relaciones comerciales.",
+            "content": []
+        },
+        {
+            "name": "SEMINARIO",
+            "description": "El departamento de Seminario organiza, coordina y ejecuta actividades académicas, capacitaciones y eventos formativos para fortalecer el conocimiento institucional.",
+            "content": []
+        },
+        {
+            "name": "CARTERA",
+            "description": "El departamento de Cartera administra la gestión de cobros, pagos y recuperación de cartera, asegurando la estabilidad financiera y el flujo de recursos.",
+            "content": []
+        },
+        {
+            "name": "CALIDAD",
+            "description": "El departamento de Calidad se encarga de garantizar que todos los procesos internos cumplan con los estándares establecidos, promoviendo la mejora continua.",
+            "content": []
+        },
+        {
+            "name": "RECUPERACION",
+            "description": "El departamento de Recuperación trabaja en la gestión y resolución de procesos relacionados con la recuperación de activos y la defensa de los intereses institucionales.",
+            "content": []
+        },
+        {
+            "name": "DESARROLLO",
+            "description": "El departamento de Desarrollo impulsa la innovación tecnológica y la mejora de sistemas internos para optimizar la eficiencia y el crecimiento organizacional.",
+            "content": []
+        }
+    ]
+}
