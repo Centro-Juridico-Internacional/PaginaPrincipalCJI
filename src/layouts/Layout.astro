@@ -63,7 +63,7 @@ const { imgLayout, title, boolean } = Astro.props;
 			property="og:description"
 			content="Abogados expertos en derecho y recaudo de cartera. Proteja su empresa legalmente. Consultas jurídicas para empresas y particulares en Colombia."
 		/>
-		<meta property="og:image" content=`header/logoMainCJI.svg` />
+		<meta property="og:image" content="/header/logoMainCJI.svg" />
 		<meta property="og:url" content="https://centrojuridicointernacional.co/" />
 		<meta property="og:site_name" content="Centro Jurídico Internacional" />
 
@@ -77,7 +77,7 @@ const { imgLayout, title, boolean } = Astro.props;
 			name="twitter:description"
 			content="Firma legal especializada en protección jurídica empresarial y recuperación de cartera en Colombia."
 		/>
-		<meta name="twitter:image" content=`header/logoMainCJI.svg` />
+		<meta name="twitter:image" content="/header/logoMainCJI.svg" />
 
 		<!-- Canonical -->
 		<link rel="canonical" href="https://centrojuridicointernacional.co/" />
@@ -102,21 +102,27 @@ const { imgLayout, title, boolean } = Astro.props;
 
 <script src="@scripts/resizeMainPage.js"></script>
 <script>
-	// --- Comunicación con el dominio principal para sincronizar la URL ---
-	// Función que envía la ruta actual al contenedor (iframe padre)
+	// --- Comunicación con el dominio principal (WordPress) ---
 	function sendPathToParent() {
 		try {
 			const currentPath = window.location.pathname + window.location.search + window.location.hash;
-			window.parent.postMessage({ path: currentPath }, 'https://centrojuridicointernacional.co');
+			const title = document.title;
+			const favicon =
+				(document.querySelector("link[rel~='icon']") as HTMLLinkElement)?.href || null;
+
+			window.parent.postMessage(
+				{ path: currentPath, title, favicon },
+				'https://centrojuridicointernacional.co'
+			);
 		} catch (err) {
 			console.warn('No se pudo enviar la ruta al dominio padre:', err);
 		}
 	}
 
-	// Enviar la ruta inicial cuando carga la página
+	// Enviar ruta inicial
 	sendPathToParent();
 
-	// Detectar cambios de ruta con el API de History y ViewTransitions de Astro
+	// Detectar cambios de ruta
 	let lastPath = window.location.pathname;
 	const observer = new MutationObserver(() => {
 		const newPath = window.location.pathname;
@@ -127,9 +133,9 @@ const { imgLayout, title, boolean } = Astro.props;
 	});
 	observer.observe(document.body, { subtree: true, childList: true });
 
-	// Detectar cambios con popstate (cuando el usuario usa atrás/adelante)
+	// Detectar navegación atrás/adelante
 	window.addEventListener('popstate', sendPathToParent);
 
-	// También escuchar los eventos de transiciones de Astro
+	// Detectar transiciones de Astro
 	document.addEventListener('astro:after-swap', sendPathToParent);
 </script>
