@@ -47,9 +47,9 @@ const btnTwo = BUTTONS.slice(3);
 			{btnTwo.map((i) => <ButtonPortafolio text={i.text} dataSlide={i.slide} />)}
 		</div>
 	</div>
-	<div class="flex w-[90%] items-center justify-center md:w-[42.5%]">
-		<Slides client:load />
-	</div>
+        <div class="flex w-[90%] items-center justify-center md:w-[42.5%]">
+                <Slides client:visible />
+        </div>
 	<section class="mt-12 flex w-[90%] gap-8 md:hidden" id="buttons-portafolio-mobile">
 		<div class="flex flex-col items-end">
 			{btnOne.map((i) => <ButtonPortafolio text={i.text} dataSlide={i.slide} />)}
@@ -65,19 +65,43 @@ const btnTwo = BUTTONS.slice(3);
 	</div>
 </section>
 
-<script>
-	function updateCartHeights() {
-		const height = document.getElementById('carruselContainer')?.offsetHeight;
-		const cartOne = document.getElementById('cartWhitePortafolioSection1');
-		const cartTwo = document.getElementById('cartWhitePortafolioSection2');
+<script type="module" is:inline>
+        const resizeColumns = () => {
+                const carousel = document.getElementById('carruselContainer');
+                const height = carousel?.offsetHeight ?? null;
+                const cartOne = document.getElementById('cartWhitePortafolioSection1');
+                const cartTwo = document.getElementById('cartWhitePortafolioSection2');
 
-		if (cartOne && cartTwo) {
-			cartOne.style.height = `${height}px`;
-			cartTwo.style.height = `${height}px`;
-		}
-	}
+                if (height === null || !cartOne || !cartTwo) {
+                        return;
+                }
 
-	window.addEventListener('load', updateCartHeights);
-	window.addEventListener('resize', updateCartHeights);
-	document.addEventListener('astro:page-load', updateCartHeights);
+                const heightValue = `${height}px`;
+                cartOne.style.height = heightValue;
+                cartTwo.style.height = heightValue;
+        };
+
+        const setup = () => {
+                resizeColumns();
+        };
+
+        const cleanup = () => {
+                window.removeEventListener('resize', resizeColumns);
+                document.removeEventListener('astro:page-load', setup);
+                document.removeEventListener('astro:after-swap', setup);
+        };
+
+        window.addEventListener('resize', resizeColumns);
+        document.addEventListener('astro:page-load', setup);
+        document.addEventListener('astro:after-swap', setup);
+        document.addEventListener('astro:before-swap', cleanup, { once: true });
+        window.addEventListener('pagehide', cleanup, { once: true });
+
+        if (document.readyState === 'complete') {
+                setup();
+        } else {
+                window.addEventListener('load', setup, { once: true });
+        }
+
+        export {};
 </script>

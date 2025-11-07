@@ -16,11 +16,7 @@ const images = [
 ];
 ---
 
-<section
-	id="MainPage"
-	class="flex flex-col items-center justify-center gap-y-6 text-white"
-	style=""
->
+<section id="MainPage" class="flex flex-col items-center justify-center gap-y-6 text-white">
 	<div class="h-fit">
 		<h1 class="xs:text-5xl flex items-center justify-center text-center text-3xl font-semibold">
 			Familia
@@ -32,6 +28,6 @@ const images = [
 	</div>
 </section>
 <div class="flex h-full w-screen flex-col items-center justify-center bg-gray-50 py-5">
-	<ImgCarousel images={images} client:load />
-	<ImgCarouselMobile images={images} autoSlide={true} slide={0} resetTrigger={0} client:load />
+        <ImgCarousel images={images} client:visible />
+        <ImgCarouselMobile images={images} autoSlide={true} slide={0} resetTrigger={0} client:visible />
 </div>
