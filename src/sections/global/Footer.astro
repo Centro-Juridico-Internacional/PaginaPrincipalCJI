@@ -32,30 +32,17 @@ const SOCIALMEDIA = [
 	class="h-fit w-screen bg-[#084A00] text-[10px] text-gray-50 sm:text-base"
 	transition:name="footer"
 >
-        <div class="flex h-fit w-full">
-                <img
-                        src="/footer/logo.svg"
-                        alt="Logotipo Centro Jurídico Internacional"
-                        class="w-full bg-white pt-20"
-                        loading="lazy"
-                        decoding="async"
-                />
-        </div>
+	<div class="flex h-fit w-full">
+		<img src="/footer/logo.svg" alt="logoImage" class="w-full bg-white pt-20" />
+	</div>
 	<div class="flex flex-wrap justify-center xl:flex-nowrap">
 		<div
 			class="mx-4 flex h-fit w-[80vw] items-start justify-center gap-x-12 bg-[#084A00] sm:ml-8 xl:w-1/2 xl:flex-nowrap"
 		>
 			<div id="Bogota" class="mb-8 flex w-1/3 flex-col">
-                                <h3 class="flex justify-between text-[80%]">
-                                        SEDE PRINCIPAL BOGOTA
-                                        <img
-                                                src="/footer/col.svg"
-                                                alt="Bandera de Colombia"
-                                                class="w-auto max-w-12"
-                                                loading="lazy"
-                                                decoding="async"
-                                        />
-                                </h3>
+				<h3 class="flex justify-between text-[80%]">
+					SEDE PRINCIPAL BOGOTA <img src="/footer/col.svg" alt="imageCol" class="w-auto max-w-12" />
+				</h3>
 				<p>
 					Dirección: <a
 						href="https://maps.app.goo.gl/9hVc2UAe7Wyuq7eV9"
@@ -131,16 +118,9 @@ const SOCIALMEDIA = [
 				</p>
 			</div>
 			<div id="Usa" class="mb-8 w-1/3">
-                                <h3 class="flex justify-between text-[80%]">
-                                        CONTACTO USA
-                                        <img
-                                                src="/footer/usa.svg"
-                                                alt="Bandera de Estados Unidos"
-                                                class="w-2/10"
-                                                loading="lazy"
-                                                decoding="async"
-                                        />
-                                </h3>
+				<h3 class="flex justify-between text-[80%]">
+					CONTACTO USA <img src="/footer/usa.svg" alt="imageUsa" class="w-2/10" />
+				</h3>
 				<p>
 					Dirección: 1395 Brickel AVE. <br />8 TH FLOOR<br />MIAMI, FL<br />Acevedo Associates<br
 					/>Miami - USA 33131<br />
@@ -169,15 +149,13 @@ const SOCIALMEDIA = [
 				{
 					SOCIALMEDIA.map((item) => {
 						return (
-                                                        <a href={item.url} class="w-1/7" target="_blank" rel="noopener noreferrer">
-                                                                <img
-                                                                        src={item.icon}
-                                                                        alt={`${item.name}`}
-                                                                        class="max-h-96 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105"
-                                                                        loading="lazy"
-                                                                        decoding="async"
-                                                                />
-                                                        </a>
+							<a href={item.url} class="w-1/7" target="_blank" rel="noopener noreferrer">
+								<img
+									src={item.icon}
+									alt={`${item.name}Image`}
+									class="max-h-96 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105"
+								/>
+							</a>
 						);
 					})
 				}
