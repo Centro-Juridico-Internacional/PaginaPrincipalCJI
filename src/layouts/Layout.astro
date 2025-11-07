@@ -24,7 +24,7 @@ const resizeScript = (await import('../scripts/resizeMainPage.js?url')).default;
 	lang="es"
 	class="font-primary-font h-full min-h-screen w-screen overflow-x-hidden scroll-smooth bg-cover bg-center"
 	id="html"
-	style={`background-image: url(${imgLayout})`}
+        style={`background-image: url(${imgLayout}); min-height: var(--layout-viewport-height, 100vh);`}
 >
 	<head>
 		<!-- 

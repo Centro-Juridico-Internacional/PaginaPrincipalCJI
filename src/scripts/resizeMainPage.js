@@ -8,7 +8,11 @@ const updateMainPageHeight = () => {
 
   const headerHeight = headerElement ? headerElement.offsetHeight : 0;
   const screenHeight = window.innerHeight;
-  content.style.minHeight = `${Math.max(screenHeight - headerHeight, 0)}px`;
+  const contentHeight = Math.max(screenHeight - headerHeight, 0);
+
+  document.documentElement.style.setProperty('--layout-viewport-height', `${screenHeight}px`);
+
+  content.style.height = `${contentHeight}px`;
 };
 
 const setup = () => {
@@ -17,6 +21,7 @@ const setup = () => {
   const resizeHandler = () => updateMainPageHeight();
   window.addEventListener('resize', resizeHandler);
   document.addEventListener('astro:page-load', resizeHandler);
+  document.addEventListener('astro:after-swap', resizeHandler);
 
   const headerElement = document.getElementById('header');
   const observer =
@@ -28,6 +33,7 @@ const setup = () => {
   const cleanup = () => {
     window.removeEventListener('resize', resizeHandler);
     document.removeEventListener('astro:page-load', resizeHandler);
+    document.removeEventListener('astro:after-swap', resizeHandler);
     observer?.disconnect();
   };
 
