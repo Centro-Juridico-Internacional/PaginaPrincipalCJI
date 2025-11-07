@@ -1,12 +1,8 @@
 ---
-import TextMainPage from '@sections/home/components/TextMainPage.jsx';
+import TextMainPage from '@sections/home/components/TextMainPage.astro';
 ---
 
-<section
-	id="MainPage"
-	class="flex flex-col items-center justify-center gap-y-6 text-white"
-	style=""
->
+<section id="MainPage" class="flex flex-col items-center justify-center gap-y-6 text-white">
 	<h1 class="xs:text-5xl flex items-center justify-center text-center text-3xl font-semibold">
 		Blinde su empresa jurídicamente
 	</h1>
@@ -14,9 +10,9 @@ import TextMainPage from '@sections/home/components/TextMainPage.jsx';
 		PROTECCIÓN LEGAL PARA SU EMPRESA CON NUESTRO SISTEMA
 	</h3>
 
-	<div class="flex h-[71px] w-full items-center justify-center">
-		<TextMainPage client:load />
-	</div>
+        <div class="flex h-[71px] w-full items-center justify-center">
+                <TextMainPage />
+        </div>
 
 	<a class="mt-8 h-5 cursor-pointer" href="/portafolio">
 		<button

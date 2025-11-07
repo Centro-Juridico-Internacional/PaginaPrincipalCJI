@@ -58,16 +58,18 @@ const ImageCarousel = ({ images, autoSlideInterval = 100 }) => {
 				className="scrollbar-hide flex w-full snap-x snap-mandatory gap-10 overflow-x-auto scroll-smooth"
 			>
 				{images.map((img, index) => (
-					<div
-						key={index}
-						className="xs:w-[20%] w-[40$] flex-shrink-0 snap-center lg:w-[20%] xl:w-[17%]"
-					>
-						<img
-							src={img}
-							alt={`Slide ${index}`}
-							className="h-full w-full rounded-lg object-cover"
-						/>
-					</div>
+                                        <div
+                                                key={index}
+                                                className="xs:w-[20%] w-[40%] flex-shrink-0 snap-center lg:w-[20%] xl:w-[17%]"
+                                        >
+                                                <img
+                                                        src={img}
+                                                        alt={`Presentación ${index + 1}`}
+                                                        className="h-full w-full rounded-lg object-cover"
+                                                        loading="lazy"
+                                                        decoding="async"
+                                                />
+                                        </div>
 				))}
 			</div>
 

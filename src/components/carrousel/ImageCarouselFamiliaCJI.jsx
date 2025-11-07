@@ -52,14 +52,16 @@ const ImageCarousel = ({ images, autoSlide = true, autoSlideInterval = 3000 }) =
 				onTouchMove={handleTouchMove}
 				onTouchEnd={handleTouchEnd}
 			>
-				{images.map((img, index) => (
-					<img
-						key={index}
-						src={img}
-						alt={`Slide ${index}`}
-						className="w-full flex-shrink-0 object-contain"
-					/>
-				))}
+                                {images.map((img, index) => (
+                                        <img
+                                                key={index}
+                                                src={img}
+                                                alt={`Sede ${index + 1}`}
+                                                className="w-full flex-shrink-0 object-contain"
+                                                loading="lazy"
+                                                decoding="async"
+                                        />
+                                ))}
 			</div>
 
 			{/* Indicadores */}

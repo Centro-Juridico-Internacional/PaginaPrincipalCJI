@@ -1,37 +1,42 @@
-document.addEventListener('astro:page-load', () => {
-    const headerElement = document.getElementById('header');
-    const headerHeight = headerElement ? headerElement.offsetHeight : 0; // Si 'header' es null, usa 0 como altura.
-    const screenHeight = window.innerHeight;
-    const totalHeight = screenHeight - headerHeight;
+const updateMainPageHeight = () => {
+  const headerElement = document.getElementById('header');
+  const content = document.getElementById('MainPage');
 
-    // Actualiza el estilo del contenedor (por ejemplo, contenido)
-    const content = document.getElementById('MainPage');
-    if (content) {
-        content.style.height = `${totalHeight}px`; // Aplica la nueva altura
-    }
-});
+  if (!content) {
+    return;
+  }
 
-window.addEventListener('resize', () => {
-    const headerElement = document.getElementById('header');
-    const headerHeight = headerElement ? headerElement.offsetHeight : 0; // Si 'header' es null, usa 0 como altura.
-    const screenHeight = window.innerHeight;
-    const totalHeight = screenHeight - headerHeight;
+  const headerHeight = headerElement ? headerElement.offsetHeight : 0;
+  const screenHeight = window.innerHeight;
+  content.style.minHeight = `${Math.max(screenHeight - headerHeight, 0)}px`;
+};
 
-    // Actualiza el estilo del contenedor (por ejemplo, contenido)
-    const content = document.getElementById('MainPage');
-    if (content) {
-        content.style.height = `${totalHeight}px`; // Aplica la nueva altura
-    }
-});
-window.addEventListener('DOMContentLoaded', () => {
-    const headerElement = document.getElementById('header');
-    const headerHeight = headerElement ? headerElement.offsetHeight : 0; // Si 'header' es null, usa 0 como altura.
-    const screenHeight = window.innerHeight;
-    const totalHeight = screenHeight - headerHeight;
+const setup = () => {
+  updateMainPageHeight();
 
-    // Actualiza el estilo del contenedor (por ejemplo, contenido)
-    const content = document.getElementById('MainPage');
-    if (content) {
-        content.style.height = `${totalHeight}px`; // Aplica la nueva altura
-    }
-});
+  const resizeHandler = () => updateMainPageHeight();
+  window.addEventListener('resize', resizeHandler);
+  document.addEventListener('astro:page-load', resizeHandler);
+
+  const headerElement = document.getElementById('header');
+  const observer =
+    typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(updateMainPageHeight);
+  if (observer && headerElement) {
+    observer.observe(headerElement);
+  }
+
+  const cleanup = () => {
+    window.removeEventListener('resize', resizeHandler);
+    document.removeEventListener('astro:page-load', resizeHandler);
+    observer?.disconnect();
+  };
+
+  document.addEventListener('astro:before-swap', cleanup, { once: true });
+  window.addEventListener('pagehide', cleanup, { once: true });
+};
+
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+  setup();
+} else {
+  document.addEventListener('DOMContentLoaded', setup, { once: true });
+}

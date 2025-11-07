@@ -64,27 +64,31 @@ const ITEMS = [
 	>
 		<hr />
 		<!-- Esto renderiza los items del header -->
-		{
-			ITEMS.map((item) => {
-				var itemClass = item.target ? '_blank' : '_self';
+                {
+                        ITEMS.map((item) => {
+                                const target = item.target ? '_blank' : '_self';
+                                const rel = item.target ? 'noopener noreferrer' : undefined;
+                                const isInternal = !item.target && item.src.startsWith('/');
 
-				return (
-					<>
-						<li class="flex flex-col items-center justify-center">
-							<a
-								target={itemClass}
-								href={item.src}
-								rel="noopener noreferrer"
-								class="w-full text-center transition-all duration-150 ease-out hover:-translate-y-1 hover:scale-110"
-							>
-								{item.name}
-							</a>
-							<hr class="bg-goldColor h-0.5 w-full border-0" />
-						</li>
-					</>
-				);
-			})
-		}
+                                return (
+                                        <li
+                                                key={`header-mobile-${item.id}`}
+                                                class="flex flex-col items-center justify-center"
+                                        >
+                                                <a
+                                                        target={target}
+                                                        href={item.src}
+                                                        rel={rel}
+                                                        data-astro-prefetch={isInternal ? '' : undefined}
+                                                        class="w-full text-center transition-all duration-150 ease-out hover:-translate-y-1 hover:scale-110"
+                                                >
+                                                        {item.name}
+                                                </a>
+                                                <hr class="bg-goldColor h-0.5 w-full border-0" />
+                                        </li>
+                                );
+                        })
+                }
 		<CoberturaMobile />
 		<li class="flex flex-col items-center justify-center">
 			<a
@@ -99,33 +103,57 @@ const ITEMS = [
 	</ul>
 </div>
 
-<script>
-	document.addEventListener('astro:page-load', () => {
-		const buttonHeader = document.getElementById('checkboxHeader') as HTMLInputElement;
+<script type="module" is:inline>
+        let cleanupHandlers = [];
 
-		buttonHeader?.addEventListener('click', () => {
-			const navMobileHeader = document.getElementById('navHeaderMobile') as HTMLDivElement;
-			if (buttonHeader.checked === true) {
-				document.body.style.overflowY = 'hidden';
-				navMobileHeader.style.display = 'flex';
-			} else {
-				document.body.style.overflow = '';
-				navMobileHeader.style.display = 'none';
-			}
-		});
-	});
-	document.addEventListener('DOMContentLoaded', () => {
-		const buttonHeader = document.getElementById('checkboxHeader') as HTMLInputElement;
+        const cleanup = () => {
+                cleanupHandlers.forEach((fn) => fn());
+                cleanupHandlers = [];
 
-		buttonHeader?.addEventListener('click', () => {
-			const navMobileHeader = document.getElementById('navHeaderMobile') as HTMLDivElement;
-			if (buttonHeader.checked === true) {
-				document.body.style.overflowY = 'hidden';
-				navMobileHeader.style.display = 'flex';
-			} else {
-				document.body.style.overflow = '';
-				navMobileHeader.style.display = 'none';
-			}
-		});
-	});
+                document.body.style.overflow = '';
+                const nav = document.getElementById('navHeaderMobile');
+                if (nav) {
+                        nav.style.display = 'none';
+                }
+        };
+
+        const setupMobileNav = () => {
+                cleanup();
+
+                const button = document.getElementById('checkboxHeader');
+                const nav = document.getElementById('navHeaderMobile');
+
+                if (!(button instanceof HTMLInputElement) || !(nav instanceof HTMLDivElement)) {
+                        return;
+                }
+
+                const toggleNav = () => {
+                        if (button.checked) {
+                                document.body.style.overflowY = 'hidden';
+                                nav.style.display = 'flex';
+                        } else {
+                                document.body.style.overflow = '';
+                                nav.style.display = 'none';
+                        }
+                };
+
+                toggleNav();
+                const handler = () => toggleNav();
+                button.addEventListener('change', handler);
+                cleanupHandlers.push(() => button.removeEventListener('change', handler));
+        };
+
+        const readyStates = ['complete', 'interactive'];
+        if (readyStates.includes(document.readyState)) {
+                setupMobileNav();
+        } else {
+                document.addEventListener('DOMContentLoaded', setupMobileNav, { once: true });
+        }
+
+        document.addEventListener('astro:page-load', setupMobileNav);
+        document.addEventListener('astro:after-swap', setupMobileNav);
+        document.addEventListener('astro:before-swap', cleanup, { once: true });
+        window.addEventListener('pagehide', cleanup, { once: true });
+
+        export {};
 </script>

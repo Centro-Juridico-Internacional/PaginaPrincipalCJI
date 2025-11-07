@@ -11,13 +11,19 @@ const images = [
 ---
 
 <section id="headquartersSection">
-	<img src="/familiaCJI/sedes.webp" alt="" class="bg-white" />
-	<div
-		class="flex min-h-screen flex-col items-center justify-center gap-x-4 bg-green-50 px-8 lg:flex-row"
-	>
-		<div class="flex w-full items-center justify-center lg:w-[45%]">
-			<ImageCarousel images={images} autoSlide={true} client:load />
-		</div>
+        <img
+                src="/familiaCJI/sedes.webp"
+                alt="Sedes Centro Jurídico Internacional"
+                class="bg-white"
+                loading="lazy"
+                decoding="async"
+        />
+        <div
+                class="flex min-h-screen flex-col items-center justify-center gap-x-4 bg-green-50 px-8 lg:flex-row"
+        >
+                <div class="flex w-full items-center justify-center lg:w-[45%]">
+                        <ImageCarousel images={images} autoSlide={true} client:visible />
+                </div>
 		<div class="flex w-full flex-col lg:w-[45%]">
 			<p class="w-full">
 				Tenemos instalaciones que acogen el equipo más estructurado listo para cumplir nuestra

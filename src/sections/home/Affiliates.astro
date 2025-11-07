@@ -32,7 +32,9 @@ const VIDEO = [
 <section class="flex flex-col items-center justify-center bg-gray-50">
 	<img src="/PSC/recomendacion.webp" alt="recomendacionImg" class="h-1/2" />
 	<div class="mt-6 flex h-1/2 w-[95vw] flex-wrap" id="parent">
-		{VIDEO.map((item) => <YouTubeLite videoid={item.title} client:load id={item.id} />)}
+            {VIDEO.map((item) => (
+                    <YouTubeLite videoid={item.title} client:visible id={item.id} key={item.id} />
+            ))}
 	</div>
 	<div class="flex h-fit w-full items-center justify-center py-4">
 		<iframe
