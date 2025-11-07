@@ -38,7 +38,7 @@ const { imgLayout, title, boolean } = Astro.props;
    \  \:\/:/     \  \:\/:/        \  \:\     /__/:/ 
     \  \::/       \  \::/          \__\/     \__\/  
      \__\/         \__\/                            
- -->
+    -->
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="language" content="es" />
@@ -102,77 +102,48 @@ const { imgLayout, title, boolean } = Astro.props;
 	</body>
 </html>
 
+<!-- Mantengo este script externo, no es parte de la funcionalidad de mensajería -->
 <script src="@scripts/resizeMainPage.js"></script>
+
+<!-- NUEVO: comunicación con el dominio principal (WordPress) unificada y sin duplicados -->
 <script type="module" is:inline>
 	const TARGET_ORIGIN = 'https://centrojuridicointernacional.co';
 
-	const buildPayload = () => {
-		const faviconLink = document.querySelector("link[rel~='icon']");
-
-		return {
-			path: window.location.pathname + window.location.search + window.location.hash,
-			title: document.title,
-			favicon: faviconLink instanceof HTMLLinkElement ? faviconLink.href : null
-		};
-	};
+	function getFaviconHref() {
+		const link = document.querySelector("link[rel~='icon']");
+		return link instanceof HTMLLinkElement ? link.href : (link && link.href) || null;
+	}
 
 	function sendPathToParent() {
 		try {
-			const currentPath = window.location.pathname + window.location.search + window.location.hash;
-			const title = document.title;
-			const favicon = document.querySelector("link[rel~='icon']")?.href || null;
-
-			window.parent.postMessage(
-				buildPayload(),
-				{ path: currentPath, title, favicon },
-				'https://centrojuridicointernacional.co'
-			);
+			const payload = {
+				path: window.location.pathname + window.location.search + window.location.hash,
+				title: document.title,
+				favicon: getFaviconHref()
+			};
+			window.parent.postMessage(payload, TARGET_ORIGIN);
 		} catch (err) {
 			console.warn('No se pudo enviar la ruta al dominio padre:', err);
 		}
 	}
 
-	sendPathToParent();
-
-	let lastPath = window.location.pathname + window.location.search + window.location.hash;
-	const observer = new MutationObserver(() => {
-		const nextPath = window.location.pathname + window.location.search + window.location.hash;
-		if (nextPath === lastPath) {
-			return;
-		}
-		lastPath = nextPath;
-		sendPathToParent();
-	});
-	observer.observe(document.body, { subtree: true, childList: true });
-
-	const cleanupCallbacks = [];
-	const addListener = (target, eventName, handler) => {
-		target.addEventListener(eventName, handler);
-		cleanupCallbacks.push(() => target.removeEventListener(eventName, handler));
-	};
-
-	addListener(window, 'popstate', sendPathToParent);
-	addListener(document, 'astro:after-swap', sendPathToParent);
-
 	// Enviar ruta inicial
 	sendPathToParent();
 
-	// Detectar cambios de ruta
+	// Detectar cambios de ruta (mutaciones que cambien la URL en SPA)
+	let lastPath = window.location.pathname + window.location.search + window.location.hash;
+	const observer = new MutationObserver(() => {
+		const newPath = window.location.pathname + window.location.search + window.location.hash;
+		if (newPath !== lastPath) {
+			lastPath = newPath;
+			sendPathToParent();
+		}
+	});
 	observer.observe(document.body, { subtree: true, childList: true });
 
-	// Detectar navegación atrás/adelante
+	// Navegación atrás/adelante
 	window.addEventListener('popstate', sendPathToParent);
 
-	// Detectar transiciones de Astro
+	// Transiciones de Astro
 	document.addEventListener('astro:after-swap', sendPathToParent);
-
-	const cleanup = () => {
-		cleanupCallbacks.splice(0).forEach((cb) => cb());
-		observer.disconnect();
-	};
-
-	document.addEventListener('astro:before-swap', cleanup, { once: true });
-	window.addEventListener('pagehide', cleanup, { once: true });
-
-	export {};
 </script>
