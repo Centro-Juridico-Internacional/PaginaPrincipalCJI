@@ -16,6 +16,7 @@ interface Props {
 }
 
 const { imgLayout, title, boolean } = Astro.props;
+const resizeScript = (await import('../scripts/resizeMainPage.js?url')).default;
 ---
 
 <!doctype html>
@@ -85,6 +86,8 @@ const { imgLayout, title, boolean } = Astro.props;
 		<!-- Favicon -->
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+		{imgLayout && <link rel="preload" as="image" href={imgLayout} fetchpriority="high" />}
+
 		<!-- Astro ViewTransitions -->
 		<ClientRouter />
 		<Analytics />
@@ -101,36 +104,53 @@ const { imgLayout, title, boolean } = Astro.props;
 </html>
 
 <script src="@scripts/resizeMainPage.js"></script>
-<script>
-	// --- Comunicación con el dominio principal (WordPress) ---
-	function sendPathToParent() {
-		try {
-			const currentPath = window.location.pathname + window.location.search + window.location.hash;
-			const title = document.title;
-			const favicon =
-				(document.querySelector("link[rel~='icon']") as HTMLLinkElement)?.href || null;
+<script type="module" is:inline>
+	const TARGET_ORIGIN = 'https://centrojuridicointernacional.co';
 
-			window.parent.postMessage(
-				{ path: currentPath, title, favicon },
-				'https://centrojuridicointernacional.co'
-			);
-		} catch (err) {
-			console.warn('No se pudo enviar la ruta al dominio padre:', err);
+	const buildPayload = () => {
+		const faviconLink = document.querySelector("link[rel~='icon']");
+
+		return {
+			path: window.location.pathname + window.location.search + window.location.hash,
+			title: document.title,
+			favicon: faviconLink instanceof HTMLLinkElement ? faviconLink.href : null
+		};
+	};
+
+	const sendPathToParent = () => {
+		try {
+			window.parent.postMessage(buildPayload(), TARGET_ORIGIN);
+		} catch (error) {
+			console.warn('No se pudo enviar la ruta al dominio padre:', error);
 		}
-	}
+	};
+
+	sendPathToParent();
+
+	let lastPath = window.location.pathname + window.location.search + window.location.hash;
+	const observer = new MutationObserver(() => {
+		const nextPath = window.location.pathname + window.location.search + window.location.hash;
+		if (nextPath === lastPath) {
+			return;
+		}
+		lastPath = nextPath;
+		sendPathToParent();
+	});
+	observer.observe(document.body, { subtree: true, childList: true });
+
+	const cleanupCallbacks = [];
+	const addListener = (target, eventName, handler) => {
+		target.addEventListener(eventName, handler);
+		cleanupCallbacks.push(() => target.removeEventListener(eventName, handler));
+	};
+
+	addListener(window, 'popstate', sendPathToParent);
+	addListener(document, 'astro:after-swap', sendPathToParent);
 
 	// Enviar ruta inicial
 	sendPathToParent();
 
 	// Detectar cambios de ruta
-	let lastPath = window.location.pathname;
-	const observer = new MutationObserver(() => {
-		const newPath = window.location.pathname;
-		if (newPath !== lastPath) {
-			lastPath = newPath;
-			sendPathToParent();
-		}
-	});
 	observer.observe(document.body, { subtree: true, childList: true });
 
 	// Detectar navegación atrás/adelante
@@ -138,4 +158,14 @@ const { imgLayout, title, boolean } = Astro.props;
 
 	// Detectar transiciones de Astro
 	document.addEventListener('astro:after-swap', sendPathToParent);
+
+	const cleanup = () => {
+		cleanupCallbacks.splice(0).forEach((cb) => cb());
+		observer.disconnect();
+	};
+
+	document.addEventListener('astro:before-swap', cleanup, { once: true });
+	window.addEventListener('pagehide', cleanup, { once: true });
+
+	export {};
 </script>
