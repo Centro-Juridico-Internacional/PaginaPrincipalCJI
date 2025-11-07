@@ -116,13 +116,21 @@ const { imgLayout, title, boolean } = Astro.props;
 		};
 	};
 
-	const sendPathToParent = () => {
+	function sendPathToParent() {
 		try {
-			window.parent.postMessage(buildPayload(), TARGET_ORIGIN);
-		} catch (error) {
-			console.warn('No se pudo enviar la ruta al dominio padre:', error);
+			const currentPath = window.location.pathname + window.location.search + window.location.hash;
+			const title = document.title;
+			const favicon = document.querySelector("link[rel~='icon']")?.href || null;
+
+			window.parent.postMessage(
+				buildPayload(),
+				{ path: currentPath, title, favicon },
+				'https://centrojuridicointernacional.co'
+			);
+		} catch (err) {
+			console.warn('No se pudo enviar la ruta al dominio padre:', err);
 		}
-	};
+	}
 
 	sendPathToParent();
 
