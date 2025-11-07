@@ -3,31 +3,26 @@
 @plugin "@midudev/tailwind-animations";
 
 @theme {
-        --color-goldColor: #ce952c;
-        --color-theme-green-main: #008236;
-        --breakpoint-xs: 480px;
-        --font-primary-font: Noto Sans JP Variable, sans-serif;
-        --animate-fadeIn-header: fade-in 0.2s ease-in both;
+	--color-goldColor: #ce952c;
+	--color-theme-green-main: #008236;
+	--breakpoint-xs: 480px;
+	--font-primary-font: Noto Sans JP Variable, sans-serif;
+	--animate-fadeIn-header: fade-in 0.2s ease-in both;
 }
 
 :root {
-        color-scheme: light;
-}
-
-img {
-        height: auto;
-        max-width: 100%;
+	color-scheme: light;
 }
 
 @media (prefers-reduced-motion: reduce) {
-        *,
-        *::before,
-        *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-        }
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 }
 /* #e020c0 */
 /*  #00a63e */

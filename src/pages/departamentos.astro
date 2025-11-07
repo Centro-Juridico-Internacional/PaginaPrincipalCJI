@@ -10,19 +10,52 @@ const DEPARTMENTS = DATA.departamentos.map((dep) => ({
 		cargo: item.cargo,
 		image: item.image,
 		alt: `Foto de ${item.name} del departamento ${item.cargo}`,
-		// Usa la descripción del ítem si existe, de lo contrario la del departamento
-		description: item.description ? item.description : dep.description
+		description: item.description ? item.description : dep.description,
+		boolean: item.boolean
 	}))
 }));
+
+const FIRST_DEPT = DEPARTMENTS[0];
+const CRITICAL_IMAGES = (FIRST_DEPT?.content || [])
+	.slice(0, 4)
+	.map((i) => i.image)
+	.filter(Boolean);
+const IMAGE_ORIGINS = Array.from(
+	new Set(
+		CRITICAL_IMAGES.map((href) => {
+			try {
+				return new URL(href).origin;
+			} catch {
+				return null;
+			}
+		}).filter(Boolean)
+	)
+);
 ---
 
 <Layout imgLayout=" " title="Departamentos" boolean={false}>
+	<head>
+		{
+			CRITICAL_IMAGES.map((href) => (
+				<link
+					rel="preload"
+					as="image"
+					href={href}
+					imagesrcset={`${href} 1x, ${href} 2x`}
+					imagesizes="300px"
+				/>
+			))
+		}
+		{IMAGE_ORIGINS.map((o) => <link rel="preconnect" href={o} crossorigin />)}
+		{IMAGE_ORIGINS.map((o) => <link rel="dns-prefetch" href={o} />)}
+	</head>
+
 	<section class="my-20 flex w-full flex-col items-center justify-center px-6 md:px-12">
 		<h1 class="mb-10 text-center text-4xl font-bold text-green-600 md:text-5xl">Departamentos</h1>
 
 		<section class="flex w-full flex-col gap-20">
 			{
-				DEPARTMENTS.map((dep) => (
+				DEPARTMENTS.map((dep, depIndex) => (
 					<div class="flex flex-col items-center rounded-3xl border border-gray-200 bg-white p-10 shadow-lg transition hover:shadow-2xl">
 						<h2 class="mb-4 text-3xl font-bold text-green-600">{dep.name}</h2>
 						<p class="mb-10 max-w-3xl text-center text-lg leading-relaxed text-gray-700">
@@ -30,41 +63,51 @@ const DEPARTMENTS = DATA.departamentos.map((dep) => ({
 						</p>
 
 						<div class="grid w-full place-items-stretch gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-							{dep.content.map((item) => (
-								<div class="flex h-full flex-col items-center justify-between rounded-2xl border border-gray-100 bg-gray-50 p-6 shadow-sm hover:shadow-lg sm:max-w-sm">
-									{/* Imagen adaptable, centrada y nítida sin espacios blancos */}
-									<div class="mb-6 flex w-full items-center justify-center">
-										{item.image ? (
-											<div class="relative flex aspect-[4/5] w-full max-w-[300px] items-center justify-center overflow-hidden rounded-xl shadow-md">
-												<img
-													src={item.image}
-													alt={item.alt}
-													loading="lazy"
-													decoding="async"
-													class="h-full w-full object-cover object-top transition-transform duration-300 [image-rendering:-webkit-optimize-contrast] hover:scale-[1.03]"
-													srcset={`${item.image} 1x, ${item.image} 2x`}
-													style="backface-visibility: hidden;"
-												/>
-											</div>
-										) : (
-											<div class="flex aspect-[4/5] w-full max-w-[300px] items-center justify-center rounded-xl bg-gray-200 text-base font-medium text-gray-500">
-												Sin imagen
-											</div>
-										)}
-									</div>
+							{dep.content.map((item, itemIndex) => {
+								const isCritical = depIndex === 0 && itemIndex < 4;
+								const loading = isCritical ? 'eager' : 'lazy';
+								const decoding = isCritical ? 'sync' : 'async';
+								const fetchpriority = isCritical ? 'high' : 'low';
+								return (
+									<div class="flex h-full flex-col items-center justify-between rounded-2xl border border-gray-100 bg-gray-50 p-6 shadow-sm [contain-intrinsic-size:700px] hover:shadow-lg sm:max-w-sm">
+										<div class="mb-6 flex w-full items-center justify-center">
+											{item.image ? (
+												<div class="relative flex aspect-[4/5] w-full max-w-[300px] items-center justify-center overflow-hidden rounded-xl shadow-md">
+													<img
+														src={item.image}
+														alt={item.alt}
+														loading={loading}
+														fetchpriority={fetchpriority}
+														decoding={decoding}
+														width="300"
+														height="375"
+														sizes="(min-width:1280px) 300px, (min-width:1024px) 280px, (min-width:640px) 300px, 90vw"
+														class:list={[
+															'relative block w-full object-cover transition-transform duration-300 hover:scale-[1.03]',
+															item.boolean ? 'top-[9%]' : 'top-[0%]'
+														]}
+														srcset={`${item.image} 1x, ${item.image} 2x`}
+													/>
+												</div>
+											) : (
+												<div class="flex aspect-[4/5] w-full max-w-[300px] items-center justify-center rounded-xl bg-gray-200 text-base font-medium text-gray-500">
+													Sin imagen
+												</div>
+											)}
+										</div>
 
-									{/* Texto */}
-									<div class="flex flex-1 flex-col items-center space-y-2 text-center">
-										<h3 class="text-lg font-semibold text-green-700 sm:text-xl">{item.name}</h3>
-										<p class="text-xs font-medium tracking-wide text-gray-500 uppercase sm:text-sm">
-											{item.cargo}
-										</p>
-										<p class="text-justify text-sm leading-relaxed text-gray-700 sm:text-[15px]">
-											{item.description}
-										</p>
+										<div class="flex flex-1 flex-col items-center space-y-2 text-center">
+											<h3 class="text-lg font-semibold text-green-700 sm:text-xl">{item.name}</h3>
+											<p class="text-xs font-medium tracking-wide text-gray-500 uppercase sm:text-sm">
+												{item.cargo}
+											</p>
+											<p class="text-justify text-sm leading-relaxed text-gray-700 sm:text-[15px]">
+												{item.description}
+											</p>
+										</div>
 									</div>
-								</div>
-							))}
+								);
+							})}
 						</div>
 					</div>
 				))
