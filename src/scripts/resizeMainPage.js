@@ -10,8 +10,6 @@ const updateMainPageHeight = () => {
   const screenHeight = window.innerHeight;
   const contentHeight = Math.max(screenHeight - headerHeight, 0);
 
-  document.documentElement.style.setProperty('--layout-viewport-height', `${screenHeight}px`);
-
   content.style.height = `${contentHeight}px`;
 };
 
@@ -20,8 +18,8 @@ const setup = () => {
 
   const resizeHandler = () => updateMainPageHeight();
   window.addEventListener('resize', resizeHandler);
-  document.addEventListener('astro:page-load', resizeHandler);
-  document.addEventListener('astro:after-swap', resizeHandler);
+  document.addEventListener('astro:page-load', updateMainPageHeight);
+  document.addEventListener('astro:after-swap', updateMainPageHeight);
 
   const headerElement = document.getElementById('header');
   const observer =
@@ -32,8 +30,8 @@ const setup = () => {
 
   const cleanup = () => {
     window.removeEventListener('resize', resizeHandler);
-    document.removeEventListener('astro:page-load', resizeHandler);
-    document.removeEventListener('astro:after-swap', resizeHandler);
+    document.removeEventListener('astro:page-load', updateMainPageHeight);
+    document.removeEventListener('astro:after-swap', updateMainPageHeight);
     observer?.disconnect();
   };
 
