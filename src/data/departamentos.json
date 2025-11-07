@@ -12,350 +12,455 @@
                 {
                     "name": "Lesly Cabra",
                     "image": "/images/juridica/J1.webp",
+                    "boolean": true,
                     "description": "Lesly es una abogada con experiencia en derecho corporativo.",
                     "cargo": "JURIDICO 1"
                 },
                 {
                     "name": "Daniela Melo León",
                     "image": "/images/juridica/J2.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 2"
                 },
                 {
                     "name": "Alberto Mario Jaramillo",
                     "image": "/images/juridica/J3.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 3"
                 },
                 {
                     "name": "Paula Tiusaba",
                     "image": "/images/juridica/J4.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 4"
                 },
                 {
                     "name": "Camila Pulgarín",
                     "image": "/images/juridica/J5.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 5"
                 },
                 {
                     "name": "",
                     "image": "",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 6"
                 },
                 {
                     "name": "Camilo García",
                     "image": "/images/juridica/J7.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 7"
                 },
                 {
                     "name": "Juan Felipe Martín",
-                    "image": "",
+                    "image": "/images/juridica/J8.webp",
+                    "boolean": false,
                     "description": "",
                     "cargo": "JURIDICO 8"
                 },
                 {
                     "name": "Nicolás Adolfo Rojas Beltrán",
                     "image": "/images/juridica/J9.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 9"
                 },
                 {
                     "name": "Linda Ramos",
-                    "image": "",
+                    "image": "/images/juridica/J10.webp",
+                    "boolean": false,
                     "description": "",
                     "cargo": "JURIDICO 10 - SG SST"
                 },
                 {
                     "name": "Santiago Rozo",
                     "image": "/images/juridica/J11.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 11"
                 },
                 {
                     "name": "Andrés Santiago Villamil Marcelo",
                     "image": "/images/juridica/J12.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 12"
                 },
                 {
                     "name": "Andrés Quintana",
                     "image": "/images/juridica/J13.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 13"
                 },
                 {
                     "name": "Angélica Penagos",
                     "image": "/images/juridica/J14.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 14"
                 },
                 {
                     "name": "Laura Guiza",
                     "image": "/images/juridica/J15.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 15 - SG SST"
                 },
                 {
                     "name": "Luisa Fernanda Corredor",
-                    "image": "",
+                    "image": "/images/juridica/J16.webp",
+                    "boolean": false,
                     "description": "",
                     "cargo": "JURIDICO 16"
                 },
                 {
                     "name": "",
                     "image": "",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 17"
                 },
                 {
                     "name": "Diego Solano",
                     "image": "/images/juridica/J18.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 18"
                 },
                 {
                     "name": "Gabriela Carvajal",
                     "image": "/images/juridica/J19.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 19"
                 },
                 {
                     "name": "Juan Sebastián Cabrera",
-                    "image": "",
+                    "image": "/images/juridica/J20.webp",
+                    "boolean": false,
                     "description": "",
                     "cargo": "JURIDICO 20"
                 },
                 {
                     "name": "Jhamilton Salamanca",
                     "image": "",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 21"
                 },
                 {
                     "name": "Danna Piñeros",
                     "image": "/images/juridica/J22.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 22"
                 },
                 {
                     "name": "Georlleth Jaramillo",
                     "image": "/images/juridica/J23.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 23"
                 },
                 {
                     "name": "Daniela Páez",
                     "image": "",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 24"
                 },
                 {
                     "name": "Karen Valencia",
                     "image": "/images/juridica/J25.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 25"
                 },
                 {
                     "name": "Vanessa Díaz",
                     "image": "/images/juridica/J26.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 26"
                 },
                 {
                     "name": "Stefany Valentina Moreno Valencia",
                     "image": "/images/juridica/J27.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 27 - SG SST"
                 },
                 {
                     "name": "Juan Andrés Navarrete",
                     "image": "/images/juridica/J28.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 28"
                 },
                 {
                     "name": "Rubén Castiblanco",
                     "image": "/images/juridica/J29.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 29"
                 },
                 {
                     "name": "Laura Reyes",
-                    "image": "",
+                    "image": "/images/juridica/J30.webp",
+                    "boolean": false,
                     "description": "",
                     "cargo": "JURIDICO 30 - SG SST"
                 },
                 {
                     "name": "María Fernanda Rondón Torres",
                     "image": "/images/juridica/J31.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 31"
                 },
                 {
                     "name": "Gabriela Ardila",
-                    "image": "",
+                    "image": "/images/juridica/J32.webp",
+                    "boolean": false,
                     "description": "",
                     "cargo": "JURIDICO 32"
                 },
                 {
                     "name": "Ángela Joya",
                     "image": "/images/juridica/J33.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 33"
                 },
                 {
                     "name": "Sara Liliana Rodríguez",
                     "image": "/images/juridica/J34.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 34"
                 },
                 {
                     "name": "Practicantes",
                     "image": "",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 35"
                 },
                 {
                     "name": "Nicolás Ríos Quitián",
-                    "image": "",
+                    "image": "/images/juridica/J36.webp",
+                    "boolean": false,
                     "description": "",
                     "cargo": "JURIDICO 36"
                 },
                 {
                     "name": "Javier Imbajoa",
                     "image": "/images/juridica/J37.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 37"
                 },
                 {
                     "name": "Geraldine Monroy",
                     "image": "",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 38 - SG SST"
                 },
                 {
                     "name": "Andrés Rodríguez Toro",
-                    "image": "",
+                    "image": "/images/juridica/J39.webp",
+                    "boolean": false,
                     "description": "",
                     "cargo": "JURIDICO 39"
                 },
                 {
                     "name": "Omar Vega",
                     "image": "/images/juridica/J40.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 40"
                 },
                 {
                     "name": "Valentina Velásquez",
                     "image": "",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 41"
                 },
                 {
                     "name": "David Santiago Varela",
                     "image": "/images/juridica/J42.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 42"
                 },
                 {
                     "name": "David Santiago Lesmes Lugo",
                     "image": "",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 43"
                 },
                 {
                     "name": "Laura Camila Pabón Mora",
                     "image": "",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 44"
                 },
                 {
                     "name": "Sergio Andrés Sanabria",
                     "image": "/images/juridica/J45.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 45"
                 },
                 {
                     "name": "Mateo Echeverry",
                     "image": "/images/juridica/J46.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 46"
                 },
                 {
                     "name": "Tomás Cuéllar",
-                    "image": "",
+                    "image": "/images/juridica/J47.webp",
+                    "boolean": false,
                     "description": "",
                     "cargo": "JURIDICO 47"
                 },
                 {
                     "name": "Daniela Navarrete",
                     "image": "/images/juridica/J48.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 48"
                 },
                 {
                     "name": "Laura Quevedo",
                     "image": "/images/juridica/J49.webp",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 49"
                 },
                 {
                     "name": "Laura Valentina García Penagos",
                     "image": "",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 50"
                 },
                 {
                     "name": "Juan Padilla",
-                    "image": "",
+                    "image": "/images/juridica/J51.webp",
+                    "boolean": false,
                     "description": "",
                     "cargo": "JURIDICO 51"
                 },
                 {
                     "name": "Danna Arias",
-                    "image": "",
+                    "image": "/images/juridica/J52.webp",
+                    "boolean": false,
                     "description": "",
                     "cargo": "JURIDICO 52"
                 },
                 {
                     "name": "Cristian García",
-                    "image": "",
+                    "image": "/images/juridica/J53.webp",
+                    "boolean": false,
                     "description": "",
                     "cargo": "JURIDICO 53"
                 },
                 {
                     "name": "Felipe Puerto",
-                    "image": "",
+                    "image": "/images/juridica/J54.webp",
+                    "boolean": false,
                     "description": "",
                     "cargo": "JURIDICO 54"
                 },
                 {
                     "name": "Isabella Bejarano",
                     "image": "",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 55"
                 },
                 {
                     "name": "Daniela Mayerly Barrera",
                     "image": "",
+                    "boolean": true,
                     "description": "",
                     "cargo": "JURIDICO 56"
+                }
+            ]
+        },
+        {
+            "name": "DESARROLLO",
+            "description": "El departamento de Desarrollo impulsa la innovación tecnológica y la mejora de sistemas internos para optimizar la eficiencia y el crecimiento organizacional.",
+            "content": [
+                {
+                    "name": "Jesus Jair Casallas Alfonso",
+                    "image": "/images/desarrollo/D.webp",
+                    "boolean": true,
+                    "description": "",
+                    "cargo": "DESARROLLO"
                 },
                 {
-                    "name": "Cristian Cortés - SG SST",
-                    "image": "",
+                    "name": "Juan David Cutiva Lopez",
+                    "image": "/images/desarrollo/D1.webp",
+                    "boolean": false,
                     "description": "",
-                    "cargo": "TALETO HUMANO - SG SST"
+                    "cargo": "DESARROLLO 1"
                 },
+                {
+                    "name": "Andres Stiven Borda Sánchez",
+                    "image": "/images/desarrollo/D3.webp",
+                    "boolean": true,
+                    "description": "",
+                    "cargo": "DESARROLLO 3"
+                },
+                {
+                    "name": "Luisa Fernanda Vanegas Morales",
+                    "image": "",
+                    "boolean": true,
+                    "description": "",
+                    "cargo": "DESARROLLO 4"
+                },
+                {
+                    "name": "Richard Steven Sanchez Navarrete",
+                    "image": "",
+                    "boolean": true,
+                    "description": "",
+                    "cargo": "DESARROLLO 5"
+                },
+                {
+                    "name": "Carlos Alberto Fernandez Cupitra",
+                    "image": "/images/desarrollo/D6.webp",
+                    "boolean": false,
+                    "description": "",
+                    "cargo": "DESARROLLO 6"
+                }
+            ]
+        },
+        {
+            "name": "AUDITORIA",
+            "description": "El departamento de Contabilidad gestiona los recursos financieros de la organización, garantizando la correcta administración, control y reporte de las operaciones contables.",
+            "content": [
                 {
                     "name": "Daniela Chaves",
-                    "image": "/images/juridica/A1.webp",
+                    "image": "/images/auditoria/A1.webp",
+                    "boolean": true,
                     "description": "",
-                    "cargo": "AUDITORIA"
+                    "cargo": "AUDITORIA 1"
                 }
             ]
         },
@@ -392,11 +497,6 @@
         {
             "name": "RECUPERACION",
             "description": "El departamento de Recuperación trabaja en la gestión y resolución de procesos relacionados con la recuperación de activos y la defensa de los intereses institucionales.",
-            "content": []
-        },
-        {
-            "name": "DESARROLLO",
-            "description": "El departamento de Desarrollo impulsa la innovación tecnológica y la mejora de sistemas internos para optimizar la eficiencia y el crecimiento organizacional.",
             "content": []
         }
     ]

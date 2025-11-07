@@ -3,26 +3,37 @@ import YouTubeLite from '@components/global/YouTubeLite.jsx';
 ---
 
 <section id="recognitionsSection" class="flex flex-col items-center justify-center bg-[#0D0D0D]">
-	<img src="/mainImg/reconocimientos.webp" alt="recognitionsImg" class="-ml-[2px] w-[80vw]" />
+        <img
+                src="/mainImg/reconocimientos.webp"
+                alt="Reconocimientos Centro Jurídico Internacional"
+                class="-ml-[2px] w-[80vw]"
+                loading="lazy"
+                decoding="async"
+        />
 </section>
 <section
-	class="flex h-fit w-full items-center justify-center bg-gradient-to-b from-green-600 to-green-950 pt-12 pb-6"
+        class="flex h-fit w-full items-center justify-center bg-gradient-to-b from-green-600 to-green-950 pt-12 pb-6"
 >
-	<div class="grid grid-cols-3 grid-rows-4 gap-4">
-		<div class="col-span-2 row-span-4 flex items-center justify-center">
-			<img src="/mainImg/ranking.webp" alt="rankingImg" />
-		</div>
-		<div class="col-start-3">
-			<YouTubeLite videoid={'JNd2W8CdxYc'} id={'JNd2W8CdxYc'} client:load />
-		</div>
-		<div class="col-start-3 row-start-2">
-			<YouTubeLite videoid={'PAc7ufU_Sv4'} id={'PAc7ufU_Sv4'} client:load />
-		</div>
-		<div class="col-start-3 row-start-3">
-			<YouTubeLite videoid={'4o4jjariG8k'} id={'4o4jjariG8k'} client:load />
-		</div>
-		<div class="col-start-3 row-start-4">
-			<YouTubeLite videoid={'3trxgJr13vE'} id={'3trxgJr13vE'} client:load />
-		</div>
-	</div>
+        <div class="grid grid-cols-3 grid-rows-4 gap-4">
+                <div class="col-span-2 row-span-4 flex items-center justify-center">
+                        <img
+                                src="/mainImg/ranking.webp"
+                                alt="Ranking del Centro Jurídico Internacional"
+                                loading="lazy"
+                                decoding="async"
+                        />
+                </div>
+                <div class="col-start-3">
+                        <YouTubeLite videoid={'JNd2W8CdxYc'} id={'JNd2W8CdxYc'} client:load />
+                </div>
+                <div class="col-start-3 row-start-2">
+                        <YouTubeLite videoid={'PAc7ufU_Sv4'} id={'PAc7ufU_Sv4'} client:load />
+                </div>
+                <div class="col-start-3 row-start-3">
+                        <YouTubeLite videoid={'4o4jjariG8k'} id={'4o4jjariG8k'} client:load />
+                </div>
+                <div class="col-start-3 row-start-4">
+                        <YouTubeLite videoid={'3trxgJr13vE'} id={'3trxgJr13vE'} client:load />
+                </div>
+        </div>
 </section>

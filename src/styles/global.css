@@ -9,5 +9,20 @@
 	--font-primary-font: Noto Sans JP Variable, sans-serif;
 	--animate-fadeIn-header: fade-in 0.2s ease-in both;
 }
+
+:root {
+	color-scheme: light;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
 /* #e020c0 */
 /*  #00a63e */

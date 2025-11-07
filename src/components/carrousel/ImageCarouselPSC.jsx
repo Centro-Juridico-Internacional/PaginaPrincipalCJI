@@ -77,14 +77,16 @@ const ImageCarouselPSC = ({
 				onTouchMove={handleTouchMove}
 				onTouchEnd={handleTouchEnd}
 			>
-				{images.map((img, index) => (
-					<img
-						key={index}
-						src={img}
-						alt={`Slide ${index}`}
-						className="w-full flex-shrink-0 rounded-2xl object-contain px-6"
-					/>
-				))}
+                                {images.map((img, index) => (
+                                        <img
+                                                key={index}
+                                                src={img}
+                                                alt={`Diapositiva ${index + 1}`}
+                                                className="w-full flex-shrink-0 rounded-2xl object-contain px-6"
+                                                loading="lazy"
+                                                decoding="async"
+                                        />
+                                ))}
 			</div>
 
 			<button

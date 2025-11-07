@@ -58,22 +58,37 @@ const ITEMS = [
 	<ul class="mx-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-white">
 		<span class="mx-1 hidden font-extrabold text-white sm:flex">|</span>
 		<!-- Esto renderiza los items del header -->
-		{
-			ITEMS.map((item) => {
-				var itemClass = item.target ? '_blank' : '_self';
+                {
+                        ITEMS.map((item) => {
+                                const target = item.target ? '_blank' : '_self';
+                                const isInternal = !item.target && item.src.startsWith('/');
+                                const rel = item.target ? 'noopener noreferrer' : undefined;
 
-				return (
-					<>
-						<li class="flex items-center transition-all duration-150 ease-out hover:-translate-y-1 hover:scale-110">
-							<a target={itemClass} href={item.src} rel="noopener noreferrer">
-								{item.name}
-							</a>
-						</li>
-						<span class="mx-1 hidden font-extrabold text-white sm:flex">|</span>
-					</>
-				);
-			})
-		}
+                                return (
+                                        <>
+                                                <li
+                                                        key={`header-desktop-${item.id}`}
+                                                        class="flex items-center transition-all duration-150 ease-out hover:-translate-y-1 hover:scale-110"
+                                                >
+                                                        <a
+                                                                target={target}
+                                                                href={item.src}
+                                                                rel={rel}
+                                                                data-astro-prefetch={isInternal ? '' : undefined}
+                                                        >
+                                                                {item.name}
+                                                        </a>
+                                                </li>
+                                                <span
+                                                        class="mx-1 hidden font-extrabold text-white sm:flex"
+                                                        aria-hidden="true"
+                                                >
+                                                        |
+                                                </span>
+                                        </>
+                                );
+                        })
+                }
 		<Cobertura />
 		<span class="mx-1 hidden font-extrabold text-white sm:flex">|</span>
 		<li class="transition-all duration-150 ease-out hover:-translate-y-1 hover:scale-110">

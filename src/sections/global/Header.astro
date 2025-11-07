@@ -9,19 +9,22 @@ import HeaderMobile from '@sections/global/components/header/HeaderMobile.astro'
 	id="header"
 	transition:name="header"
 >
-	<div
-		class="bg-theme-green-main/70 flex h-fit w-full items-center justify-center border-2 border-transparent border-b-white"
-		id="imgHeader"
-	>
-		<Burger />
-		<a href="/" class="flex h-auto w-full items-center justify-center">
-			<img
-				src="/header/logoMainCJIWhite.svg"
-				alt="Logo Centro Jurídico Internacional"
-				class="xs:min-w-80 mx-4 my-2 h-auto max-h-22 min-h-fit w-[30vw] min-w-60 rounded-2xl px-3 py-1"
-			/>
-		</a>
-	</div>
+        <div
+                class="bg-theme-green-main/70 flex h-fit w-full items-center justify-center border-2 border-transparent border-b-white"
+                id="imgHeader"
+        >
+                <Burger />
+                <a href="/" class="flex h-auto w-full items-center justify-center" aria-label="Inicio" data-astro-prefetch>
+                        <img
+                                src="/header/logoMainCJIWhite.svg"
+                                alt="Logo Centro Jurídico Internacional"
+                                class="xs:min-w-80 mx-4 my-2 h-auto max-h-22 min-h-fit w-[30vw] min-w-60 rounded-2xl px-3 py-1"
+                                loading="eager"
+                                decoding="async"
+                                fetchpriority="high"
+                        />
+                </a>
+        </div>
 
 	<HeaderDeskTop />
 	<HeaderMobile />
