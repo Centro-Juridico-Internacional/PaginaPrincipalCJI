@@ -23,7 +23,7 @@ const items = {
 		'Conozca cómo implementar y aplicar la política de protección de datos personales.',
 		'Aplicación de terminación de contratos mediante transacción, mutuo acuerdo e incumplimiento: evite sanciones por evasión laboral.'
 	],
-	idVideo: 'Ff-XSC3z4Z0'
+	idVideo: 'TeW2rwPrO0U'
 };
 
 const length_array = items.temas.length / 2;
@@ -44,5 +44,5 @@ const secondCol = items.temas.slice(length_array);
 	<div class="flex-col">{secondCol.map((i) => <li class="mb-8">{i}</li>)}</div>
 </ul>
 <div class="mt-8 flex h-1/2 w-[95%] flex-wrap pb-8 md:w-[60%]">
-    <YouTubeLite videoid={items.idVideo} client:load id={items.idVideo} />
+	<YouTubeLite videoid={items.idVideo} client:load id={items.idVideo} />
 </div>
