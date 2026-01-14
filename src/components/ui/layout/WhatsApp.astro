@@ -1,4 +1,5 @@
 <a
+	id="whatsapp-link"
 	class="Btn right-6 bottom-4 z-999"
 	href="https://web.whatsapp.com/send?phone=573124902143&text=Deseo%20tener%20m%C3%A1s%20informaci%C3%B3n"
 	target="_blank"
@@ -81,3 +82,31 @@
 		transform: translate(2px, 2px);
 	}
 </style>
+
+<script>
+	const updateWhatsAppLink = () => {
+		const whatsappBtn = document.getElementById('whatsapp-link') as HTMLAnchorElement;
+		if (whatsappBtn) {
+			const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+				navigator.userAgent
+			);
+			const phoneNumber = '573124902143';
+			const message = 'Deseo tener más información';
+			const encodedMessage = encodeURIComponent(message);
+
+			if (isMobile) {
+				// Use the api link which works well for mobile (opening app)
+				whatsappBtn.href = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+			} else {
+				// Specifically force web version on desktop
+				whatsappBtn.href = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+			}
+		}
+	};
+
+	// Run on initial load
+	updateWhatsAppLink();
+
+	// Run on every page navigation (View Transitions)
+	document.addEventListener('astro:page-load', updateWhatsAppLink);
+</script>
