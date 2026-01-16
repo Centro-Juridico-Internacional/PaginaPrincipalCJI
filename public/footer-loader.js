@@ -42,4 +42,7 @@
     } else {
         init();
     }
+
+    // Soporte para Astro ViewTransitions (ClientRouter)
+    document.addEventListener('astro:page-load', init);
 })();
