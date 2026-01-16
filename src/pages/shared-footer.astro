@@ -1,0 +1,37 @@
+---
+import Footer from "../layouts/Footer.astro";
+import "../styles/global.css"; // Ensure Tailwind styles are loaded
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Compartido | Centro Jurídico Internacional</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrolls inside iframe */
+        }
+    </style>
+</head>
+<body>
+    <Footer />
+    <script>
+        const sendHeight = () => {
+            const height = document.body.scrollHeight;
+            window.parent.postMessage({ type: 'cji-footer-resize', height: height }, '*');
+        };
+
+        // Enviar altura al cargar y al redimensionar
+        window.addEventListener('load', sendHeight);
+        window.addEventListener('resize', sendHeight);
+
+        // También observar cambios en el DOM
+        const observer = new ResizeObserver(sendHeight);
+        observer.observe(document.body);
+    </script>
+</body>
+</html>
