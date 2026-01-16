@@ -18,8 +18,11 @@
         filter: url(#drop-shadow-1);
       }
 
-      .cls-2, .cls-7 {
+      .cls-2 {
         fill: #437239;
+      }
+      .cls-7 {
+        fill: #ffffff;
       }
 
       .cls-3, .cls-5 {
@@ -33,7 +36,7 @@
       }
 
       .cls-8, .cls-4 {
-        fill: #084a00;
+        fill: #042501;
       }
     </style>
     <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
