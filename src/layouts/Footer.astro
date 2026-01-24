@@ -106,7 +106,7 @@ interface Props {
 	locationOverrides?: Record<string, { tels?: string[]; cels?: string[] }>; // Add extra numbers or replace
 }
 
-const { showContactCards = true, hideLocations = [], locationOverrides = {} } = Astro.props;
+const { showContactCards = true, hideLocations = [], locationOverrides = {} } = Astro.props || {};
 
 // Process locations with overrides
 const FINAL_LOCATIONS = LOCATIONS.filter((loc) => !hideLocations.includes(loc.id)).map((loc) => {
@@ -123,8 +123,6 @@ const FINAL_LOCATIONS = LOCATIONS.filter((loc) => !hideLocations.includes(loc.id
 
 <footer
 	class="w-full overflow-hidden border-t border-white/5 bg-[#042501] py-12 font-sans text-gray-300 md:py-20"
-	transition:name="footer"
-	transition:persist
 >
 	<div class="mx-auto max-w-[1400px] px-6 md:px-8">
 		<!-- Top Section -->

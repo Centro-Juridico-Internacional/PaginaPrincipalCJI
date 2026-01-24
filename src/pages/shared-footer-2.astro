@@ -29,20 +29,29 @@ const config = {
 				margin: 0;
 				padding: 0;
 				overflow: hidden;
+				background-color: #042501;
 			}
 		</style>
 	</head>
 	<body>
-		<Footer2 {...config} />
+		<div id="footer-content">
+			<Footer2 {...config} />
+		</div>
 
 		<script>
 			const sendHeight = () => {
-				const height = document.body.scrollHeight;
+				const content = document.getElementById('footer-content');
+				const height = content ? content.scrollHeight : document.body.scrollHeight;
 				window.parent.postMessage({ type: 'cji-footer-resize', height: height }, '*');
 			};
 
 			window.addEventListener('load', sendHeight);
 			window.addEventListener('resize', sendHeight);
+
+			// Fallbacks para asegurar que la altura se reporte después de cargar recursos
+			setTimeout(sendHeight, 500);
+			setTimeout(sendHeight, 2000);
+
 			const observer = new ResizeObserver(sendHeight);
 			observer.observe(document.body);
 		</script>

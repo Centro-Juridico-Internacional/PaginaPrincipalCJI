@@ -23,17 +23,20 @@
             iframe.style.border = 'none';
             iframe.style.overflow = 'hidden';
             iframe.scrolling = 'no';
-            iframe.id = `cji-footer-iframe-${config.id}`;
+            iframe.id = 'cji-footer-iframe'; // Mantener ID original para evitar romper estilos externos
+            iframe.className = 'cji-footer-iframe';
 
             container.appendChild(iframe);
 
             // Ajustar altura automáticamente
             window.addEventListener('message', function (event) {
-                // Solo aceptar mensajes de nuestro dominio (opcional por seguridad)
-                // if (event.origin !== "https://pagina-principal-cji.vercel.app/") return;
-
                 if (event.data && event.data.type === 'cji-footer-resize') {
-                    iframe.style.height = event.data.height + 'px';
+                    // Si el mensaje viene de este iframe, lo redimensionamos
+                    // Nota: para múltiples footers, lo ideal es que el mensaje incluya el ID
+                    // pero para compatibilidad, redimensionamos el que corresponda.
+                    if (event.source === iframe.contentWindow) {
+                        iframe.style.height = event.data.height + 'px';
+                    }
                 }
             });
         });
