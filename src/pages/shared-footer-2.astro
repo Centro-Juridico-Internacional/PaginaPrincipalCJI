@@ -1,0 +1,50 @@
+---
+import Footer2 from '../layouts/Footer2.astro';
+import '../styles/global.css';
+
+// Ejemplo de personalización:
+// 1. Ocultar Miami (USA)
+// 2. Agregar un número extra a Bogotá
+// 3. Ocultar las tarjetas de contacto superiores (opcional)
+
+const config = {
+	hideLocations: ['USA'],
+	locationOverrides: {
+		Bogota: {
+			cels: ['311 000 00 00 (Número Extra)']
+		}
+	},
+	showContactCards: false
+};
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Footer Personalizado | CJI</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<Footer2 {...config} />
+
+		<script>
+			const sendHeight = () => {
+				const height = document.body.scrollHeight;
+				window.parent.postMessage({ type: 'cji-footer-resize', height: height }, '*');
+			};
+
+			window.addEventListener('load', sendHeight);
+			window.addEventListener('resize', sendHeight);
+			const observer = new ResizeObserver(sendHeight);
+			observer.observe(document.body);
+		</script>
+	</body>
+</html>

@@ -99,6 +99,26 @@ const LOCATIONS = [
 		flag: '/footer/usa.svg'
 	}
 ];
+
+interface Props {
+	showContactCards?: boolean;
+	hideLocations?: string[]; // IDs of locations to hide (e.g., ['USA'])
+	locationOverrides?: Record<string, { tels?: string[]; cels?: string[] }>; // Add extra numbers or replace
+}
+
+const { showContactCards = true, hideLocations = [], locationOverrides = {} } = Astro.props;
+
+// Process locations with overrides
+const FINAL_LOCATIONS = LOCATIONS.filter((loc) => !hideLocations.includes(loc.id)).map((loc) => {
+	if (locationOverrides[loc.id]) {
+		return {
+			...loc,
+			tels: [...loc.tels, ...(locationOverrides[loc.id].tels || [])],
+			cels: [...loc.cels, ...(locationOverrides[loc.id].cels || [])]
+		};
+	}
+	return loc;
+});
 ---
 
 <footer
@@ -122,48 +142,50 @@ const LOCATIONS = [
 				</p>
 			</div>
 
-			<div class="flex w-full flex-col gap-6 md:flex-row lg:w-[50%]">
-				<!-- Contact Card 1 -->
-				<div
-					class="flex min-w-[300px] flex-1 items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-5"
-				>
+			{showContactCards && (
+				<div class="flex w-full flex-col gap-6 md:flex-row lg:w-[50%]">
+					<!-- Contact Card 1 -->
 					<div
-						class="flex h-12 w-12 items-center justify-center rounded-xl bg-[#c5a059]/10 text-2xl text-[#c5a059]"
+						class="flex min-w-[300px] flex-1 items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-5"
 					>
-						✉
+						<div
+							class="flex h-12 w-12 items-center justify-center rounded-xl bg-[#c5a059]/10 text-2xl text-[#c5a059]"
+						>
+							✉
+						</div>
+						<div class="flex flex-col overflow-hidden">
+							<span class="mb-0.5 text-[10px] tracking-widest text-gray-500 uppercase sm:text-xs"
+								>Email Consultas</span
+							>
+							<a
+								href="mailto:consulta@centrojuridicointernacional.com"
+								class="truncate text-sm font-bold text-white transition-colors hover:text-[#c5a059] sm:text-base"
+								>consulta@centrojuridicointernacional.com</a
+							>
+						</div>
 					</div>
-					<div class="flex flex-col overflow-hidden">
-						<span class="mb-0.5 text-[10px] tracking-widest text-gray-500 uppercase sm:text-xs"
-							>Email Consultas</span
+					<!-- Contact Card 2 -->
+					<div
+						class="flex min-w-[240px] flex-1 items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-5"
+					>
+						<div
+							class="flex h-12 w-12 items-center justify-center rounded-xl bg-[#c5a059]/10 text-2xl text-[#c5a059]"
 						>
-						<a
-							href="mailto:consulta@centrojuridicointernacional.com"
-							class="truncate text-sm font-bold text-white transition-colors hover:text-[#c5a059] sm:text-base"
-							>consulta@centrojuridicointernacional.com</a
-						>
+							📞
+						</div>
+						<div class="flex flex-col">
+							<span class="mb-0.5 text-[10px] tracking-widest text-gray-500 uppercase sm:text-xs"
+								>Línea Nacional</span
+							>
+							<a
+								href="tel:+576012415100"
+								class="text-sm font-bold text-white transition-colors hover:text-[#c5a059] sm:text-base"
+								>+57 (601) 241 51 00</a
+							>
+						</div>
 					</div>
 				</div>
-				<!-- Contact Card 2 -->
-				<div
-					class="flex min-w-[240px] flex-1 items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-5"
-				>
-					<div
-						class="flex h-12 w-12 items-center justify-center rounded-xl bg-[#c5a059]/10 text-2xl text-[#c5a059]"
-					>
-						📞
-					</div>
-					<div class="flex flex-col">
-						<span class="mb-0.5 text-[10px] tracking-widest text-gray-500 uppercase sm:text-xs"
-							>Línea Nacional</span
-						>
-						<a
-							href="tel:+576012415100"
-							class="text-sm font-bold text-white transition-colors hover:text-[#c5a059] sm:text-base"
-							>+57 (601) 241 51 00</a
-						>
-					</div>
-				</div>
-			</div>
+			)}
 		</div>
 
 		<!-- Locations Grid -->
@@ -171,7 +193,7 @@ const LOCATIONS = [
 			class="mb-16 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6"
 		>
 			{
-				LOCATIONS.map((loc) => (
+				FINAL_LOCATIONS.map((loc) => (
 					<div class="flex flex-col gap-4" id={loc.id}>
 						<h4 class="flex items-center justify-between border-b-2 border-[#c5a059]/30 pb-3 text-xs font-black tracking-[0.2em] text-white uppercase md:text-[13px]">
 							{loc.city}

@@ -3,37 +3,39 @@
  * Permite importar el footer institucional en cualquier sitio web con una sola línea.
  */
 (function () {
-    const CONFIG = {
-        footerUrl: 'https://pagina-principal-cji.vercel.app/shared-footer', // Cambia esto por la URL real de tu página PRINCIPAL desplegada
-        elementId: 'cji-shared-footer-container'
-    };
+    const CONFIGS = [
+        { id: 'cji-shared-footer-container', url: 'https://pagina-principal-cji.vercel.app/shared-footer' },
+        { id: 'cji-shared-footer-container-2', url: 'https://pagina-principal-cji.vercel.app/shared-footer-2' }
+    ];
 
     function init() {
-        const container = document.getElementById(CONFIG.elementId);
-        if (!container) return;
+        CONFIGS.forEach(config => {
+            const container = document.getElementById(config.id);
+            if (!container) return;
 
-        // Limpiar el contenedor solo si es necesario (para evitar duplicados en recargas rápidas)
-        if (container.querySelector('#cji-footer-iframe')) return;
+            // Limpiar el contenedor solo si es necesario
+            if (container.querySelector('iframe')) return;
 
-        // Crear el iframe
-        const iframe = document.createElement('iframe');
-        iframe.src = CONFIG.footerUrl;
-        iframe.style.width = '100%';
-        iframe.style.border = 'none';
-        iframe.style.overflow = 'hidden';
-        iframe.scrolling = 'no';
-        iframe.id = 'cji-footer-iframe';
+            // Crear el iframe
+            const iframe = document.createElement('iframe');
+            iframe.src = config.url;
+            iframe.style.width = '100%';
+            iframe.style.border = 'none';
+            iframe.style.overflow = 'hidden';
+            iframe.scrolling = 'no';
+            iframe.id = `cji-footer-iframe-${config.id}`;
 
-        container.appendChild(iframe);
+            container.appendChild(iframe);
 
-        // Ajustar altura automáticamente
-        window.addEventListener('message', function (event) {
-            // Solo aceptar mensajes de nuestro dominio (opcional por seguridad)
-            // if (event.origin !== "https://pagina-principal-cji.vercel.app/") return;
+            // Ajustar altura automáticamente
+            window.addEventListener('message', function (event) {
+                // Solo aceptar mensajes de nuestro dominio (opcional por seguridad)
+                // if (event.origin !== "https://pagina-principal-cji.vercel.app/") return;
 
-            if (event.data && event.data.type === 'cji-footer-resize') {
-                iframe.style.height = event.data.height + 'px';
-            }
+                if (event.data && event.data.type === 'cji-footer-resize') {
+                    iframe.style.height = event.data.height + 'px';
+                }
+            });
         });
     }
 

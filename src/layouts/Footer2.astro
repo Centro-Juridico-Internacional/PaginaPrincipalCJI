@@ -1,0 +1,13 @@
+---
+import Footer from './Footer.astro';
+
+interface Props {
+	showContactCards?: boolean;
+	hideLocations?: string[];
+	locationOverrides?: Record<string, { tels?: string[]; cels?: string[] }>;
+}
+
+const props = Astro.props;
+---
+
+<Footer {...props} />
