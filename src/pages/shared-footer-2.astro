@@ -33,27 +33,49 @@ const config = {
 			}
 		</style>
 	</head>
-	<body>
-		<div id="footer-content">
+	<body class="min-h-screen bg-[#042501]">
+		<div id="footer-content" class="w-full">
 			<Footer2 {...config} />
 		</div>
 
 		<script>
 			const sendHeight = () => {
 				const content = document.getElementById('footer-content');
-				const height = content ? content.scrollHeight : document.body.scrollHeight;
-				window.parent.postMessage({ type: 'cji-footer-resize', height: height }, '*');
+				if (!content) return;
+
+				const height = content.offsetHeight || content.scrollHeight || document.body.offsetHeight;
+
+				window.parent.postMessage(
+					{
+						type: 'cji-footer-resize',
+						height: height,
+						source: 'shared-footer-2'
+					},
+					'*'
+				);
 			};
 
-			window.addEventListener('load', sendHeight);
+			// Execute on various events to ensure height is correct
+			window.addEventListener('load', () => {
+				sendHeight();
+			});
+
 			window.addEventListener('resize', sendHeight);
 
-			// Fallbacks para asegurar que la altura se reporte después de cargar recursos
-			setTimeout(sendHeight, 500);
-			setTimeout(sendHeight, 2000);
+			// Fallbacks
+			setTimeout(sendHeight, 300);
+			setTimeout(sendHeight, 1000);
+			setTimeout(sendHeight, 3000);
 
-			const observer = new ResizeObserver(sendHeight);
-			observer.observe(document.body);
+			// Observe DOM changes
+			if (window.ResizeObserver) {
+				const observer = new ResizeObserver((entries) => {
+					for (let entry of entries) {
+						sendHeight();
+					}
+				});
+				observer.observe(document.body);
+			}
 		</script>
 	</body>
 </html>

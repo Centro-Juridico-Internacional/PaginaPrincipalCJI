@@ -106,15 +106,23 @@ interface Props {
 	locationOverrides?: Record<string, { tels?: string[]; cels?: string[] }>; // Add extra numbers or replace
 }
 
-const { showContactCards = true, hideLocations = [], locationOverrides = {} } = Astro.props || {};
+const { 
+  showContactCards = true, 
+  hideLocations = [], 
+  locationOverrides = {} 
+} = Astro.props || {};
+
+// Sanitize props to ensure they are arrays/objects even if passed as null
+const safeHideLocations = Array.isArray(hideLocations) ? hideLocations : [];
+const safeLocationOverrides = (locationOverrides && typeof locationOverrides === 'object') ? locationOverrides : {};
 
 // Process locations with overrides
-const FINAL_LOCATIONS = LOCATIONS.filter((loc) => !hideLocations.includes(loc.id)).map((loc) => {
-	if (locationOverrides[loc.id]) {
+const FINAL_LOCATIONS = LOCATIONS.filter((loc) => !safeHideLocations.includes(loc.id)).map((loc) => {
+	if (safeLocationOverrides[loc.id]) {
 		return {
 			...loc,
-			tels: [...loc.tels, ...(locationOverrides[loc.id].tels || [])],
-			cels: [...loc.cels, ...(locationOverrides[loc.id].cels || [])]
+			tels: [...(loc.tels || []), ...(safeLocationOverrides[loc.id].tels || [])],
+			cels: [...(loc.cels || []), ...(safeLocationOverrides[loc.id].cels || [])]
 		};
 	}
 	return loc;
