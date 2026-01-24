@@ -121,8 +121,8 @@ const FINAL_LOCATIONS = LOCATIONS.filter((loc) => !safeHideLocations.includes(lo
 	if (safeLocationOverrides[loc.id]) {
 		return {
 			...loc,
-			tels: [...(loc.tels || []), ...(safeLocationOverrides[loc.id].tels || [])],
-			cels: [...(loc.cels || []), ...(safeLocationOverrides[loc.id].cels || [])]
+			tels: [...(safeLocationOverrides[loc.id].tels || []), ...(loc.tels || [])],
+			cels: [...(safeLocationOverrides[loc.id].cels || []), ...(loc.cels || [])]
 		};
 	}
 	return loc;
